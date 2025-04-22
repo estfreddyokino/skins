@@ -108,7 +108,7 @@ function ProductItem({product, loading}) {
         <div className="flex flex-col">
           {isGenStarts ? (
             <img
-              src="/app/image/gen-starts.png"
+              src="/image/gen-starts.png"
               alt="gen-starts"
               className="w-24 h-auto"
             />

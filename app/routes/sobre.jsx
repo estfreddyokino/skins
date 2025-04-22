@@ -1,7 +1,7 @@
 import '../styles/background.css';
 
 export function meta() {
-  return [{title: 'Genskins | Sobre'}, {icon: 'app/image/favicon.png'}];
+  return [{title: 'Genskins | Sobre'}, {icon: '/image/favicon.png'}];
 }
 import {useState} from 'react';
 
@@ -39,7 +39,7 @@ export default function Sobre() {
         {/* Imagem */}
         <div className="w-full lg:w-1/2">
           <img
-            src="/app/image/sobreImage1.png"
+            src="/image/sobreImage1.png"
             alt="Modelo com adesivos no rosto"
             className="rounded-[30px] w-full object-cover"
             style={{borderRadius: '30px'}}
@@ -81,7 +81,7 @@ export default function Sobre() {
           {Array.from({length: 80}).map((_, i) => (
             <img
               key={i}
-              src="/app/image/estrelinhaMovimentando.png"
+              src="/image/estrelinhaMovimentando.png"
               alt="estrela"
               className="w-30 h-30"
             />
@@ -113,7 +113,7 @@ export default function Sobre() {
         {/* Imagem */}
         <div className="w-full lg:w-5/12 ">
           <img
-            src="/app/image/sobreImage2.png"
+            src="/image/sobreImage2.png"
             alt="Fórmula Vegana"
             className="rounded-[30px] w-full object-cover"
             style={{borderRadius: '30px'}}
@@ -125,7 +125,7 @@ export default function Sobre() {
         {/* Imagem */}
         <div className="w-full lg:w-5/12">
           <img
-            src="/app/image/sobreImage3.png"
+            src="/image/sobreImage3.png"
             alt="Fórmula Vegana"
             className="rounded-[30px] w-full object-cover"
             style={{borderRadius: '30px'}}
@@ -160,7 +160,7 @@ export default function Sobre() {
           {Array.from({length: 80}).map((_, i) => (
             <img
               key={i}
-              src="/app/image/estrelinhaMovimentando.png"
+              src="/image/estrelinhaMovimentando.png"
               alt="estrela"
               className="w-30 h-30"
             />
@@ -179,7 +179,7 @@ export default function Sobre() {
         {/* Imagem e botão */}
         <div className="w-full max-w-8xl relative rounded-[30px] overflow-hidden mt-20">
           <img
-            src="/app/image/sobreImage4.png"
+            src="/image/sobreImage4.png"
             alt="Pessoas com adesivos"
             className="w-full h-full object-cover rounded-[30px]"
           />

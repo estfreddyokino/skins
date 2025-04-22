@@ -13,7 +13,7 @@ export function Header({header, isLoggedIn, cart, publicStoreDomain}) {
     <header className="header">
       <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
         <img
-          src="/app/image/headerLogo.png"
+          src="/image/headerLogo.png"
           alt="Logo"
           style={{height: '100%', width: '100%'}}
         />

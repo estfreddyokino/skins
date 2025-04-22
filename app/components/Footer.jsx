@@ -9,7 +9,7 @@ export function Footer() {
         {/* bloco 1*/}
         <div className="mt-2 md:mt-8">
           <h1 className="text-4xl font-light text-[#0047FF]">
-            <img src="/app/image/footerLogo.png" alt="Logo" />
+            <img src="/image/footerLogo.png" alt="Logo" />
           </h1>
 
           <div>
@@ -126,17 +126,17 @@ export function Footer() {
           </p>
           <div className="flex gap-4 items-center text-[#0047FF] text-xl mt-4">
             <img
-              src="/app/image/face.png"
+              src="/image/face.png"
               alt="Facebook"
               className="h-[24px]"
             />
             <img
-              src="/app/image/insta.png"
+              src="/image/insta.png"
               alt="Instagram"
               className="h-[24px]"
             />
             <img
-              src="/app/image/x.png"
+              src="/image/x.png"
               alt="X (Twitter)"
               className="h-[24px]"
             />

@@ -4,7 +4,7 @@ import {Image, Money} from '@shopify/hydrogen';
 import '../styles/background.css';
 
 export const meta = () => {
-  return [{title: 'Genskins | Home'}, {icon: 'app/image/favicon.png'}];
+  return [{title: 'Genskins | Home'}, {icon: '/image/favicon.png'}];
 };
 
 export async function loader({context}) {
@@ -153,7 +153,7 @@ export default function Homepage() {
         <section className="w-full py-20 px-4 sm:px-8 flex flex-col lg:flex-row items-center justify-center gap-8">
           <div className="w-full lg:w-8/12">
             <img
-              src="/app/image/homeGenskins.png"
+              src="/image/homeGenskins.png"
               alt="Modelo com adesivos"
               className="rounded-[30px] w-full object-cover mt-20 sm:mt-40"
             />
@@ -162,23 +162,23 @@ export default function Homepage() {
 
         {/* Elementos visuais - responsivos */}
         <img
-          src="/app/image/estrelaamarela.png"
+          src="/image/estrelaamarela.png"
           className="absolute top-8 right-4 w-20 sm:w-32"
         />
         <img
-          src="app/image/estrelaazul.png"
+          src="/image/estrelaazul.png"
           className="absolute top-10 left-10 w-16 sm:w-24"
         />
         <img
-          src="/app/image/rotoFelizAzul.png"
+          src="/image/rotoFelizAzul.png"
           className="absolute top-14 left-1/4 w-20 sm:w-36"
         />
         <img
-          src="/app/image/peixeAzulDereita.png"
+          src="/image/peixeAzulDereita.png"
           className="absolute top-[600px] right-1/3 w-16 sm:w-32"
         />
         <img
-          src="/app/image/solAmarelo.png"
+          src="/image/solAmarelo.png"
           className="absolute top-2 right-1/2 w-32 sm:w-52"
         />
       </section>
@@ -199,22 +199,22 @@ export default function Homepage() {
       <div className="w-full flex flex-col items-center py-12">
         <div className="flex flex-wrap justify-center gap-6">
           <HoverImageCard
-            image1="/app/image/imagemHome1-1.png"
-            image2="/app/image/imagemHome1-2.png"
+            image1="/image/imagemHome1-1.png"
+            image2="/image/imagemHome1-2.png"
             alt="Card 1"
             title="Gen-starts"
             title2="R$ 49,00"
           />
           <HoverImageCard
-            image1="/app/image/imagemHome2-1.png"
-            image2="/app/image/imagemHome2-2.png"
+            image1="/image/imagemHome2-1.png"
+            image2="/image/imagemHome2-2.png"
             alt="Card 2"
             title="Gen-sea"
             title2="R$ 49,00"
           />
           <HoverImageCard
-            image1="/app/image/imagemHome3-1.png"
-            image2="/app/image/imagemHome3-2.png"
+            image1="/image/imagemHome3-1.png"
+            image2="/image/imagemHome3-2.png"
             alt="Card 3"
             title="Happy-Gen"
             title2="R$ 49,00"
