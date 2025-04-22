@@ -145,7 +145,7 @@ function CartBadge({count}) {
       style={{display: 'flex', alignItems: 'center', gap: '5px'}}
     >
       <img
-        src="public/image/carrinho.png"
+        src="/image/carrinho.png"
         alt="Cart"
         style={{width: '100%', height: '100'}}
       />
