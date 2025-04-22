@@ -1,0 +1,24 @@
+.bg-image-full {
+    background-image: url('/app/styles/image.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+@keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .marquee {
+    animation: marquee 20s linear infinite;
+    width: 200%; /* para dar o efeito de loop contínuo */
+  }
+  
+  .marquee > img {
+    flex-shrink: 0;
+  }
+  

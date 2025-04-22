@@ -1,0 +1,14 @@
+.header {
+    background-color: rgba(240, 242, 244, 0.8) !important;
+    border-color: rgb(255, 255, 255);
+    margin: 0;
+    height: 45px !important;
+
+}
+
+.header-menu-desktop {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start; /* garante alinhamento à esquerda */
+    margin-left: 20%; /* ou ajuste o valor conforme o necessário */
+  }
