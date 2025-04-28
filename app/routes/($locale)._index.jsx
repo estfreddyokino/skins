@@ -185,7 +185,7 @@ export default function Homepage() {
 
       <div className="w-full flex items-center justify-center min-h-[400px] sm:min-h-[500px] lg:min-h-[500px] relative">
         {/* Texto real com digitação */}
-        <div className="absolute z-10 text-white text-4xl sm:text-6xl md:text-8xl lg:text-[400px] text-center font-light px-4 leading-none">
+        <div className="absolute text-white text-4xl sm:text-6xl md:text-8xl lg:text-[400px] text-center font-light px-4 leading-none">
           {phrase}
         </div>
 

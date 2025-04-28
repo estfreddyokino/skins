@@ -70,7 +70,8 @@ export default function Sobre() {
             Porque, no fim, a verdadeira beleza está em se aceitar como você é –
             e, com GENSKINS, cuidar de si mesmo nunca foi tão fácil e divertido.
           </p>
-          <button className="border border-blue-600 text-blue-600 px-6 py-2 rounded-full font-medium hover:bg-[rgba(0,26,255,0.35)] transition">
+          <button className="border border-blue-600 text-blue-600 px-6 py-2 rounded-full font-medium hover:bg-[rgba(0,26,255,0.35)] transition"
+           onClick={() => window.location.href = '/collections/all'}>
             SEJA VOCÊ, SEJA GENSKINS
           </button>
         </div>
