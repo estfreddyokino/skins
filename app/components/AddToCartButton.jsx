@@ -29,6 +29,20 @@ export function AddToCartButton({
             type="submit"
             onClick={onClick}
             disabled={disabled ?? fetcher.state !== 'idle'}
+            style={{
+              fontSize: '25px',
+              fontWeight: 'bold',
+              color: 'white',
+              textDecoration: 'none',
+              backgroundColor: 'blue',
+              borderRadius: '35px',
+              padding: '10px 20px',
+              width: '100%',
+              margin: '0 auto',
+              display: 'block',
+              cursor: 'pointer',  
+              border: 'none',
+            }}
           >
             {children}
           </button>
