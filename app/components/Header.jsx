@@ -1,30 +1,71 @@
-import {Suspense} from 'react';
+import {Suspense, useState, useEffect} from 'react';
 import {Await, NavLink, useAsyncValue} from '@remix-run/react';
 import {useAnalytics, useOptimisticCart} from '@shopify/hydrogen';
 import {useAside} from '~/components/Aside';
 import 'app/styles/Header.css';
 
 /**
+ * Hook para detectar se é mobile ou desktop
+ */
+function useViewport() {
+  const [viewport, setViewport] = useState(
+    typeof window !== 'undefined' && window.innerWidth < 768
+      ? 'mobile'
+      : 'desktop',
+  );
+
+  useEffect(() => {
+    function handleResize() {
+      setViewport(window.innerWidth < 768 ? 'mobile' : 'desktop');
+    }
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return viewport;
+}
+
+/**
  * @param {HeaderProps}
  */
 export function Header({header, isLoggedIn, cart, publicStoreDomain}) {
   const {shop, menu} = header;
+  const viewport = useViewport();
+
   return (
-    <header className="header">
-     <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
+    <header
+      className="header"
+      style={{
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        padding: '10px 15px',
+        overflow: 'hidden',
+        width: '100%',
+        boxSizing: 'border-box',
+      }}
+    >
+      <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
         <img
           src="/image/headerLogo.png"
           alt="Logo"
-          style={{height: '100%', width: '100%'}}
+          style={{
+            height: viewport === 'mobile' ? '30px' : '50px',
+            width: 'auto',
+            maxWidth: viewport === 'mobile' ? '100px' : '150px',
+            objectFit: 'contain',
+          }}
         />
       </NavLink>
       <HeaderMenu
         menu={menu}
-        viewport="desktop"
+        viewport={viewport}
         primaryDomainUrl={header.shop.primaryDomain.url}
         publicStoreDomain={publicStoreDomain}
       />
-      <HeaderCtas isLoggedIn={isLoggedIn} cart={cart} />
+      <HeaderCtas isLoggedIn={isLoggedIn} cart={cart} viewport={viewport} />
     </header>
   );
 }
@@ -46,86 +87,76 @@ export function HeaderMenu({
   const className = `header-menu-${viewport}`;
   const {close} = useAside();
 
-  if (viewport === 'mobile') {
-    return null; // Do not render anything for mobile
-  }
-
   return (
     <nav
       className={className}
       role="navigation"
       style={{
         display: 'flex',
-        justifyContent: 'center', // Center the items horizontally
-        alignItems: 'center', // Center the items vertically
-        marginLeft: viewport === 'desktop' ? '30%' : '0',
+        flexDirection: 'row',
+        flexWrap: 'nowrap',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: '15px',
       }}
     >
       {[
-        { title: 'HOME', url: '/' },
-        { title: 'SHOP', url: '/collections/all' },
-        { title: 'SOBRE', url: '/sobre' },
-      ].map(({ title, url }) => {
-        const isHome = url === '/';
-        const isShop = url === '/collections/all';
-        const isSobre = url === '/sobre';
-
-        const highlightStyle = isHome || isShop || isSobre;
-
-        return (
-          <NavLink
-            className="header-menu-item"
-            end
-            key={url}
-            onClick={close}
-            prefetch="intent"
-            style={({ isActive, isPending }) => ({
-              fontWeight: highlightStyle ? 'bold' : undefined,
-              color: highlightStyle ? 'blue' : isPending ? 'grey' : 'black',
-              textTransform: highlightStyle ? 'uppercase' : undefined,
-              textDecoration: 'none',
-              fontSize: highlightStyle ? '25px' : undefined,
-              marginLeft: highlightStyle ? '10px' : undefined,
-            })}
-            to={url}
-          >
-            {title}
-          </NavLink>
-        );
-      })}
+        {title: 'HOME', url: '/'},
+        {title: 'SHOP', url: '/collections/all'},
+        {title: 'SOBRE', url: '/sobre'},
+      ].map(({title, url}) => (
+        <NavLink
+          className="header-menu-item"
+          end
+          key={url}
+          onClick={close}
+          prefetch="intent"
+          style={({isActive, isPending}) => ({
+            fontWeight: 'bold',
+            marginLeft: viewport === 'mobile' ? '22px' : '50px',
+            color: 'blue',
+            textTransform: 'uppercase',
+            textDecoration: 'none',
+            fontSize: viewport === 'mobile' ? '15px' : '20px',
+            whiteSpace: 'nowrap', // <-- nunca quebrar as palavras
+          })}
+          to={url}
+        >
+          {title}
+        </NavLink>
+      ))}
     </nav>
   );
 }
 
 /**
- * @param {Pick<HeaderProps, 'isLoggedIn' | 'cart'>}
+ * @param {Pick<HeaderProps, 'isLoggedIn' | 'cart'> & {viewport: Viewport}}
  */
-function HeaderCtas({isLoggedIn, cart}) {
+function HeaderCtas({isLoggedIn, cart, viewport}) {
   return (
-    <nav className="header-ctas" role="navigation">
+    <nav
+      className="header-ctas"
+      role="navigation"
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
       <HeaderMenuMobileToggle />
-      <CartToggle cart={cart} />
+      <CartToggle cart={cart} viewport={viewport} />
     </nav>
   );
 }
 
 function HeaderMenuMobileToggle() {
- 
+  return null;
 }
 
-/* function SearchToggle() {
-  const {open} = useAside();
-  return (
-    <button className="reset" onClick={() => open('search')}>
-      Search
-    </button>
-  );
-} */
-
 /**
- * @param {{count: number | null}}
+ * @param {{count: number | null, viewport: Viewport}}
  */
-function CartBadge({count}) {
+function CartBadge({count, viewport}) {
   const {open} = useAside();
   const {publish, shop, cart, prevCart} = useAnalytics();
 
@@ -142,15 +173,29 @@ function CartBadge({count}) {
           url: window.location.href || '',
         });
       }}
-      style={{display: 'flex', alignItems: 'center', gap: '5px'}}
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: '5px',
+      }}
     >
       <img
         src="/image/carrinho.png"
         alt="Cart"
-        style={{width: '100%', height: '100'}}
+        style={{
+          width: viewport === 'mobile' ? '20px' : '30px',
+          height: viewport === 'mobile' ? '20px' : '30px',
+          objectFit: 'contain',
+        }}
       />
       {count > 0 && (
-        <span style={{color: 'blue', fontSize: '10px', fontWeight: 'bolder'}}>
+        <span
+          style={{
+            color: 'blue',
+            fontSize: '10px',
+            fontWeight: 'bolder',
+          }}
+        >
           {count}
         </span>
       )}
@@ -159,22 +204,22 @@ function CartBadge({count}) {
 }
 
 /**
- * @param {Pick<HeaderProps, 'cart'>}
+ * @param {Pick<HeaderProps, 'cart'> & {viewport: Viewport}}
  */
-function CartToggle({cart}) {
+function CartToggle({cart, viewport}) {
   return (
-    <Suspense fallback={<CartBadge count={null} />}>
+    <Suspense fallback={<CartBadge count={null} viewport={viewport} />}>
       <Await resolve={cart}>
-        <CartBanner />
+        <CartBanner viewport={viewport} />
       </Await>
     </Suspense>
   );
 }
 
-function CartBanner() {
+function CartBanner({viewport}) {
   const originalCart = useAsyncValue();
   const cart = useOptimisticCart(originalCart);
-  return <CartBadge count={cart?.totalQuantity ?? 0} />;
+  return <CartBadge count={cart?.totalQuantity ?? 0} viewport={viewport} />;
 }
 
 const FALLBACK_HEADER_MENU = {
