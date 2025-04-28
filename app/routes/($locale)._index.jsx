@@ -196,8 +196,8 @@ export default function Homepage() {
       </div>
 
       {/* Seção de cards */}
-      <div className="w-full flex flex-col items-center py-12">
-        <div className="flex flex-wrap justify-center gap-6">
+      <div className="w-full flex flex-col items-center py-6 px-4 sm:px-8">
+        <div className="flex flex-wrap sm:flex-nowrap justify-center gap-6 w-full">
           <HoverImageCard
             image1="/image/imagemHome1-1.png"
             image2="/image/imagemHome1-2.png"
@@ -221,12 +221,19 @@ export default function Homepage() {
           />
         </div>
       </div>
+
       {/* Seção de Apresentação */}
       <section className="w-full flex flex-col items-center justify-center text-center py-16 px-4">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[blue] mb-6 " style={{fontSize: '50px'}}>
+        <h2
+          className="text-2xl sm:text-3xl md:text-4xl font-bold text-[blue] mb-6 "
+          style={{fontSize: '50px'}}
+        >
           CUIDADO COM A PELE, DO SEU JEITO
         </h2>
-        <p className="text-md sm:text-lg md:text-xl text-[blue] max-w-2xl text-center leading-relaxed mb-8" style={{fontSize: '20px'}}>
+        <p
+          className="text-md sm:text-lg md:text-xl text-[blue] max-w-2xl text-center leading-relaxed mb-8"
+          style={{fontSize: '20px'}}
+        >
           A GENSKINS veio para transformar o cuidado com a pele em algo leve,
           divertido e zero complicação. Nossos adesivos secativos são práticos,
           estilosos e pensados para acompanhar sua rotina real – seja em casa,
@@ -234,7 +241,7 @@ export default function Homepage() {
         </p>
         <button
           className="border border-[blue] text-[blue] px-6 py-2 rounded-full hover:bg-[#5B00E4] mt-4 hover:text-white transition"
-          onClick={() => (window.location.href = "/sobre")}
+          onClick={() => (window.location.href = '/sobre')}
         >
           SOBRE A GENSKINS
         </button>
