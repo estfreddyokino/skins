@@ -1,11 +1,14 @@
 import '../styles/background.css';
+import { useState } from 'react';
 
 export function meta() {
-  return [{title: 'Genskins | Sobre'}, {icon: '/image/favicon.png'}];
+  return [
+    { title: 'Genskins | Sobre' },
+    { icon: '/image/favicon.png' }
+  ];
 }
-import {useState} from 'react';
 
-function Accordion({title, content}) {
+function Accordion({ title, content }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -31,10 +34,11 @@ function Accordion({title, content}) {
     </div>
   );
 }
+
 export default function Sobre() {
   return (
-    <div className="bg-image-full">
-      {/* Conteúdo principal */}
+    <div className="bg-image-full p-6">
+      {/* Primeira Seção */}
       <section className="w-full py-16 px-8 flex flex-col lg:flex-row items-start justify-between gap-8">
         {/* Imagem */}
         <div className="w-full lg:w-1/2">
@@ -42,19 +46,15 @@ export default function Sobre() {
             src="/image/sobreImage1.png"
             alt="Modelo com adesivos no rosto"
             className="rounded-[30px] w-full object-cover"
-            style={{borderRadius: '30px'}}
           />
         </div>
 
         {/* Texto */}
         <div className="w-full lg:w-1/3 border-2 border-blue-600 p-8 rounded-[30px] text-blue-700 max-w-[600px]">
-          <h2
-            className="text-lg font-bold uppercase mb-4"
-            style={{fontSize: '30px'}}
-          >
+          <h2 className="text-lg font-bold uppercase mb-4" style={{ fontSize: '30px' }}>
             Nossa Filosofia
           </h2>
-          <p className="mb-4" style={{fontSize: '20px'}}>
+          <p className="mb-4" style={{ fontSize: '20px' }}>
             Na GENSKINS, acreditamos que cuidar da pele deve ser simples, eficaz
             e divertido. Criamos nossos adesivos secativos para transformar o
             incômodo das espinhas em algo leve, sem pressões ou padrões. Sabemos
@@ -63,34 +63,38 @@ export default function Sobre() {
           </p>
           <p
             className="mb-4"
-            style={{fontSize: '20px', marginTop: '10px', marginBottom: '10px'}}
+            style={{ fontSize: '20px', marginTop: '10px', marginBottom: '10px' }}
           >
             Nossa missão é ajudar você a se sentir bem com sua pele, oferecendo
             soluções descoladas que combinam estilo, autenticidade e resultados.
             Porque, no fim, a verdadeira beleza está em se aceitar como você é –
             e, com GENSKINS, cuidar de si mesmo nunca foi tão fácil e divertido.
           </p>
-          <button className="border border-blue-600 text-blue-600 px-6 py-2 rounded-full font-medium hover:bg-[rgba(0,26,255,0.35)] transition"
-           onClick={() => window.location.href = '/collections/all'}>
+          <button
+            className="border border-blue-600 text-blue-600 px-6 py-2 rounded-full font-medium hover:bg-[rgba(0,26,255,0.35)] transition"
+            onClick={() => window.location.href = '/collections/all'}
+          >
             SEJA VOCÊ, SEJA GENSKINS
           </button>
         </div>
       </section>
 
-      <div className="overflow-hidden border-y-2 border-blue-600 ">
+      {/* Estrelinhas - Corrigido para manter fundo contínuo */}
+      <div className="-mx-6 px-6 overflow-hidden border-y-2 border-blue-600">
         <div className="marquee flex gap-2 py-4">
-          {Array.from({length: 80}).map((_, i) => (
+          {Array.from({ length: 80 }).map((_, i) => (
             <img
               key={i}
               src="/image/estrelinhaMovimentando.png"
               alt="estrela"
-              className="w-30 h-30"
+              className="w-[30px] h-[30px]"
             />
           ))}
         </div>
       </div>
 
-      <section className=" py-16 px-4 flex flex-col lg:flex-row items-center justify-center gap-18">
+      {/* Segunda Seção */}
+      <section className="py-16 px-4 flex flex-col lg:flex-row items-center justify-center gap-18">
         {/* Accordion */}
         <div className="bg-transparent border border-white rounded-[30px] p-20 max-w-md text-white">
           <h3 className="text-white font-semibold text-[30px] mb-6">
@@ -112,16 +116,16 @@ export default function Sobre() {
         </div>
 
         {/* Imagem */}
-        <div className="w-full lg:w-5/12 ">
+        <div className="w-full lg:w-5/12">
           <img
             src="/image/sobreImage2.png"
             alt="Fórmula Vegana"
             className="rounded-[30px] w-full object-cover"
-            style={{borderRadius: '30px'}}
           />
         </div>
       </section>
 
+      {/* Terceira Seção */}
       <section className="py-16 px-4 flex flex-col lg:flex-row items-center justify-center gap-12">
         {/* Imagem */}
         <div className="w-full lg:w-5/12">
@@ -129,9 +133,9 @@ export default function Sobre() {
             src="/image/sobreImage3.png"
             alt="Fórmula Vegana"
             className="rounded-[30px] w-full object-cover"
-            style={{borderRadius: '30px'}}
           />
         </div>
+
         {/* Accordion */}
         <div className="bg-transparent border border-white rounded-[30px] p-20 max-w-md text-white">
           <h3 className="text-white font-semibold text-[30px] mb-20">
@@ -156,22 +160,25 @@ export default function Sobre() {
           />
         </div>
       </section>
-      <div className="overflow-hidden border-y-2 border-blue-600 ">
+
+      {/* Estrelinhas Novamente */}
+      <div className="-mx-6 px-6 overflow-hidden border-y-2 border-blue-600">
         <div className="marquee flex gap-2 py-4">
-          {Array.from({length: 80}).map((_, i) => (
+          {Array.from({ length: 80 }).map((_, i) => (
             <img
               key={i}
               src="/image/estrelinhaMovimentando.png"
               alt="estrela"
-              className="w-30 h-30"
+              className="w-[30px] h-[30px]"
             />
           ))}
         </div>
       </div>
 
-      <div className="relative min-h-screen  to-white flex items-center justify-center flex-col text-white px-4">
+      {/* Última Seção */}
+      <div className="relative min-h-screen flex items-center justify-center flex-col text-white px-4">
         {/* Texto superior */}
-        <div className="absolute top-4 left-0 right-0 flex px-20  items-center">
+        <div className="absolute top-4 left-0 right-0 flex px-20 items-center">
           <h1 className="text-sm md:text-base uppercase tracking-wider font-semibold text-white">
             ELEVE SEU CUIDADO COM A PELE USANDO GENSKINS
           </h1>
@@ -186,16 +193,16 @@ export default function Sobre() {
           />
 
           {/* Botão centralizado */}
-                <div className="absolute inset-0 flex justify-center items-center">
-                <button
-                  className="border border-white text-white px-20 py-8 rounded-full bg-white/10 hover:bg-white/30 transition-all"
-                  onClick={() => window.location.href = '/collections/all'}
-                >
-                  SHOP
-                </button>
-                </div>
+          <div className="absolute inset-0 flex justify-center items-center">
+            <button
+              className="border border-white text-white px-20 py-8 rounded-full bg-white/10 hover:bg-white/30 transition-all"
+              onClick={() => window.location.href = '/collections/all'}
+            >
+              SHOP
+            </button>
+          </div>
 
-                {/* Texto azul no canto inferior direito */}
+          {/* Texto azul no canto inferior direito */}
           <p className="absolute bottom-4 right-6 text-blue-500 font-semibold text-[40px]">
             SEGUE A GENTE
           </p>
