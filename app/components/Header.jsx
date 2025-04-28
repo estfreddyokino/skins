@@ -8,19 +8,19 @@ import 'app/styles/Header.css';
  * Hook para detectar se é mobile ou desktop
  */
 function useViewport() {
-  const [viewport, setViewport] = useState(
-    typeof window !== 'undefined' && window.innerWidth < 768
-      ? 'mobile'
-      : 'desktop',
-  );
+  const [viewport, setViewport] = useState('desktop');
 
   useEffect(() => {
-    function handleResize() {
-      setViewport(window.innerWidth < 768 ? 'mobile' : 'desktop');
+    function determineViewport() {
+      if (typeof window !== 'undefined') {
+        setViewport(window.innerWidth <= 768 ? 'mobile' : 'desktop');
+      }
     }
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    determineViewport();
+
+    window.addEventListener('resize', determineViewport);
+    return () => window.removeEventListener('resize', determineViewport);
   }, []);
 
   return viewport;
@@ -113,11 +113,11 @@ export function HeaderMenu({
           prefetch="intent"
           style={({isActive, isPending}) => ({
             fontWeight: 'bold',
-            marginLeft: viewport === 'mobile' ? '0px' : '50px',
+            marginLeft: viewport === 'mobile' ? '0px' : '0px',
             color: 'blue',
             textTransform: 'uppercase',
             textDecoration: 'none',
-            fontSize: viewport === 'mobile' ? '15px' : '20px',
+            fontSize: viewport === 'mobile' ? '12px' : '20px',
             whiteSpace: 'nowrap', // <-- nunca quebrar as palavras
           })}
           to={url}
