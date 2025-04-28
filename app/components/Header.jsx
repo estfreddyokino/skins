@@ -113,7 +113,7 @@ export function HeaderMenu({
           prefetch="intent"
           style={({isActive, isPending}) => ({
             fontWeight: 'bold',
-            marginLeft: viewport === 'mobile' ? '22px' : '50px',
+            marginLeft: viewport === 'mobile' ? '0px' : '50px',
             color: 'blue',
             textTransform: 'uppercase',
             textDecoration: 'none',
