@@ -25,9 +25,9 @@ function Accordion({ title, content }) {
         </span>
       </button>
       <div
-        className={`text-[18px] mt-2 text-white transition-all duration-500 ease-in-out ${
-          isOpen ? 'opacity-100 max-h-40' : 'opacity-0 max-h-0 overflow-hidden'
-        }`}
+          className={`text-[18px] mt-2 text-white overflow-hidden transition-all duration-500 ease-in-out ${
+            isOpen ? 'opacity-100 max-h-[999px]' : 'opacity-0 max-h-0'
+          }`}
       >
         {content}
       </div>
