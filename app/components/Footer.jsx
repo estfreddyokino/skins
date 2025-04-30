@@ -147,7 +147,7 @@ export function Footer() {
           >
             SEGUE A GENTE
           </p>
-          <div className="flex gap-4 items-center text-[#0047FF] text-xl mt-4">
+          <div className="flex gap-4 items-center text-[#0047FF] text-xl mt-4" style={{marginLeft:"100px"}}>
             <img src="/image/face.png" alt="Facebook" className="h-[24px]" />
             <img src="/image/insta.png" alt="Instagram" className="h-[24px]" />
             <img src="/image/x.png" alt="X (Twitter)" className="h-[24px]" />
