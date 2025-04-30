@@ -136,7 +136,7 @@ export function Footer() {
         </div>
 
         {/* Bloco 4 */}
-        <div className="mt-4 md:mt-16" style={{ marginLeft: '50px' }}>
+        <div className="mt-4 md:mt-16 ml-4 md:ml-12" style={{ marginLeft: '50px' }}>
           <p
             style={{
               fontSize: '20px',
@@ -147,7 +147,7 @@ export function Footer() {
           >
             SEGUE A GENTE
           </p>
-          <div className="flex gap-4 items-center text-[#0047FF] text-xl mt-4" style={{marginLeft:"100px"}}>
+          <div className="flex gap-4 items-center text-[#0047FF] text-xl mt-4 ml-6 md:ml-24">
             <img src="/image/face.png" alt="Facebook" className="h-[24px]" />
             <img src="/image/insta.png" alt="Instagram" className="h-[24px]" />
             <img src="/image/x.png" alt="X (Twitter)" className="h-[24px]" />
