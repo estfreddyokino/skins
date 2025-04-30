@@ -101,14 +101,32 @@ function useScrollTyping(text, triggerPoint = 100) {
   return displayedText;
 }
 
-function HoverImageCard({image1, image2, alt, title, title2, title3}) {
+function HoverImageCard({ image1, image2, alt, title, title2, title3 }) {
   const [isHovered, setIsHovered] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const handleToggle = () => {
+    if (isMobile) {
+      setIsHovered((prev) => !prev);
+    }
+  };
 
   return (
     <div
       className="w-[400px] sm:w-[450px] lg:w-[500px] cursor-pointer transition-transform hover:scale-105 overflow-hidden rounded-3xl shadow-xl bg-white relative"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={() => !isMobile && setIsHovered(true)}
+      onMouseLeave={() => !isMobile && setIsHovered(false)}
+      onClick={handleToggle}
     >
       {/* Imagem */}
       <div className="aspect-[3/4] w-full h-full">
@@ -121,20 +139,20 @@ function HoverImageCard({image1, image2, alt, title, title2, title3}) {
 
       {/* Texto sobreposto */}
       <div
-        className="absolute bottom-0 w-full  text-blue text-xl text-left py-4  px-4 font-semibold"
-        style={{color: 'blue', fontSize: '30px'}}
+        className="absolute bottom-0 w-full text-blue text-xl text-left py-4 px-4 font-semibold"
+        style={{ color: 'blue', fontSize: '30px' }}
       >
         {title}
       </div>
       <div
-        className="absolute bottom-0 w-full  text-blue text-xl text-right py-4  px-4 font-semibold"
-        style={{color: 'blue', fontSize: '30px'}}
+        className="absolute bottom-0 w-full text-blue text-xl text-right py-4 px-4 font-semibold"
+        style={{ color: 'blue', fontSize: '30px' }}
       >
         {title2}
       </div>
       <div
-        className="absolute bottom-0 w-full  text-blue text-xl text-left py-4  px-4 font-semibold"
-        style={{color: 'blue', fontSize: '30px'}}
+        className="absolute bottom-0 w-full text-blue text-xl text-left py-4 px-4 font-semibold"
+        style={{ color: 'blue', fontSize: '30px' }}
       >
         {title3}
       </div>
