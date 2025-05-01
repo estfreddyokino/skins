@@ -101,7 +101,7 @@ function useScrollTyping(text, triggerPoint = 100) {
   return displayedText;
 }
 
-function HoverImageCard({ image1, image2, alt, title, title2, title3 }) {
+function HoverImageCard({image1, image2, alt, title, title2, title3}) {
   const [isHovered, setIsHovered] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -140,19 +140,19 @@ function HoverImageCard({ image1, image2, alt, title, title2, title3 }) {
       {/* Texto sobreposto */}
       <div
         className="absolute bottom-0 w-full text-blue text-xl text-left py-4 px-4 font-semibold"
-        style={{ color: 'blue', fontSize: '30px' }}
+        style={{color: 'blue', fontSize: '30px'}}
       >
         {title}
       </div>
       <div
         className="absolute bottom-0 w-full text-blue text-xl text-right py-4 px-4 font-semibold"
-        style={{ color: 'blue', fontSize: '30px' }}
+        style={{color: 'blue', fontSize: '30px'}}
       >
         {title2}
       </div>
       <div
         className="absolute bottom-0 w-full text-blue text-xl text-left py-4 px-4 font-semibold"
-        style={{ color: 'blue', fontSize: '30px' }}
+        style={{color: 'blue', fontSize: '30px'}}
       >
         {title3}
       </div>
@@ -166,6 +166,25 @@ export default function Homepage() {
 
   return (
     <div className="bg-image-full">
+      <style>
+        {`
+          @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+          }
+          @keyframes float2 {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+          }
+          @keyframes float3 {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+          }
+          .float { animation: float 3s ease-in-out infinite; }
+          .float2 { animation: float2 4s ease-in-out infinite; }
+          .float3 { animation: float3 5s ease-in-out infinite; }
+        `}
+      </style>
       <section className="relative w-full min-h-screen overflow-hidden">
         {/* Texto central */}
         <section className="w-full py-20 px-4 sm:px-8 flex flex-col lg:flex-row items-center justify-center gap-8">
@@ -173,32 +192,103 @@ export default function Homepage() {
             <img
               src="/image/homeGenskins.png"
               alt="Modelo com adesivos"
-              className="rounded-[30px] w-full object-cover mt-20 sm:mt-40"
+              className="rounded-[30px] w-full object-cover mt-40 sm:mt-40"
             />
           </div>
         </section>
 
-        {/* Elementos visuais - responsivos */}
-        <img
-          src="/image/estrelaamarela.png"
-          className="absolute top-8 right-4 w-20 sm:w-32"
-        />
-        <img
-          src="/image/estrelaazul.png"
-          className="absolute top-10 left-10 w-16 sm:w-24"
-        />
-        <img
-          src="/image/rotoFelizAzul.png"
-          className="absolute top-14 left-1/4 w-20 sm:w-36"
-        />
-        <img
-          src="/image/peixeAzulDereita.png"
-          className="absolute top-[600px] right-1/3 w-16 sm:w-32"
-        />
-        <img
-          src="/image/solAmarelo.png"
-          className="absolute top-2 right-1/2 w-32 sm:w-52"
-        />
+        <div className="block md:hidden">
+          {/* BLOCO 1 - MOBILE */}
+          <img
+            src="/image/estrelaamarela.png"
+            className="absolute top-25 right-4 w-12 float"
+          />
+          <img
+            src="/image/estrelaazul.png"
+            className="absolute top-10 left-10 w-10 float2"
+          />
+          <img
+            src="/image/rotoFelizAzul.png"
+            className="absolute top-24 left-1/4 w-14 float3"
+          />
+          <img
+            src="/image/peixeAzulDereita.png"
+            className="absolute top-2 right-1/3 w-12 float"
+          />
+          <img
+            src="/image/solAmarelo.png"
+            className="absolute top-2 right-1/2 w-20 float2"
+          />
+
+          {/* BLOCO 2 - MOBILE */}
+          <img
+            src="/image/estrelaamarela.png"
+            className="absolute top-[50vh] left-4 w-12 float2"
+          />
+          <img
+            src="/image/estrelaazul.png"
+            className="absolute top-[54vh] right-[50px] w-10 float3"
+          />
+          <img
+            src="/image/rotoFelizAzul.png"
+            className="absolute top-[42vh] left-52 w-14 float"
+          />
+          <img
+            src="/image/peixeAzulDereita.png"
+            className="absolute top-[54vh] right-2/3 w-12 float2"
+          />
+          <img
+            src="/image/solAmarelo.png"
+            className="absolute top-[56vh] right-1/3 w-20 float3"
+          />
+        </div>
+
+        {/* ==== ELEMENTOS VISUAIS DESKTOP ==== */}
+        <div className="hidden md:block">
+          {/* BLOCO 1 - DESKTOP */}
+          <img
+            src="/image/estrelaamarela.png"
+            className="absolute top-25 right-52 w-28 float"
+          />
+          <img
+            src="/image/estrelaazul.png"
+            className="absolute top-30 left-50 w-24 float2"
+          />
+          <img
+            src="/image/rotoFelizAzul.png"
+            className="absolute top-14 left-1/4 w-36 float3"
+          />
+          <img
+            src="/image/peixeAzulDereita.png"
+            className="absolute top-2 right-1/3 w-32 float"
+          />
+          <img
+            src="/image/solAmarelo.png"
+            className="absolute top-2 right-1/2 w-48 float2"
+          />
+
+          {/* BLOCO 2 - DESKTOP */}
+          <img
+            src="/image/estrelaamarela.png"
+            className="absolute top-[440px] left-30 w-28 float2"
+          />
+          <img
+            src="/image/estrelaazul.png"
+            className="absolute top-[480px] right-60 w-24 float3"
+          />
+          <img
+            src="/image/rotoFelizAzul.png"
+            className="absolute top-[640px] left-20 w-36 float"
+          />
+          <img
+            src="/image/peixeAzulDereita.png"
+            className="absolute top-[480px] right-2/3 w-32 float2"
+          />
+          <img
+            src="/image/solAmarelo.png"
+            className="absolute top-[500px] right-1/3 w-48 float3"
+          />
+        </div>
       </section>
 
       <div className="w-full flex items-center justify-center min-h-[400px] sm:min-h-[500px] lg:min-h-[500px] relative">
