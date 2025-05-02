@@ -364,15 +364,15 @@ export default function Homepage() {
       </div>
 
       {/* Seção de Apresentação */}
-      <section className="w-full flex flex-col items-center justify-center text-center py-16 px-4">
+      <section className="w-full flex flex-col items-center justify-center text-center py-16 px-4 mb-0">
         <h2
-          className="text-2xl sm:text-3xl md:text-4xl font-bold text-[blue] mb-6 "
+          className="text-2xl sm:text-3xl md:text-4xl font-bold text-[blue] mb-4"
           style={{fontSize: '50px'}}
         >
           CUIDADO COM A PELE, DO SEU JEITO
         </h2>
         <p
-          className="text-md sm:text-lg md:text-xl text-[blue] max-w-2xl text-center leading-relaxed mb-8"
+          className="text-md sm:text-lg md:text-xl text-[blue] max-w-2xl text-center leading-relaxed mb-6"
           style={{fontSize: '20px'}}
         >
           A GENSKINS veio para transformar o cuidado com a pele em algo leve,
@@ -387,17 +387,16 @@ export default function Homepage() {
           SOBRE A GENSKINS
         </button>
       </section>
-      <div className="relative min-h-screen flex items-center justify-center flex-col text-white px-12">
-      <div className="w-full max-w-8xl relative rounded-[30px] overflow-hidden mt-20">
-          <img
-            src="/image/home2.png"
-            alt="Pessoas com adesivos"
-            className="w-full h-full object-cover rounded-[30px]"
-          />
-        </div>
 
-      </div>
-      
+      <div className="relative flex items-center justify-center flex-col text-white px-10 pt-0">
+  <div className="w-full max-w-8xl relative rounded-[30px] overflow-hidden mt-0 sm:mt-16">
+    <img
+      src="/image/home2.png"
+      alt="Pessoas com adesivos"
+      className="w-full h-auto object-cover rounded-[30px]"
+    />
+  </div>
+</div>
     </div>
   );
 }
