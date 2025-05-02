@@ -1,5 +1,5 @@
 import {Await, useLoaderData, Link} from '@remix-run/react';
-import {Suspense, useState, useEffect} from 'react';
+import {Suspense} from 'react';
 import {Image, Money} from '@shopify/hydrogen';
 import '../styles/background.css';
 
@@ -22,6 +22,7 @@ async function loadCriticalData(context) {
     featuredCollection: collections.nodes[0],
   };
 }
+import {useState, useEffect, useRef} from 'react';
 
 function loadDeferredData(context) {
   const recommendedProducts = context.storefront
@@ -185,7 +186,7 @@ export default function Homepage() {
           .float3 { animation: float3 5s ease-in-out infinite; }
         `}
       </style>
-      <section className="relative w-full min-h-screen overflow-hidden">
+      <section className="relative w-full min-h-[80vh] md:min-h-screen overflow-hidden">
         {/* Texto central */}
         <section className="w-full py-20 px-4 sm:px-8 flex flex-col lg:flex-row items-center justify-center gap-8">
           <div className="w-full lg:w-8/12">
@@ -263,6 +264,10 @@ export default function Homepage() {
             className="absolute top-2 right-1/3 w-32 float"
           />
           <img
+            src="/image/peixeAzulDereita.png"
+            className="absolute top-22 right-80 w-12 float scale-x-[-1]"
+          />
+          <img
             src="/image/solAmarelo.png"
             className="absolute top-2 right-1/2 w-48 float2"
           />
@@ -270,28 +275,56 @@ export default function Homepage() {
           {/* BLOCO 2 - DESKTOP */}
           <img
             src="/image/estrelaamarela.png"
-            className="absolute top-[440px] left-30 w-28 float2"
+            className="absolute top-[440px] left-30 w-28 float2 scale-x-[-1]"
+          />
+          <img
+            src="/image/estrelaamarela.png"
+            className="absolute top-124 left-230 w-12 float"
           />
           <img
             src="/image/estrelaazul.png"
             className="absolute top-[480px] right-60 w-24 float3"
           />
           <img
+            src="/image/estrelaazul.png"
+            className="absolute top-40 right-120 w-12 float3 scale-x-[-1]"
+          />
+          <img
+            src="/image/estrelaazul.png"
+            className="absolute top-140 right-260 w-12 float3 scale-x-[-1]"
+          />
+          <img
             src="/image/rotoFelizAzul.png"
-            className="absolute top-[640px] left-20 w-36 float"
+            className="absolute top-[640px] left-50 w-36 float scale-x-[-1]"
+          />
+          <img
+            src="/image/rotoFelizAzul.png"
+            className="absolute top-120 right-20 w-16 float"
           />
           <img
             src="/image/peixeAzulDereita.png"
             className="absolute top-[480px] right-2/3 w-32 float2"
           />
           <img
+            src="/image/peixeAzulDereita.png"
+            className="absolute top-50 left-200 w-12 float2 scale-x-[-1]"
+          />
+          <img
             src="/image/solAmarelo.png"
-            className="absolute top-[500px] right-1/3 w-48 float3"
+            className="absolute top-[500px] right-1/3 w-48 float3 scale-x-[-1]"
+          />
+          <img
+            src="/image/solAmarelo.png"
+            className="absolute top-70 right-40 w-10 float3 scale-x-[-1]"
+          />
+          <img
+            src="/image/solAmarelo.png"
+            className="absolute top-70 left-40 w-10 float2 scale-x-[-1]"
           />
         </div>
       </section>
 
-      <div className="w-full flex items-center justify-center min-h-[400px] sm:min-h-[500px] lg:min-h-[500px] relative">
+      <div className="w-full flex items-center justify-center min-h-[200px] sm:min-h-[300px] lg:min-h-[300px] relative">
         {/* Texto real com digitação */}
         <div className="absolute text-white text-4xl sm:text-6xl md:text-8xl lg:text-[400px] text-center font-light px-4 leading-none">
           {phrase}
@@ -354,6 +387,17 @@ export default function Homepage() {
           SOBRE A GENSKINS
         </button>
       </section>
+      <div className="relative min-h-screen flex items-center justify-center flex-col text-white px-12">
+      <div className="w-full max-w-8xl relative rounded-[30px] overflow-hidden mt-20">
+          <img
+            src="/image/home2.png"
+            alt="Pessoas com adesivos"
+            className="w-full h-full object-cover rounded-[30px]"
+          />
+        </div>
+
+      </div>
+      
     </div>
   );
 }

@@ -92,6 +92,7 @@ export function HeaderMenu({
       className={className}
       role="navigation"
       style={{
+        marginLeft: viewport === 'mobile' ? '0px' : '25%',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'nowrap',

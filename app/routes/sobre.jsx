@@ -87,7 +87,7 @@ export default function Sobre() {
               key={i}
               src="/image/estrelinhaMovimentando.png"
               alt="estrela"
-              className="w-[30px] h-[30px]"
+              className="w-[30px] h-[30px] lg:w-[100px] lg:h-[100px]"
             />
           ))}
         </div>
@@ -169,7 +169,7 @@ export default function Sobre() {
               key={i}
               src="/image/estrelinhaMovimentando.png"
               alt="estrela"
-              className="w-[30px] h-[30px]"
+              className="w-[30px] h-[30px] lg:w-[100px] lg:h-[100px]"
             />
           ))}
         </div>

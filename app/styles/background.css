@@ -1,7 +1,7 @@
 .bg-image-full {
     background-image: url('/app/styles/image.png');
     background-size: cover;
-    background-position: center;
+    background-position: center top -400px;
     background-repeat: no-repeat;
   }
 @keyframes marquee {
