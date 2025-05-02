@@ -388,7 +388,7 @@ export default function Homepage() {
         </button>
       </section>
 
-      <div className="relative flex items-center justify-center flex-col text-white px-10 pt-0">
+      <div className="relative flex items-center justify-center flex-col text-white px-10 pt-0 mb-20">
   <div className="w-full max-w-8xl relative rounded-[30px] overflow-hidden mt-0 sm:mt-16">
     <img
       src="/image/home2.png"
