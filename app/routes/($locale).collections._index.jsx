@@ -1,7 +1,7 @@
 import {useLoaderData, Link} from '@remix-run/react';
 import {getPaginationVariables, Image} from '@shopify/hydrogen';
 import {PaginatedResourceSection} from '~/components/PaginatedResourceSection';
-
+import {useNavigate} from '@remix-run/react';
 /**
  * @param {LoaderFunctionArgs} args
  */
@@ -51,16 +51,17 @@ export default function Collections() {
 
   return (
     <div className="collections">
-      <h1>Collections</h1>
+      
       <PaginatedResourceSection
         connection={collections}
-        resourcesClassName="collections-grid"
+        
       >
         {({node: collection, index}) => (
           <CollectionItem
             key={collection.id}
             collection={collection}
             index={index}
+            sty
           />
         )}
       </PaginatedResourceSection>
@@ -70,30 +71,43 @@ export default function Collections() {
 
 /**
  * @param {{
- *   collection: CollectionFragment;
- *   index: number;
- * }}
- */
+*   collection: CollectionFragment;
+*   index: number;
+* }}
+*/
 function CollectionItem({collection, index}) {
-  return (
-    <Link
-      className="collection-item"
-      key={collection.id}
-      to={`/collections/${collection.handle}`}
-      prefetch="intent"
-    >
-      {collection?.image && (
-        <Image
-          alt={collection.image.altText || collection.title}
-          aspectRatio="1/1"
-          data={collection.image}
-          loading={index < 3 ? 'eager' : undefined}
-          sizes="(min-width: 45em) 400px, 100vw"
-        />
-      )}
-      <h5>{collection.title}</h5>
-    </Link>
-  );
+ return (
+  <div style={{padding: '10px', display: 'inline-block'}}>
+  <button
+    type="button"
+    onClick={() => (window.location.href = `/collections/${collection.handle}`)}
+    className="p-2 bg-blue-500 text-white text-sm hover:bg-blue-600 mt-10" 
+    style={{
+      fontSize: '25px',
+      display: 'inline-block',
+      width: '200px',
+      height: '60px',
+      borderRadius: '25px',
+      overflow: 'hidden',
+      textAlign: 'center',
+      verticalAlign: 'top',
+      margin: '10px 5px', // <- aqui
+      
+    }}
+  >
+    {collection?.image && (
+      <Image
+        alt={collection.image.altText || collection.title}
+        aspectRatio="1/1"
+        data={collection.image}
+        loading={index < 3 ? 'eager' : undefined}
+        sizes="(min-width: 45em) 400px, 100vw"
+      />
+    )}
+    <h5 className="mt-2">{collection.title}</h5>
+  </button>
+</div>
+ );
 }
 
 const COLLECTIONS_QUERY = `#graphql

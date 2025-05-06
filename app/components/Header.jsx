@@ -103,7 +103,7 @@ export function HeaderMenu({
     >
       {[
         {title: 'HOME', url: '/'},
-        {title: 'SHOP', url: '/collections/all'},
+        {title: 'SHOP', url: '/collections/frontpage'},
         {title: 'SOBRE', url: '/sobre'},
       ].map(({title, url}) => (
         <NavLink
