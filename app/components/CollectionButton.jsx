@@ -1,4 +1,24 @@
 import {Image} from '@shopify/hydrogen';
+import {useState, useEffect} from 'react';
+
+function useViewport() {
+  const [viewport, setViewport] = useState('desktop');
+
+  useEffect(() => {
+    function determineViewport() {
+      if (typeof window !== 'undefined') {
+        setViewport(window.innerWidth <= 768 ? 'mobile' : 'desktop');
+      }
+    }
+
+    determineViewport();
+
+    window.addEventListener('resize', determineViewport);
+    return () => window.removeEventListener('resize', determineViewport);
+  }, []);
+
+  return viewport;
+}
 
 /**
  * @param {{
@@ -7,6 +27,8 @@ import {Image} from '@shopify/hydrogen';
  * }}
  */
 export function CollectionButton({collection, index = 0}) {
+  const viewport = useViewport();  // Hook para verificar se é mobile ou desktop
+
   return (
     <div style={{padding: '10px', display: 'inline-block'}}>
       <button
@@ -16,13 +38,13 @@ export function CollectionButton({collection, index = 0}) {
         style={{
           fontSize: '25px',
           display: 'inline-block',
-          width: '200px',
+          width: viewport === 'mobile' ? '150px' : '200px',  // Altera a largura conforme a viewport
           height: '60px',
           borderRadius: '25px',
           overflow: 'hidden',
           textAlign: 'center',
           verticalAlign: 'top',
-          margin: '10px 5px',
+          margin: '10px 15px', // <- aqui
         }}
       >
         {collection?.image && (
