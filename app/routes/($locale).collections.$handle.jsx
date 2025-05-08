@@ -180,7 +180,7 @@ function ProductItem({product, loading}) {
           {images.length > 1 && (
             <button
               onClick={prevImage}
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[#f5f6f8] p-2 rounded-full text-blue-600 hover:bg-gray-200 z-10"
+              className="absolute right-65 top-1/2 transform -translate-y-1/2 bg-[#f5f6f8] p-2 rounded-full text-blue-600 hover:bg-gray-200 z-10"
             >
               ❮
             </button>
@@ -191,7 +191,7 @@ function ProductItem({product, loading}) {
               <Image
                 key={currentImage.id}
                 alt={currentImage.altText || product.title}
-                aspectRatio="1/1"
+                aspectRatio="1/2"
                 data={currentImage}
                 loading={loading}
                 sizes="(min-width: 45em) 600px, 200vw"
@@ -203,7 +203,7 @@ function ProductItem({product, loading}) {
           {images.length > 1 && (
             <button
               onClick={nextImage}
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[#f5f6f8] p-2 rounded-full text-blue-600 hover:bg-gray-200 z-10"
+              className="absolute left-65 top-1/2 transform -translate-y-1/2 bg-[#f5f6f8] p-2 rounded-full text-blue-600 hover:bg-gray-200 z-10"
             >
               ❯
             </button>
