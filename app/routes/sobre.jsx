@@ -43,7 +43,7 @@ export default function Sobre() {
         {/* Imagem */}
         <div className="w-full lg:w-1/2">
           <img
-            src="/image/sobreImage1.png"
+            src="/image/sobreImage11.png"
             alt="Modelo com adesivos no rosto"
             className="rounded-[30px] w-full object-cover"
           />
