@@ -39,7 +39,7 @@ export default function Sobre() {
   return (
     <div className="bg-image-full p-6">
       {/* Primeira Seção */}
-      <section className="w-full py-16 px-8 flex flex-col lg:flex-row items-start justify-between gap-8">
+      <section className="w-full py-16 px-8 flex flex-col lg:flex-row items-center justify-center gap-8">
         {/* Imagem */}
         <div className="w-full lg:w-1/2">
           <img
@@ -51,9 +51,13 @@ export default function Sobre() {
 
         {/* Texto */}
         <div className="w-full lg:w-1/3 border-2 border-blue-600 p-8 rounded-[30px] text-blue-700 max-w-[600px]">
+          <div className="flex items-center">
+            <img src="/image/estrenha.png" alt="" style={{width:"6%", marginBottom:"20px"}} />
           <h2 className="text-lg font-bold uppercase mb-4" style={{ fontSize: '30px' }}>
             Nossa Filosofia
           </h2>
+
+          </div>
           <p className="mb-4" style={{ fontSize: '20px' }}>
             Na GENSKINS, acreditamos que cuidar da pele deve ser simples, eficaz
             e divertido. Criamos nossos adesivos secativos para transformar o
@@ -74,7 +78,7 @@ export default function Sobre() {
             className="border border-blue-600 text-blue-600 px-6 py-2 rounded-full font-medium hover:bg-[rgba(0,26,255,0.35)] transition"
             onClick={() => window.location.href = '/collections/all'}
           >
-            SEJA VOCÊ, SEJA GENSKINS
+            Radical self-esteem
           </button>
         </div>
       </section>
@@ -187,6 +191,7 @@ export default function Sobre() {
         {/* Imagem e botão */}
         <div className="w-full max-w-8xl relative rounded-[30px] overflow-hidden mt-20">
           <img
+          style={{ maxHeight: '80vh', objectFit: 'cover' }}
             src="/image/sobreImage4.png"
             alt="Pessoas com adesivos"
             className="w-full h-full object-cover rounded-[30px]"
