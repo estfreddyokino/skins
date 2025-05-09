@@ -362,11 +362,11 @@ export default function Homepage() {
           />
         </div>
         <button
-            className=" bg-blue border border-blue-600 mt-8 text-600 text-[white] px-6 py-2 rounded-full font-medium hover:bg-[rgba(0,26,255,0.35)] transition"
-            onClick={() => window.location.href = '/collections/all'}
-          >
-            SHOP
-          </button>
+          className="bg-blue-600 border border-blue-600 mt-8 text-white px-6 py-2 rounded-full font-medium hover:bg-blue-700 transition"
+          onClick={() => (window.location.href = '/collections/all')}
+        >
+          SHOP
+        </button>
       </div>
 
       {/* Seção de Apresentação */}
@@ -395,14 +395,14 @@ export default function Homepage() {
       </section>
 
       <div className="relative flex items-center justify-center flex-col text-white px-10 pt-0 mb-20">
-  <div className="w-full max-w-8xl relative rounded-[30px] overflow-hidden mt-0 sm:mt-16">
-    <img
-      src="/image/home2.png"
-      alt="Pessoas com adesivos"
-      className="w-full h-auto object-cover rounded-[30px]"
-    />
-  </div>
-</div>
+        <div className="w-full max-w-8xl relative rounded-[30px] overflow-hidden mt-0 sm:mt-16">
+          <img
+            src="/image/home2.png"
+            alt="Pessoas com adesivos"
+            className="w-full h-auto object-cover rounded-[30px]"
+          />
+        </div>
+      </div>
     </div>
   );
 }
