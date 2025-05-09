@@ -134,7 +134,7 @@ export default function Sobre() {
         {/* Imagem */}
         <div className="w-full lg:w-5/12">
           <img
-            src="/image/sobreImage3.png"
+            src="/image/sobreImage33.png"
             alt="Fórmula Vegana"
             className="rounded-[30px] w-full object-cover"
           />
@@ -192,7 +192,7 @@ export default function Sobre() {
         <div className="w-full max-w-8xl relative rounded-[30px] overflow-hidden mt-20">
           <img
           style={{ maxHeight: '80vh', objectFit: 'cover' }}
-            src="/image/sobreImage4.png"
+            src="/image/sobreImage44.png"
             alt="Pessoas com adesivos"
             className="w-full h-full object-cover rounded-[30px]"
           />
