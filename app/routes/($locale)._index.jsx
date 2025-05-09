@@ -361,6 +361,12 @@ export default function Homepage() {
             title2="R$ 49,00"
           />
         </div>
+        <button
+            className=" bg-blue border border-blue-600 mt-8 text-600 text-[white] px-6 py-2 rounded-full font-medium hover:bg-[rgba(0,26,255,0.35)] transition"
+            onClick={() => window.location.href = '/collections/all'}
+          >
+            SHOP
+          </button>
       </div>
 
       {/* Seção de Apresentação */}
