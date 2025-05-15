@@ -76,7 +76,7 @@ export default function Sobre() {
           </p>
           <button
             className="border border-blue-600 text-blue-600 px-6 py-2 rounded-full font-medium hover:bg-[rgba(0,26,255,0.35)] transition"
-            onClick={() => window.location.href = '/collections/all'}
+            onClick={() => window.location.href = '/collections/frontpage'}
           >
             Radical self-esteem
           </button>
