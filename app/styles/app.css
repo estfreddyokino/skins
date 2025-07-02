@@ -591,3 +591,30 @@ button.reset:hover:not(:has(> *)) {
 .cart-line-item:hover .remove-button {
   display: block;
 }
+@font-face {
+  font-family: 'ReservationWide';
+  src: url('/fonts/ReservationWide-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ReservationWide';
+  src: url('/fonts/ReservationWide-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ReservationWide';
+  src: url('/fonts/ReservationWide-BoldOblique.ttf') format('truetype');
+  font-weight: bold;
+  font-style: oblique;
+}
+
+@font-face {
+  font-family: 'Popstone';
+  src: url('/fonts/Popstone-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}

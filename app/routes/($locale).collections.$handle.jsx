@@ -163,30 +163,31 @@ function ProductItem({product, loading}) {
         setTitleImage('/image/gen-starts.png');
       } else if (titleLower === 'happy-gen') {
         setTitleImage('/image/happy-gen.png');
-      }else if (titleLower === 'bag') {
+      } else if (titleLower === 'bag') {
         setTitleImage('/image/Bag1.png');
-      }else if (titleLower === 'genzinho') {
+      } else if (titleLower === 'genzinho') {
         setTitleImage('/image/genzinho.png');
-      }  else {
+      } else {
         setTitleImage(null);
       }
     }
   }, [product.title]);
 
   return (
-    <div className="flex flex-col md:flex-row bg-[#f5f6f8] rounded-3xl p-8 shadow-lg relative overflow-hidden max-w-7xl mx-auto my-10">
+    <div className="flex flex-col md:flex-row bg-[#f5f6f8] rounded-3xl p-8 shadow-lg relative overflow-hidden mx-40  my-10">
       <div className="flex flex-col items-center justify-center relative w-full md:w-[50%]">
         <div className="flex items-center justify-center relative">
           {images.length > 1 && (
             <button
               onClick={prevImage}
-              className="absolute right-65 top-1/2 transform -translate-y-1/2 bg-[#f5f6f8] p-2 rounded-full text-blue-600 hover:bg-gray-200 z-10"
+              className="absolute right-80 top-1/2 transform -translate-y-1/2 bg-[#f5f6f8] p-2 rounded-full text-blue-600 hover:bg-gray-200 z-10"
+              style={{fontSize: '30px'}}
             >
               ❮
             </button>
           )}
 
-          <div className="w-full max-w-[500px] h-[500px] flex items-center justify-center">
+          <div className="w-full max-w-[400px] h-[500px] flex items-center justify-center">
             {currentImage && (
               <Image
                 key={currentImage.id}
@@ -194,7 +195,6 @@ function ProductItem({product, loading}) {
                 aspectRatio="1/2"
                 data={currentImage}
                 loading={loading}
-                sizes="(min-width: 45em) 600px, 200vw"
                 className="object-contain h-full"
               />
             )}
@@ -203,7 +203,8 @@ function ProductItem({product, loading}) {
           {images.length > 1 && (
             <button
               onClick={nextImage}
-              className="absolute left-65 top-1/2 transform -translate-y-1/2 bg-[#f5f6f8] p-2 rounded-full text-blue-600 hover:bg-gray-200 z-10"
+              className="absolute left-80 top-1/2 transform -translate-y-1/2 bg-[#f5f6f8] p-2 rounded-full text-blue-600 hover:bg-gray-200 z-10"
+              style={{fontSize: '30px'}}
             >
               ❯
             </button>
@@ -211,8 +212,8 @@ function ProductItem({product, loading}) {
         </div>
       </div>
 
-      <div className="w-full md:w-[50%] mt-10 md:mt-0 md:ml-10 flex flex-col justify-center text-blue-600">
-        <div className="flex justify-start">
+      <div className="w-full md:w-[100%] mt-10 md:mt-0 md:ml-12 flex flex-col justify-start text-blue-600">
+        <div className="flex justify-start" style={{marginLeft: '20px'}}>
           {titleImage ? (
             <img
               src={titleImage}
@@ -220,31 +221,87 @@ function ProductItem({product, loading}) {
               className="h-12 object-contain mb-2"
             />
           ) : (
-            <h2 className="text-[40px] font-bold text-blue-800 mb-6">
+            <h2 className="text-[60px] font-bold text-blue-800 mb-6">
               {product.title}
             </h2>
           )}
         </div>
 
-        <p className="text-[20px] font-bold mb-4 text-justify text-[#949BDC]">
+        <p
+          className="text-2xl mb-4 text-justify text-[#948BDC]"
+          style={{
+            lineHeight: '1.5',
+            fontSize: '22px',
+            marginTop: '20px',
+            marginBottom: '20px',
+            marginLeft: '25px',
+            marginRight: '25px',
+            fontFamily: 'ReservationWide, sans-serif',
+            fontWeight: 'bold',
+            fontStyle: 'normal', // aqui aplica a nova fonte
+          }}
+        >
           {descriptionParts.descIntro}
         </p>
 
-        <hr className="border-0 border-t-2 border-blue-600 my-4" />
+        <div
+          style={{
+            width: '50%',
+            borderTop: '2px solid rgb(0,64,255)',
+            marginLeft: '25px',
+          }}
+        />
 
-        <ul className="text-lg list-disc list-inside pl-6 space-y-2 mb-4 text-[20px]">
-          <li>{descriptionParts.li1}</li>
-          <li>{descriptionParts.li2}</li>
-          <li>{descriptionParts.li3}</li>
+        <ul
+          className="list-inside pl-6 space-y-2 mb-4 text-[19px]"
+          style={{
+            listStyleType: 'disc',
+            marginLeft: '45px',
+            marginTop: '20px',
+            marginBottom: '20px',
+            fontFamily: 'ReservationWide, sans-serif',
+            fontWeight: 'bold',
+            fontStyle: 'normal',
+          }}
+        >
+          {descriptionParts.li1 && (
+            <li className="marker:text-[1.5em]">{descriptionParts.li1}</li>
+          )}
+          {descriptionParts.li2 && (
+            <li className="marker:text-[1.5em]">{descriptionParts.li2}</li>
+          )}
+          {descriptionParts.li3 && (
+            <li className="marker:text-[1.5em]">{descriptionParts.li3}</li>
+          )}
         </ul>
 
-        <hr className="border-0 border-t-2 border-blue-600 my-4" />
+        <div
+          style={{
+            width: '50%',
+            borderTop: '2px solid rgb(0,64,255)',
+            marginLeft: '25px',
+          }}
+        />
 
-        <p className="text-[20px] font-bold mb-6 text-[#949BDC]">
+        <p
+          className="text-[25px] font-bold mb-6 text-[#949BDC]"
+          style={{
+            lineHeight: '1.5',
+            marginTop: '40px',
+            fontSize: '20px',
+            marginLeft: '25px',
+            fontFamily: 'ReservationWide, sans-serif',
+            fontWeight: 'bold',
+            fontStyle: 'normal',
+          }}
+        >
           {descriptionParts.descFinal}
         </p>
 
-        <div className="flex justify-between items-center">
+        <div
+          className="flex justify-between items-center "
+          style={{marginTop: '50px', marginLeft: '25px', marginRight: '25px'}}
+        >
           <h3 className="text-3xl font-bold text-blue-800 mb-6">
             <Money data={product.priceRange.minVariantPrice} />
           </h3>

@@ -56,6 +56,7 @@ export function Header({header, isLoggedIn, cart, publicStoreDomain}) {
             width: 'auto',
             maxWidth: viewport === 'mobile' ? '100px' : '150px',
             objectFit: 'contain',
+            marginLeft: viewport === 'mobile' ? '10px' : '20px',
           }}
         />
       </NavLink>
@@ -118,7 +119,7 @@ export function HeaderMenu({
             color: 'blue',
             textTransform: 'uppercase',
             textDecoration: 'none',
-            fontSize: viewport === 'mobile' ? '12px' : '20px',
+            fontSize: viewport === 'mobile' ? '12px' : '25px',
             whiteSpace: 'nowrap', // <-- nunca quebrar as palavras
           })}
           to={url}
@@ -142,6 +143,7 @@ function HeaderCtas({isLoggedIn, cart, viewport}) {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        marginRight: viewport === 'mobile' ? '10px' : '20px',
       }}
     >
       <HeaderMenuMobileToggle />
