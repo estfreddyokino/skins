@@ -68,7 +68,7 @@ export default function Collection() {
     <div className="collection">
       <p className="collection-description">{collection.description}</p>
 
-      <div className="my-8">
+      <div className="my-8 flex justify-center">
         <div className="inline-flex flex-wrap justify-center">
           {otherCollections.map((collection, index) => (
             <CollectionButton

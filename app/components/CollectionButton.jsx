@@ -34,7 +34,7 @@ export function CollectionButton({collection, index = 0}) {
       <button
         type="button"
         onClick={() => (window.location.href = `/collections/${collection.handle}`)}
-        className="p-2 bg-blue-500 text-white text-sm hover:bg-blue-600 mt-10"
+        className="p-2 bg-blue-700 text-white text-sm hover:bg-blue-300 mt-10"
         style={{
           fontSize: '25px',
           display: 'inline-block',

@@ -1,9 +1,11 @@
 .bg-image-full {
-    background-image: url('/app/styles/image.png');
-    background-size: cover;
-    background-position: center top +400px;
-    background-repeat: no-repeat;
-  }
+  background-image: url('/app/styles/image.png');
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-position: center top +200px;
+}
+
 @keyframes marquee {
     0% {
       transform: translateX(0%);
@@ -21,4 +23,8 @@
   .marquee > img {
     flex-shrink: 0;
   }
-  
+  body, * {
+  font-family: 'ReservationWide', sans-serif !important;
+  font-weight: bold !important;
+  font-style: normal !important;
+}

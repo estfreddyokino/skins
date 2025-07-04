@@ -21,7 +21,7 @@ async function loadCriticalData({context, request}) {
   const paginationVariables = getPaginationVariables(request, {pageBy: 8});
 
   const [{products}] = await Promise.all([
-    storefront.query(CATALOG_QUERY, {variables: {...paginationVariables}})
+    storefront.query(CATALOG_QUERY, {variables: {...paginationVariables}}),
   ]);
 
   return {products};
@@ -191,7 +191,13 @@ function ProductItem({product, loading}) {
 
         <div className="flex justify-between items-center">
           <h3 className="text-3xl font-bold text-blue-800 mb-6">
-            <Money data={product.priceRange.minVariantPrice} />
+            {new Intl.NumberFormat('pt-BR', {
+              style: 'currency',
+              currency: 'BRL',
+              minimumFractionDigits: 0,
+              maximumFractionDigits: 0,
+            }).format(Number(product.priceRange.minVariantPrice.amount))}
+            
           </h3>
 
           <AddToCartButton
@@ -202,7 +208,8 @@ function ProductItem({product, loading}) {
               },
             ]}
             onClick={handleAddToCart}
-            className="bg-blue-600 text-white px-10 py-3 rounded-full hover:bg-blue-700 transition text-center w-max text-[20px] font-bold"
+            className="text-[25px] font-bold text-white bg-blue-600 rounded-[35px] px-5 py-2.5 w-[180px] mx-auto block cursor-pointer border-0 hover:bg-blue-700 transition"
+            style={{width: '180px', height: '50px'}}
           >
             SHOP
           </AddToCartButton>

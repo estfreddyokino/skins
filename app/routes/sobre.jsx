@@ -8,57 +8,67 @@ export function meta() {
   ];
 }
 
+
 function Accordion({ title, content }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="border-t border-white py-3 transition-all duration-300">
+    <div className="border-b border-gray-400 py-3 transition-all duration-300">
       <button
         className="w-full flex justify-between items-center text-left text-white text-[24px]"
         onClick={() => setIsOpen(!isOpen)}
+        style={{ fontFamily: 'ReservationWide, sans-serif', fontWeight: 'bold' }}
       >
         <span>{title}</span>
         <span
-          className={`transform transition-transform duration-300 ${isOpen ? 'rotate-45 text-blue-300' : ''}`}
+          className={`transform transition-transform duration-300 text-white ${
+            isOpen ? 'rotate-45 text-blue-300' : ''
+          }`}
         >
           +
         </span>
       </button>
       <div
-          className={`text-[18px] mt-2 text-white overflow-hidden transition-all duration-500 ease-in-out ${
-            isOpen ? 'opacity-100 max-h-[999px]' : 'opacity-0 max-h-0'
-          }`}
+        className={`text-[18px] mt-2 text-white overflow-hidden transition-all duration-500 ease-in-out ${
+          isOpen ? 'opacity-100 max-h-[999px]' : 'opacity-0 max-h-0'
+        }`}
+        style={{ fontFamily: 'sans-serif', fontWeight: 'normal' }}
       >
-        {content}
+        <p className="leading-relaxed">{content}</p>
       </div>
     </div>
   );
 }
 
+
+
+
+
 export default function Sobre() {
   return (
     <div className="bg-image-full p-6">
       {/* Primeira Seção */}
-      <section className="w-full py-16 px-8 flex flex-col lg:flex-row items-center justify-center gap-8">
+      <section className="w-full py-16 px-8 flex flex-col lg:flex-row items-center justify-center gap-8" style={{marginTop: '100px'}}>
         {/* Imagem */}
-        <div className="w-full lg:w-1/2">
+        <div >
           <img
             src="/image/sobreImage11.png"
             alt="Modelo com adesivos no rosto"
             className="rounded-[30px] w-full object-cover"
+            style={{borderRadius:'40px',width:'1007px', height: '756px'}}
           />
         </div>
 
         {/* Texto */}
-        <div className="w-full lg:w-1/3 border-2 border-blue-600 p-8 rounded-[30px] text-blue-700 max-w-[600px]">
-          <div className="flex items-center">
+        <div className="w-full lg:w-1/3 border-2 border-blue-600 p-8 rounded-[30px] text-blue-700 max-w-[700px] " style={{ height: '756px', padding: '40px' }}>
+          <div className="flex items-center" style={{ marginTop: '200px' }}>
             <img src="/image/estrenha.png" alt="" style={{width:"6%", marginBottom:"20px"}} />
-          <h2 className="text-lg font-bold uppercase mb-4" style={{ fontSize: '30px' }}>
+          <h2 className="text-lg font-bold uppercase mb-4" style={{ fontSize: '20px', marginLeft: '20px' }}>
             Nossa Filosofia
           </h2>
 
           </div>
-          <p className="mb-4" style={{ fontSize: '20px' }}>
+          <p className="mb-4" style={{ fontSize: '16px' }}>
             Na GENSKINS, acreditamos que cuidar da pele deve ser simples, eficaz
             e divertido. Criamos nossos adesivos secativos para transformar o
             incômodo das espinhas em algo leve, sem pressões ou padrões. Sabemos
@@ -67,7 +77,7 @@ export default function Sobre() {
           </p>
           <p
             className="mb-4"
-            style={{ fontSize: '20px', marginTop: '10px', marginBottom: '10px' }}
+            style={{ fontSize: '16px', marginTop: '10px', marginBottom: '10px' }}
           >
             Nossa missão é ajudar você a se sentir bem com sua pele, oferecendo
             soluções descoladas que combinam estilo, autenticidade e resultados.
@@ -77,6 +87,7 @@ export default function Sobre() {
           <button
             className="border border-blue-600 text-blue-600 px-6 py-2 rounded-full font-medium hover:bg-[rgba(0,26,255,0.35)] transition"
             onClick={() => window.location.href = '/collections/frontpage'}
+            style={{marginTop: '30px', fontSize: '20px'}}
           >
             Radical self-esteem
           </button>
@@ -84,7 +95,7 @@ export default function Sobre() {
       </section>
 
       {/* Estrelinhas - Corrigido para manter fundo contínuo */}
-      <div className="-mx-6 px-6 overflow-hidden border-y-2 border-blue-600">
+      <div className="-mx-6 px-6 overflow-hidden border-y-2 border-blue-600" style={{marginTop: '100px', marginBottom: '100px'}}>
         <div className="marquee flex gap-2 py-4">
           {Array.from({ length: 80 }).map((_, i) => (
             <img
@@ -98,10 +109,10 @@ export default function Sobre() {
       </div>
 
       {/* Segunda Seção */}
-      <section className="py-16 px-4 flex flex-col lg:flex-row items-center justify-center gap-18">
+      <section className="py-16 px-4 flex flex-col lg:flex-row items-center justify-center gap-18" style={{marginTop: '100px', marginBottom: '100px'}}>
         {/* Accordion */}
-        <div className="bg-transparent border border-white rounded-[30px] p-20 max-w-md text-white">
-          <h3 className="text-white font-semibold text-[30px] mb-6">
+        <div className="bg-transparent border border-white rounded-[30px] p-20  text-white" style={{ width: '689px', height: '702px' }}>
+          <h3 className="text-white font-semibold text-[30px] mb-6" style={{marginTop: '80px'}}>
             Como funcionam os adesivos secativos?
           </h3>
 
@@ -125,6 +136,7 @@ export default function Sobre() {
             src="/image/sobreImage2.png"
             alt="Fórmula Vegana"
             className="rounded-[30px] w-full object-cover"
+            style={{borderRadius:'30px',width: '689px', height: '702px',marginLeft: '60px'}}
           />
         </div>
       </section>
@@ -137,12 +149,13 @@ export default function Sobre() {
             src="/image/sobreImage33.png"
             alt="Fórmula Vegana"
             className="rounded-[30px] w-full object-cover"
+            style={{borderRadius:'30px',width: '689px', height: '702px'}}
           />
         </div>
 
         {/* Accordion */}
-        <div className="bg-transparent border border-white rounded-[30px] p-20 max-w-md text-white">
-          <h3 className="text-white font-semibold text-[30px] mb-20">
+        <div className="bg-transparent border border-white rounded-[30px] p-20 text-white"  style={{width: '689px', height: '702px' }}>
+          <h3 className="text-white font-semibold text-[30px] mb-20" style={{marginTop: '80px'}}>
             Modo de uso:
           </h3>
 
@@ -166,7 +179,7 @@ export default function Sobre() {
       </section>
 
       {/* Estrelinhas Novamente */}
-      <div className="-mx-6 px-6 overflow-hidden border-y-2 border-blue-600">
+    <div className="-mx-6 px-6 overflow-hidden border-y-2 border-blue-600" style={{marginTop: '100px', marginBottom: '100px'}}>
         <div className="marquee flex gap-2 py-4">
           {Array.from({ length: 80 }).map((_, i) => (
             <img
@@ -178,7 +191,6 @@ export default function Sobre() {
           ))}
         </div>
       </div>
-
       {/* Última Seção */}
       <div className="relative min-h-screen flex items-center justify-center flex-col text-white px-4">
         {/* Texto superior */}
@@ -186,31 +198,31 @@ export default function Sobre() {
           <h1 className="text-sm md:text-base uppercase tracking-wider font-semibold text-white">
             ELEVE SEU CUIDADO COM A PELE USANDO GENSKINS
           </h1>
+          <div className="flex-1 h-px bg-white mx-8" />
         </div>
 
         {/* Imagem e botão */}
-        <div className="w-full max-w-8xl relative rounded-[30px] overflow-hidden mt-20">
+        <div className="w-full max-w-8xl relative rounded-[30px] overflow-hidden mt-20" style={{width: '1712px', height: '959px', marginBottom: '100px'}}>
           <img
-          style={{ maxHeight: '80vh', objectFit: 'cover' }}
+          style={{ maxHeight: '80vh', objectFit: 'cover', }}
             src="/image/sobreImage44.png"
             alt="Pessoas com adesivos"
             className="w-full h-full object-cover rounded-[30px]"
+            style={{borderRadius:'50px', width: '1712px', height: '959px', marginTop: '100px', marginBottom: '150px'}}
           />
 
           {/* Botão centralizado */}
           <div className="absolute inset-0 flex justify-center items-center">
             <button
-              className="border border-white text-white px-20 py-8 rounded-full bg-white/10 hover:bg-white/30 transition-all"
+              className="border-2 border-white text-white px-20 py-8 rounded-full bg-white/10 hover:bg-white/30 transition-all"
               onClick={() => window.location.href = '/collections/all'}
+              style={{width: '400px', height: '60px', fontSize: '24px', alignContent: 'center', display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: '30px', fontWeight: 'bold'}}
             >
               SHOP
             </button>
           </div>
 
-          {/* Texto azul no canto inferior direito */}
-          <p className="absolute bottom-4 right-6 text-blue-500 font-semibold text-[40px]">
-            SEGUE A GENTE
-          </p>
+          
         </div>
       </div>
     </div>
