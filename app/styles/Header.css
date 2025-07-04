@@ -12,3 +12,8 @@
     justify-content: flex-start; /* garante alinhamento à esquerda */
     margin-left: 20%; /* ou ajuste o valor conforme o necessário */
   }
+  .reservation-wide {
+  font-family: 'ReservationWide', sans-serif;
+  font-weight: bold;
+  font-style: normal;
+}

@@ -90,7 +90,7 @@ export function HeaderMenu({
 
   return (
     <nav
-      className={className}
+       className={`reservation-wide ${className}`}
       role="navigation"
       style={{
         marginLeft: viewport === 'mobile' ? '0px' : '25%',
@@ -100,6 +100,7 @@ export function HeaderMenu({
         justifyContent: 'center',
         alignItems: 'center',
         gap: '15px',
+        
       }}
     >
       {[
