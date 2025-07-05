@@ -171,7 +171,10 @@ function ProductItem({product, loading}) {
           )}
         </div>
 
-        <p className="text-[20px] font-bold mb-4 text-justify text-[#949BDC]">
+        <p
+          className="text-[20px] font-bold mb-4 text-justify"
+          style={{color: '#001AFF !important'}}
+        >
           {descriptionParts.descIntro}
         </p>
 
@@ -197,7 +200,6 @@ function ProductItem({product, loading}) {
               minimumFractionDigits: 0,
               maximumFractionDigits: 0,
             }).format(Number(product.priceRange.minVariantPrice.amount))}
-            
           </h3>
 
           <AddToCartButton
