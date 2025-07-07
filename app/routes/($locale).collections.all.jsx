@@ -106,7 +106,7 @@ function ProductItem({product, loading}) {
       const titleLower = product.title.toLowerCase();
       if (titleLower === 'gen-sea') {
         setTitleImage('/image/gen-sea.png');
-      } else if (titleLower === 'gen-starts') {
+      } else if (titleLower === 'gen-stars') {
         setTitleImage('/image/gen-starts.png');
       } else if (titleLower === 'happy-gen') {
         setTitleImage('/image/happy-gen.png');
