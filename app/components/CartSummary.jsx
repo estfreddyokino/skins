@@ -29,25 +29,13 @@ function CartCheckoutActions({checkoutUrl}) {
 
   return (
     <div>
-      <a href={checkoutUrl} target="_self" style={{ textDecoration: 'none' }}>
-        <button
-          style={{
-            border: '2px solid blue',
-            color: 'blue',
-            borderRadius: '25px',
-            padding: '10px 20px',
-            fontSize: '25px',
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            textDecoration: 'none',
-            width: '100%',
-          }}
-        >
-         Check out   
-        </button>
-      </a>
+ <a
+  href="https://qz4z0x-bt.myshopify.com/cart"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Finalizar compra
+</a>
       <br />
     </div>
   );
