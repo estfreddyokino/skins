@@ -1,8 +1,6 @@
 .bg-image-full {
-    background-image: url('/app/styles/image.png');
-    background-size: cover;
-    background-position: center top -400px;
-    background-repeat: no-repeat;
+    padding-top: 75px;
+    background-image: linear-gradient(#aebddb, #2b52a1, #2b52a1, white)
   }
 @keyframes marquee {
     0% {

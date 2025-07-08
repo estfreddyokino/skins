@@ -1,3 +1,9 @@
+@font-face {
+  font-weight: 700;
+  font-family: 'custom_114584';
+  font-style: normal;
+  src: url("./font-c49e977d-a711-4f49-b2a1-beca235fa87c.ttf") format('truetype');
+}
 .header {
     background-color: rgba(240, 242, 244, 0.8) !important;
     border-color: rgb(255, 255, 255);
@@ -16,4 +22,92 @@
   font-family: 'ReservationWide', sans-serif;
   font-weight: normal;
   font-style: normal;
+}
+
+
+.header-wrapper {
+  background-color: rgba(240, 242, 244, 0.8);
+  margin: 0;
+  height: 75px;
+  display: inline;
+  position: fixed;
+  padding: 10px 15px;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1;
+}
+.header-item-menu-wrapper {
+  margin-left: 0;
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.header-item-menu {
+  display: inline-block;
+  position: relative;
+  font-weight: bold;
+  margin: 0 40px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 25px;
+  white-space: nowrap;
+  color: rgba(0, 64, 255, 1);
+  transition: color .3s;
+  font-family: 'custom_114584';
+}
+.header-item-menu > span {
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: rgba(0, 64, 255, .8);
+  transition: width .3s;
+}
+.header-item-menu.active > span,
+.header-item-menu:hover > span {
+  width: 90%;
+}
+.header-item-menu.active,
+.header-item-menu:hover {
+  color: rgba(0, 64, 255, .8);
+  text-decoration: none;
+}
+.header-menu-img-logo {
+  width: 165px;
+  display: inline-block;
+  position: absolute;
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.header-menu-img-logo > img {
+  width: 100%;
+}
+.header-car{
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+ 
+@media screen and (max-width: 768px){
+  .header-item-menu-wrapper {
+    left: 120px;
+    transform: translateY(-50%);
+  }
+  .header-item-menu {
+    margin: 10px;
+    font-size: 12px;
+  }
+  .header-menu-img-logo {
+    width: 100px;
+    left: 10px;
+  }
 }
