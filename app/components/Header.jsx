@@ -56,7 +56,7 @@ export function Header({header, isLoggedIn, cart, publicStoreDomain}) {
             width: 'auto',
             maxWidth: viewport === 'mobile' ? '100px' : '150px',
             objectFit: 'contain',
-            marginLeft: viewport === 'mobile' ? '10px' : '20px',
+            marginLeft: viewport === 'mobile' ? '0px' : '20px',
           }}
         />
       </NavLink>
@@ -93,7 +93,7 @@ export function HeaderMenu({
        className={`reservation-wide ${className}`}
       role="navigation"
       style={{
-        marginLeft: viewport === 'mobile' ? '0px' : '25%',
+        marginLeft: viewport === 'mobile' ? '20px' : '25%',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'nowrap',
@@ -116,7 +116,7 @@ export function HeaderMenu({
           prefetch="intent"
           style={({isActive, isPending}) => ({
             fontWeight: 'bold',
-            marginLeft: viewport === 'mobile' ? '30px' : '80px',
+            marginLeft: viewport === 'mobile' ? '0px' : '80px',
             color: 'blue',
             textTransform: 'uppercase',
             textDecoration: 'none',
@@ -144,7 +144,8 @@ function HeaderCtas({isLoggedIn, cart, viewport}) {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        marginRight: viewport === 'mobile' ? '10px' : '20px',
+        marginRight: viewport === 'mobile' ? '20px' : '20px',
+        marginLeft: viewport === 'mobile' ? '0px' : '20px',
       }}
     >
       <HeaderMenuMobileToggle />

@@ -131,7 +131,7 @@ export function Footer() {
               textDecoration: 'none',
             }}
           >
-            mygenskins@gmail.com.br
+            contato@genskins.com.br
           </a>
         </div>
 
