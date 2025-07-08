@@ -93,7 +93,7 @@ export function HeaderMenu({
        className={`reservation-wide ${className}`}
       role="navigation"
       style={{
-        marginLeft: viewport === 'mobile' ? '20px' : '25%',
+        marginLeft: viewport === 'mobile' ? '0px' : '0%',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'nowrap',
