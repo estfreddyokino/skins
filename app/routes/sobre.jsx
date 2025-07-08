@@ -11,13 +11,13 @@ function Accordion({title, content}) {
   return (
     <div className="border-b border-gray-400 py-3 transition-all duration-300">
       <button
-        className="w-full flex justify-between items-center text-left text-white text-[24px]"
+        className="w-full flex justify-between items-center text-left text-white text-[20px] sm:text-[24px]"
         onClick={() => setIsOpen(!isOpen)}
         style={{fontFamily: 'ReservationWide, sans-serif', fontWeight: 'bold'}}
       >
         <span>{title}</span>
         <span
-          className={`transform transition-transform duration-300 text-[40px] ${
+          className={`transform transition-transform duration-300 text-[32px] sm:text-[40px] ${
             isOpen ? 'rotate-45 text-blue-300' : 'text-white'
           }`}
         >
@@ -25,7 +25,7 @@ function Accordion({title, content}) {
         </span>
       </button>
       <div
-        className={`text-[18px] mt-2 text-white overflow-hidden transition-all duration-500 ease-in-out ${
+        className={`text-[16px] sm:text-[18px] mt-2 text-white overflow-hidden transition-all duration-500 ease-in-out ${
           isOpen ? 'opacity-100 max-h-[999px]' : 'opacity-0 max-h-0'
         }`}
         style={{fontFamily: 'sans-serif', fontWeight: 'normal'}}
@@ -42,7 +42,7 @@ export default function Sobre() {
       {/* Primeira Seção */}
       <section
         className="w-full py-8 sm:py-16 px-2 sm:px-8 flex flex-col lg:flex-row items-center justify-center gap-8"
-        style={{marginTop: '60px'}}
+        style={{marginTop: '60px', padding: '20px'}}
       >
         {/* Imagem */}
         <div className="max-w-[1000px] lg:w-auto">
@@ -113,26 +113,26 @@ export default function Sobre() {
       </section>
 
       {/* Estrelinhas - Corrigido para manter fundo contínuo */}
-      <div
-        className="-mx-2 sm:-mx-6 px-2 sm:px-6 overflow-hidden border-y-2 border-blue-600"
-        style={{marginTop: '60px', marginBottom: '60px'}}
-      >
-        <div className="marquee flex gap-2 py-2 sm:py-4">
-          {Array.from({length: 40}).map((_, i) => (
-            <img
-              key={i}
-              src="/image/estrelinhaMovimentando.png"
-              alt="estrela"
-              className="w-6 h-6 sm:w-[30px] sm:h-[30px] lg:w-[100px] lg:h-[100px]"
-            />
-          ))}
+        <div
+          className="-mx-2 sm:-mx-6 px-2 sm:px-6 overflow-hidden border-y-2 border-blue-600"
+          style={{marginTop: '60px', marginBottom: '60px'}}
+        >
+          <div className="marquee flex gap-2 py-2 sm:py-4">
+            {Array.from({length: 40}).map((_, i) => (
+          <img
+            key={i}
+            src="/image/estrelinhaMovimentando.png"
+            alt="estrela"
+            className="w-10 h-10 sm:w-[30px] sm:h-[30px] lg:w-[100px] lg:h-[100px]"
+          />
+            ))}
+          </div>
         </div>
-      </div>
 
-      {/* Segunda Seção */}
+        {/* Segunda Seção */}
       <section
         className="py-8 sm:py-16 px-2 sm:px-4 flex flex-col lg:flex-row items-stretch justify-center gap-8 lg:gap-18"
-        style={{marginTop: '60px', marginBottom: '60px'}}
+        style={{marginTop: '60px', marginBottom: '60px', margin:'20px'}}
       >
         {/* Accordion */}
         <div
@@ -187,7 +187,8 @@ export default function Sobre() {
       </section>
 
       {/* Terceira Seção */}
-      <section className="py-8 sm:py-16 px-2 sm:px-4 flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12">
+      <section className="py-8 sm:py-16 px-2 sm:px-4 flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12" 
+      style={{padding:'20px'}}>
         {/* Imagem */}
         <div className="">
           <img
@@ -235,21 +236,22 @@ export default function Sobre() {
       </section>
 
       {/* Estrelinhas Novamente */}
-      <div
-        className="-mx-2 sm:-mx-6 px-2 sm:px-6 overflow-hidden border-y-2 border-blue-600"
-        style={{marginTop: '60px', marginBottom: '60px'}}
-      >
-        <div className="marquee flex gap-2 py-2 sm:py-4">
-          {Array.from({length: 40}).map((_, i) => (
-            <img
-              key={i}
-              src="/image/estrelinhaMovimentando.png"
-              alt="estrela"
-              className="w-6 h-6 sm:w-[30px] sm:h-[30px] lg:w-[100px] lg:h-[100px]"
-            />
-          ))}
+      {/* Estrelinhas - Corrigido para manter fundo contínuo */}
+        <div
+          className="-mx-2 sm:-mx-6 px-2 sm:px-6 overflow-hidden border-y-2 border-blue-600"
+          style={{marginTop: '60px', marginBottom: '60px'}}
+        >
+          <div className="marquee flex gap-2 py-2 sm:py-4">
+            {Array.from({length: 40}).map((_, i) => (
+          <img
+            key={i}
+            src="/image/estrelinhaMovimentando.png"
+            alt="estrela"
+            className="w-10 h-10 sm:w-[30px] sm:h-[30px] lg:w-[100px] lg:h-[100px]"
+          />
+            ))}
+          </div>
         </div>
-      </div>
       {/* Última Seção */}
       <div className="relative min-h-[400px] sm:min-h-screen flex items-center justify-center flex-col text-white px-2 sm:px-4">
         {/* Texto superior */}
