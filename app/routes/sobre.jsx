@@ -188,7 +188,7 @@ export default function Sobre() {
 
       {/* Terceira Seção */}
       <section className="py-8 sm:py-16 px-2 sm:px-4 flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12" 
-      style={{padding:'20px'}}>
+      style={{paddingLeft:'20px', paddingRight:'40px'}}>
         {/* Imagem */}
         <div className="">
           <img
