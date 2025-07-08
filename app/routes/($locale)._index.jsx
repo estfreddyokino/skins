@@ -343,7 +343,7 @@ export default function Homepage() {
             image1="/image/imagemHome1-1.png"
             image2="/image/imagemHome1-2.png"
             alt="Card 1"
-            title="Gen-starts"
+            title="Gen-stars"
             title2="R$ 49,00"
           />
           <HoverImageCard

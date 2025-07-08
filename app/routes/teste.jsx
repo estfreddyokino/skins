@@ -45,7 +45,7 @@ export default function Sobre() {
         style={{marginTop: '60px'}}
       >
         {/* Imagem */}
-        <div className="max-w-[1000px] lg:w-auto">
+        <div className="w-full lg:w-auto">
           <img
             src="/image/sobreImage11.png"
             alt="Modelo com adesivos no rosto"
@@ -62,10 +62,10 @@ export default function Sobre() {
 
         {/* Texto */}
         <div
-          className="w-full lg:w-1/3 border-2 border-blue-600 p-4 sm:p-8 rounded-[20px] sm:rounded-[30px] text-blue-700 max-w-[800px] flex flex-col justify-center"
+          className="w-full lg:w-1/3 border-2 border-blue-600 p-4 sm:p-8 rounded-[20px] sm:rounded-[30px] text-blue-700 max-w-[700px] flex flex-col justify-center"
           style={{
             height: 'auto',
-            minHeight: '750px',
+            minHeight: '320px',
             maxHeight: '756px',
             padding: '20px',
           }}
@@ -84,10 +84,7 @@ export default function Sobre() {
               Nossa Filosofia
             </h2>
           </div>
-          <p
-            className="mb-4 text-base sm:text-[16px]"
-            style={{marginLeft: '0px'}}
-          >
+          <p className="mb-4 text-base sm:text-[16px]" style={{marginLeft: '0px'}}>
             Na GENSKINS, acreditamos que cuidar da pele deve ser simples, eficaz
             e divertido. Criamos nossos adesivos secativos para transformar o
             incômodo das espinhas em algo leve, sem pressões ou padrões. Sabemos
@@ -131,56 +128,48 @@ export default function Sobre() {
 
       {/* Segunda Seção */}
       <section
-        className="py-8 sm:py-16 px-2 sm:px-4 flex flex-col lg:flex-row items-stretch justify-center gap-8 lg:gap-18"
+        className="py-8 sm:py-16 px-2 sm:px-4 flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-18"
         style={{marginTop: '60px', marginBottom: '60px'}}
       >
         {/* Accordion */}
         <div
-          className="bg-transparent border border-white rounded-[20px] sm:rounded-[30px] p-4 sm:p-10 text-white w-full max-w-[689px] flex flex-col justify-between"
-          style={{
-            minHeight: '420px', // mobile
-            height: 'auto',
-          }}
+          className="bg-transparent border border-white rounded-[20px] sm:rounded-[30px] p-4 sm:p-20 text-white w-full max-w-[689px]"
+          style={{height: 'auto', minHeight: '320px', maxHeight: '702px'}}
         >
-          <style jsx>{`
-            @media (min-width: 1024px) {
-              .accordion-box {
-                min-height: 220px !important;
-                max-height: 750px;
-                margin-top: 100px !important;
-              }
-            }
-          `}</style>
+          <h3
+            className="text-white font-semibold text-[22px] sm:text-[30px] mb-6 border-b border-gray-400 pb-3"
+            style={{marginTop: '40px', marginBottom: '0px'}}
+          >
+            Como funcionam os adesivos secativos?
+          </h3>
 
-          <div className="accordion-box">
-            <h3 className="text-white font-semibold text-[22px] sm:text-[30px] mb-6 border-b border-gray-400 pb-3">
-              Como funcionam os adesivos secativos?
-            </h3>
-
-            <Accordion
-              title="Absorção de exsudato"
-              content="Quando aplicado sobre a acne, o hidrocoloide absorve a secreção (exsudato) da lesão, formando um gel que ajuda a reduzir a inflamação e o inchaço."
-            />
-            <Accordion
-              title="Cicatrização"
-              content="A matriz do hidrocoloide cria um ambiente úmido que favorece a cicatrização rápida e eficiente, evitando a formação de crostas e cicatrizes."
-            />
-            <Accordion
-              title="Proteção Física"
-              content="O adesivo atua como uma barreira física que protege a área tratada de bactérias, poeira e outros contaminantes, prevenindo infecções e permitindo uma cicatrização segura."
-            />
-          </div>
+          <Accordion
+            title="Absorção de exsudato"
+            content="Quando aplicado sobre a acne, o hidrocoloide absorve a secreção (exsudato) da lesão, formando um gel que ajuda a reduzir a inflamação e o inchaço."
+          />
+          <Accordion
+            title="Cicatrização"
+            content="A matriz do hidrocoloide cria um ambiente úmido que favorece a cicatrização rápida e eficiente, evitando a formação de crostas e cicatrizes."
+          />
+          <Accordion
+            title="Proteção Física"
+            content="O adesivo atua como uma barreira física que protege a área tratada de bactérias, poeira e outros contaminantes, prevenindo infecções e permitindo uma cicatrização segura."
+          />
         </div>
 
         {/* Imagem */}
-        <div className="w-full lg:w-5/12 mt-8 lg:mt-0 flex items-stretch">
+        <div className="w-full lg:w-5/12 mt-8 lg:mt-0">
           <img
             src="/image/sobreImage2.png"
             alt="Fórmula Vegana"
-            className="rounded-[20px] sm:rounded-[30px] w-full object-cover max-w-[689px] max-h-[750px] h-full"
+            className="rounded-[20px] sm:rounded-[30px] w-full object-cover"
             style={{
               borderRadius: '20px',
-              minHeight: '420px', // match com accordion
+              width: '100%',
+              maxWidth: '689px',
+              height: 'auto',
+              maxHeight: '702px',
+              marginLeft: '0',
             }}
           />
         </div>
@@ -189,7 +178,7 @@ export default function Sobre() {
       {/* Terceira Seção */}
       <section className="py-8 sm:py-16 px-2 sm:px-4 flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12">
         {/* Imagem */}
-        <div className="">
+        <div className="w-full lg:w-5/12 mb-8 lg:mb-0">
           <img
             src="/image/sobreImage33.png"
             alt="Fórmula Vegana"
@@ -273,7 +262,7 @@ export default function Sobre() {
         >
           <img
             style={{
-              //maxHeight: '40vh',
+              maxHeight: '40vh',
               objectFit: 'cover',
               borderRadius: '20px',
               width: '100%',

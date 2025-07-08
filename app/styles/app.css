@@ -624,3 +624,17 @@ button.reset:hover:not(:has(> *)) {
   margin: 0 auto;
   padding: 0 1rem;
 }
+
+/* teste da imagem */
+.top100{
+  margin-top: 100px;
+}
+
+@media screen  and (max-width: 768px) {
+  .testeimagem {
+    width: 100%; /* imagem ocupa toda a largura do container */
+    height: auto; /* mantém a proporção da imagem */
+  }
+ 
+}
+
