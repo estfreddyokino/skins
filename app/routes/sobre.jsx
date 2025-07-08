@@ -42,7 +42,7 @@ export default function Sobre() {
       {/* Primeira Seção */}
       <section
         className="w-full py-8 sm:py-16 px-2 sm:px-8 flex flex-col lg:flex-row items-center justify-center gap-8"
-        style={{marginTop: '60px', padding: '20px'}}
+        style={{marginTop: '60px', paddingLeft: '40px', paddingRight: '40px'}}
       >
         {/* Imagem */}
         <div className="max-w-[1000px] lg:w-auto">
@@ -132,7 +132,7 @@ export default function Sobre() {
         {/* Segunda Seção */}
       <section
         className="py-8 sm:py-16 px-2 sm:px-4 flex flex-col lg:flex-row items-stretch justify-center gap-8 lg:gap-18"
-        style={{marginTop: '60px', marginBottom: '60px', margin:'20px'}}
+        style={{marginTop: '60px', marginBottom: '60px', paddingLeft: '40px', paddingRight: '40px'}}
       >
         {/* Accordion */}
         <div
@@ -188,7 +188,7 @@ export default function Sobre() {
 
       {/* Terceira Seção */}
       <section className="py-8 sm:py-16 px-2 sm:px-4 flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12" 
-      style={{paddingLeft:'20px', paddingRight:'40px'}}>
+      style={{paddingLeft:'40px', paddingRight:'40px'}}>
         {/* Imagem */}
         <div className="">
           <img
