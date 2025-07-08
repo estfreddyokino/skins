@@ -11,13 +11,13 @@ function Accordion({title, content}) {
   return (
     <div className="border-b border-gray-400 py-3 transition-all duration-300">
       <button
-        className="w-full flex justify-between items-center text-left text-white text-[20px] sm:text-[24px]"
+        className="w-full flex justify-between items-center text-left text-white text-[16px] sm:text-[18px] md:text-[24px]"
         onClick={() => setIsOpen(!isOpen)}
         style={{fontFamily: 'ReservationWide, sans-serif', fontWeight: 'bold'}}
       >
         <span>{title}</span>
         <span
-          className={`transform transition-transform duration-300 text-[32px] sm:text-[40px] ${
+          className={`transform transition-transform duration-300 text-[24px] sm:text-[32px] md:text-[40px] ${
             isOpen ? 'rotate-45 text-blue-300' : 'text-white'
           }`}
         >
@@ -25,7 +25,7 @@ function Accordion({title, content}) {
         </span>
       </button>
       <div
-        className={`text-[16px] sm:text-[18px] mt-2 text-white overflow-hidden transition-all duration-500 ease-in-out ${
+        className={`text-[14px] sm:text-[16px] md:text-[16px] mt-2 text-white overflow-hidden transition-all duration-500 ease-in-out ${
           isOpen ? 'opacity-100 max-h-[999px]' : 'opacity-0 max-h-0'
         }`}
         style={{fontFamily: 'sans-serif', fontWeight: 'normal'}}
@@ -136,23 +136,28 @@ export default function Sobre() {
       >
         {/* Accordion */}
         <div
-          className="bg-transparent border border-white rounded-[20px] sm:rounded-[30px] p-4 sm:p-10 text-white w-full max-w-[689px] flex flex-col justify-between"
+          className="bg-transparent rounded-[20px] sm:rounded-[30px] p-4 sm:p-10 text-white w-full max-w-[689px] flex flex-col justify-between border-0 sm:border sm:border-white"
           style={{
             minHeight: '420px', // mobile
             height: 'auto',
-          }}
-        >
-          <style jsx>{`
+            }}
+          >
+            <style jsx>{`
             @media (min-width: 1024px) {
               .accordion-box {
-                min-height: 220px !important;
-                max-height: 750px;
-                margin-top: 100px !important;
+              min-height: 220px !important;
+              max-height: 750px;
+              margin-top: 100px !important;
               }
             }
-          `}</style>
+            @media (max-width: 640px) {
+              .accordion-box h3 {
+              font-size: 16px !important;
+              }
+            }
+            `}</style>
 
-          <div className="accordion-box">
+            <div className="accordion-box">
             <h3 className="text-white font-semibold text-[22px] sm:text-[30px] mb-6 border-b border-gray-400 pb-3">
               Como funcionam os adesivos secativos?
             </h3>
@@ -169,10 +174,10 @@ export default function Sobre() {
               title="Proteção Física"
               content="O adesivo atua como uma barreira física que protege a área tratada de bactérias, poeira e outros contaminantes, prevenindo infecções e permitindo uma cicatrização segura."
             />
+            </div>
           </div>
-        </div>
 
-        {/* Imagem */}
+          {/* Imagem */}
         <div className="w-full lg:w-5/12 mt-8 lg:mt-0 flex items-stretch">
           <img
             src="/image/sobreImage2.png"
@@ -206,12 +211,29 @@ export default function Sobre() {
         </div>
 
         {/* Accordion */}
-        <div
-          className="bg-transparent border border-white rounded-[20px] sm:rounded-[30px] p-4 sm:p-20 text-white testeimagem w-full max-w-[689px]"
-          style={{height: 'auto', minHeight: '320px', maxHeight: '702px'}}
-        >
-          <h3
-            className="text-white font-semibold text-[22px] sm:text-[30px] mb-6 border-b border-gray-400 pb-3"
+       <div
+          className="bg-transparent rounded-[20px] sm:rounded-[30px] p-4 sm:p-10 text-white w-full max-w-[689px] flex flex-col justify-between border-0 sm:border sm:border-white"
+          style={{
+            minHeight: '420px', // mobile
+            height: 'auto',
+            }}
+          >
+            <style jsx>{`
+            @media (min-width: 1024px) {
+              .accordion-box {
+              min-height: 220px !important;
+              max-height: 750px;
+              margin-top: 100px !important;
+              }
+            }
+            @media (max-width: 640px) {
+              .accordion-box h3 {
+              font-size: 16px !important;
+              }
+            }
+            `}</style>
+         <div className="accordion-box">
+            <h3 className="text-white font-semibold text-[22px] sm:text-[30px] mb-6 border-b border-gray-400 pb-3"
             style={{marginTop: '40px', marginBottom: '0px'}}
           >
             Modo de uso:
@@ -232,6 +254,7 @@ export default function Sobre() {
             title="4-Remova"
             content="Remova o adesivo e descarte-o após o uso."
           />
+          </div>
         </div>
       </section>
 
