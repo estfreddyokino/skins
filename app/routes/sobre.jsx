@@ -37,7 +37,7 @@ function Accordion({title, content}) {
 
 export default function Sobre() {
   return (
-    <div className="bg-image-full2 p-2 sm:p-6">
+    <div className="bg-image-full p-2 sm:p-6">
       {/* Primeira Seção */}
       <section
         className="w-full py-8 sm:py-16 px-2 sm:px-8 flex flex-col lg:flex-row items-center justify-center gap-y-4 sm:gap-y-8 lg:gap-12"
