@@ -70,7 +70,7 @@ export function Footer() {
           <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
             <li style={{ marginBottom: '16px' }}>
               <a
-                href="/politica-de-frete"
+                href="/frete-entrega"
                 style={{
                   color: '#8b8c8d',
                   fontWeight: '600',
@@ -96,7 +96,7 @@ export function Footer() {
             </li>
             <li>
               <a
-                href="/termos-de-uso"
+                href="/termos-de-garantia"
                 style={{
                   color: '#8b8c8d',
                   fontWeight: '600',
@@ -104,7 +104,33 @@ export function Footer() {
                   textDecoration: 'none',
                 }}
               >
-                Termos de uso
+                Política de Garantia
+              </a>
+            </li>
+            <li>
+              <a
+                href="/termos-de-privicidade"
+                style={{
+                  color: '#8b8c8d',
+                  fontWeight: '600',
+                  fontSize: '20px',
+                  textDecoration: 'none',
+                }}
+              >
+                Política de Privacidade
+              </a>
+            </li>
+            <li>
+              <a
+                href="/termos-de-pagamento"
+                style={{
+                  color: '#8b8c8d',
+                  fontWeight: '600',
+                  fontSize: '20px',
+                  textDecoration: 'none',
+                }}
+              >
+                Política de Pagamentos
               </a>
             </li>
           </ul>
