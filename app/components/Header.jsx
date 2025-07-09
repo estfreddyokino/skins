@@ -35,30 +35,10 @@ export function Header({header, isLoggedIn, cart, publicStoreDomain}) {
 
   return (
     <header
-      className="header"
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: '10px 15px',
-        overflow: 'hidden',
-        width: '100%',
-        boxSizing: 'border-box',
-      }}
+      className="header-wrapper"
     >
-      <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
-        <img
-          src="/image/headerLogo.png"
-          alt="Logo"
-          style={{
-            height: viewport === 'mobile' ? '30px' : '50px',
-            width: 'auto',
-            maxWidth: viewport === 'mobile' ? '100px' : '150px',
-            objectFit: 'contain',
-            marginLeft: viewport === 'mobile' ? '0px' : '20px',
-          }}
-        />
+      <NavLink prefetch="intent" to="/" style={activeLinkStyle} className={"header-menu-img-logo"}end>
+        <img src="/image/headerLogo.png" alt="Logo"/>
       </NavLink>
       <HeaderMenu
         menu={menu}
@@ -90,18 +70,8 @@ export function HeaderMenu({
 
   return (
     <nav
-       className={`reservation-wide ${className}`}
+      className={'header-item-menu-wrapper'}
       role="navigation"
-      style={{
-        marginLeft: viewport === 'mobile' ? '0px' : '0%',
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'nowrap',
-        justifyContent: 'center',
-        alignItems: 'center',
-        gap: '15px',
-        
-      }}
     >
       {[
         {title: 'HOME', url: '/'},
@@ -109,23 +79,15 @@ export function HeaderMenu({
         {title: 'SOBRE', url: '/sobre'},
       ].map(({title, url}) => (
         <NavLink
-          className="header-menu-item"
+          className="header-item-menu"
           end
           key={url}
           onClick={close}
           prefetch="intent"
-          style={({isActive, isPending}) => ({
-            fontWeight: 'bold',
-            marginLeft: viewport === 'mobile' ? '0px' : '80px',
-            color: 'blue',
-            textTransform: 'uppercase',
-            textDecoration: 'none',
-            fontSize: viewport === 'mobile' ? '12px' : '25px',
-            whiteSpace: 'nowrap', // <-- nunca quebrar as palavras
-          })}
           to={url}
         >
           {title}
+          <span></span>
         </NavLink>
       ))}
     </nav>
@@ -137,17 +99,7 @@ export function HeaderMenu({
  */
 function HeaderCtas({isLoggedIn, cart, viewport}) {
   return (
-    <nav
-      className="header-ctas"
-      role="navigation"
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginRight: viewport === 'mobile' ? '20px' : '20px',
-        marginLeft: viewport === 'mobile' ? '0px' : '20px',
-      }}
-    >
+    <nav className="header-car" role="navigation">
       <HeaderMenuMobileToggle />
       <CartToggle cart={cart} viewport={viewport} />
     </nav>

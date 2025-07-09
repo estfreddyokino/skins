@@ -1,4 +1,3 @@
-import '../styles/background2.css';
 import {useState} from 'react';
 
 export function meta() {
