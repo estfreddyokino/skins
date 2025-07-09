@@ -164,29 +164,42 @@ function HoverImageCard({image1, image2, alt, title, title2, title3}) {
 export default function Homepage() {
   const data = useLoaderData();
   const phrase = useScrollTyping('Para todos os tipos de pele', 50);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const handleScroll = () => {
+      const position = window.pageYOffset;
+      setScrollPosition(position);
+  };
+
+  useEffect(() => {
+      window.addEventListener('scroll', handleScroll, { passive: true });
+
+      return () => {
+          window.removeEventListener('scroll', handleScroll);
+      };
+  }, []);
 
   return (
     <div className="bg-image-full">
       <style>
         {`
           @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            0%, 100% { transform: rotate(0deg) scale(1); offset-distance: 0px; }
+            50% { transform: rotate(-10deg) scale(.8); offset-distance: 30px; }
           }
           @keyframes float2 {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+            0%, 100% { transform: rotate(0deg) scale(1); offset-distance: 0px; }
+            50% { transform: rotate(15deg) scale(.7); offset-distance: 40px; }
           }
           @keyframes float3 {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
+            0%, 100% { transform: rotate(0deg) scale(1); offset-distance: 0px; }
+            50% { transform: rotate(-60deg) scale(1.5); offset-distance: 60px; }
           }
-          .float { animation: float 3s ease-in-out infinite; }
-          .float2 { animation: float2 4s ease-in-out infinite; }
-          .float3 { animation: float3 5s ease-in-out infinite; }
+          .float { animation: float 7s ease-in-out infinite; }
+          .float2 { animation: float2 10s ease-in-out infinite; }
+          .float3 { animation: float3 12s ease-in-out infinite; }
         `}
       </style>
-      <section className="relative w-full min-h-[80vh] md:min-h-screen overflow-hidden">
+      <section className="relative w-full min-h-[80vh] md:min-h-screen">
         {/* Texto central */}
         <section className="w-full py-20 px-4 sm:px-8 flex flex-col lg:flex-row items-center justify-center gap-8">
           <div className="w-full lg:w-8/12">
@@ -247,80 +260,134 @@ export default function Homepage() {
         {/* ==== ELEMENTOS VISUAIS DESKTOP ==== */}
         <div className="hidden md:block">
           {/* BLOCO 1 - DESKTOP */}
-          <img
-            src="/image/estrelaamarela.png"
-            className="absolute top-25 right-52 w-28 float"
-          />
-          <img
-            src="/image/estrelaazul.png"
-            className="absolute top-30 left-50 w-24 float2"
-          />
-          <img
-            src="/image/rotoFelizAzul.png"
-            className="absolute top-14 left-1/4 w-36 float3"
-          />
-          <img
-            src="/image/peixeAzulDereita.png"
-            className="absolute top-2 right-1/3 w-32 float"
-          />
-          <img
-            src="/image/peixeAzulDereita.png"
-            className="absolute top-22 right-80 w-12 float scale-x-[-1]"
-          />
-          <img
-            src="/image/solAmarelo.png"
-            className="absolute top-2 right-1/2 w-48 float2"
-          />
+          <div className='absolute top-25 right-52 w-28'
+            style={{transform: `translate(${scrollPosition}px, -${scrollPosition*2.5}px) scale(${1 + scrollPosition/1000})`}}>
+            <img
+              src="/image/estrelaamarela.png"
+              className="w-100 float2"
+            />
+          </div>
+          <div className='absolute top-30 left-50 w-24'
+            style={{transform: `translate(0, -${scrollPosition*2.5}px) scale(${1 + scrollPosition/1000})`}}>
+            <img
+              src="/image/estrelaazul.png"
+              className="w-100 float2"
+            />
+          </div>
+          <div className='absolute top-14 left-1/4 w-36'
+            style={{transform: `translate(-${scrollPosition}px, -${scrollPosition*2.5}px) scale(${1 + scrollPosition/1000})`}}>
+            <img
+              src="/image/rotoFelizAzul.png"
+              className="w-100 float"
+            />
+          </div>
+          <div className='absolute top-2 right-1/3 w-32'
+            style={{transform: `translate(-${scrollPosition}px, -${scrollPosition*2.5}px) scale(${1 + scrollPosition/1000})`}}>
+            <img
+              src="/image/peixeAzulDereita.png"
+              className="w-100 float"
+            />
+          </div>
+          <div className='absolute top-22 right-80 w-12'
+            style={{transform: `translate(-${scrollPosition}px, -${scrollPosition*2.5}px) scale(${1 + scrollPosition/1000})`}}>
+            <img
+              src="/image/peixeAzulDereita.png"
+              className="w-100 scale-x-[-1] float3"
+            />
+          </div>
+          <div className='absolute top-2 right-1/2 w-48'
+            style={{transform: `translate(0, -${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
+            <img
+              src="/image/solAmarelo.png"
+              className="w-100 float"
+            />
+          </div>
 
           {/* BLOCO 2 - DESKTOP */}
-          <img
-            src="/image/estrelaamarela.png"
-            className="absolute top-[440px] left-30 w-28 float2 scale-x-[-1]"
-          />
-          <img
-            src="/image/estrelaamarela.png"
-            className="absolute top-124 left-230 w-12 float"
-          />
-          <img
-            src="/image/estrelaazul.png"
-            className="absolute top-[480px] right-60 w-24 float3"
-          />
-          <img
-            src="/image/estrelaazul.png"
-            className="absolute top-40 right-120 w-12 float3 scale-x-[-1]"
-          />
-          <img
-            src="/image/estrelaazul.png"
-            className="absolute top-140 right-260 w-12 float3 scale-x-[-1]"
-          />
-          <img
-            src="/image/rotoFelizAzul.png"
-            className="absolute top-[640px] left-50 w-36 float scale-x-[-1]"
-          />
-          <img
-            src="/image/rotoFelizAzul.png"
-            className="absolute top-120 right-20 w-16 float"
-          />
-          <img
-            src="/image/peixeAzulDereita.png"
-            className="absolute top-[480px] right-2/3 w-32 float2"
-          />
-          <img
-            src="/image/peixeAzulDereita.png"
-            className="absolute top-50 left-200 w-12 float2 scale-x-[-1]"
-          />
-          <img
-            src="/image/solAmarelo.png"
-            className="absolute top-[500px] right-1/3 w-48 float3 scale-x-[-1]"
-          />
-          <img
-            src="/image/solAmarelo.png"
-            className="absolute top-70 right-40 w-10 float3 scale-x-[-1]"
-          />
-          <img
-            src="/image/solAmarelo.png"
-            className="absolute top-70 left-40 w-10 float2 scale-x-[-1]"
-          />
+          <div className='absolute top-[440px] left-30 w-28'
+            style={{transform: `translate(-${scrollPosition}px, ${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
+            <img
+              src="/image/estrelaamarela.png"
+              className="w-100 float2 scale-x-[-1]"
+            />
+          </div>
+          <div className='absolute top-124 left-230 w-12'
+            style={{transform: `translate(0, ${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
+            <img
+              src="/image/estrelaamarela.png"
+              className="w-100 float3"
+            />
+          </div>
+          <div className='absolute top-[480px] right-60 w-24'
+            style={{transform: `translate(${scrollPosition}px, ${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
+            <img
+              src="/image/estrelaazul.png"
+              className="w-100 float2"
+            />
+          </div>
+          <div className='absolute top-40 right-120 w-12'
+            style={{transform: `translate(${scrollPosition}px, -${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
+            <img
+              src="/image/estrelaazul.png"
+              className="w-100 float3 scale-x-[-1]"
+            />
+          </div>
+          <div className='absolute top-140 right-260 w-12'
+            style={{transform: `translate(${scrollPosition}px, ${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
+            <img
+              src="/image/estrelaazul.png"
+              className="w-100 float3 scale-x-[-1]"
+            />
+          </div>
+          <div className='absolute top-[640px] left-50 w-36'
+            style={{transform: `translate(-${scrollPosition}px, ${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
+            <img
+              src="/image/rotoFelizAzul.png"
+              className="w-100 float2 scale-x-[-1]"
+            />
+          </div>
+          <div className='absolute top-120 right-20 w-16'
+            style={{transform: `translate(${scrollPosition}px, 0) scale(${1 + scrollPosition/100})`}}>
+            <img
+              src="/image/rotoFelizAzul.png"
+              className="w-100 float3"
+            />
+          </div>
+          <div className='absolute top-[480px] right-2/3 w-32'
+            style={{transform: `translate(-${scrollPosition}px, ${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
+            <img
+              src="/image/peixeAzulDereita.png"
+              className="w-100 float2"
+            />
+          </div>
+          <div className='absolute top-50 left-200 w-12'
+            style={{transform: `translate(-${scrollPosition}px, -${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
+            <img
+              src="/image/peixeAzulDereita.png"
+              className="w-100 float3 scale-x-[-1]"
+            />
+          </div>
+          <div className='absolute top-[500px] right-1/3 w-48'
+            style={{transform: `translate(0, ${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
+            <img
+              src="/image/solAmarelo.png"
+              className="w-100 float2 scale-x-[-1]"
+            />
+          </div>
+          <div className='absolute top-70 right-40 w-10'
+            style={{transform: `translate(${scrollPosition}px, -${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
+            <img
+              src="/image/solAmarelo.png"
+              className="w-100 float3 scale-x-[-1]"
+            />
+          </div>
+          <div className='absolute top-70 left-40 w-10 '
+            style={{transform: `translate(${scrollPosition}px, -${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
+            <img
+              src="/image/solAmarelo.png"
+              className="w-100 float2 scale-x-[-1]"
+            />
+          </div>
         </div>
       </section>
 
