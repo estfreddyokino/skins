@@ -588,10 +588,34 @@ button.reset:hover:not(:has(> *)) {
   cursor: pointer;
   display: none;
 }
+.bg-image-full {
+  padding-top: 75px;
+  background-image: linear-gradient(#aebddb, #2b52a1, #2b52a1, white);
+}
+
 .bg-image-white {
   padding-top: 75px;
-  background-image: linear-gradient(#ffffff,#aebddb, #2b52a1, #3e64af, white)
+  background-image: linear-gradient(#ffffff, #aebddb, #2b52a1, #3e64af, white);
 }
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee {
+  animation: marquee 20s linear infinite;
+  width: 200%;
+}
+
+.marquee > img {
+  flex-shrink: 0;
+}
+
 .cart-line-item:hover .remove-button {
   display: block;
 }
