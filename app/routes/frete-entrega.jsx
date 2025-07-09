@@ -39,7 +39,7 @@ export default function PoliticaFreteEntrega() {
                     <h2 className="text-2xl font-semibold" style={{ fontSize: '30px' }}>
                         Prazos e Valores do Frete
                     </h2>
-                    <ul className="list-disc text-[20px] pl-5 text-justify sm:text-left">
+                    <ul className="list-disc !text-[20px] pl-5 text-justify sm:text-left">
                         <li>
                             O frete será calculado automaticamente no momento da compra, considerando o endereço de entrega informado e o peso/dimensões dos produtos adquiridos.
                         </li>
@@ -50,7 +50,6 @@ export default function PoliticaFreteEntrega() {
                                 <li>Frete Econômico: Entregas em até 12 dias úteis, disponível para todo o Brasil.</li>
                             </ul>
                         </li>
-                        <li>Oferecemos frete grátis para compras acima de R$300,00 (válido para a modalidade econômica e somente para regiões específicas).</li>
                     </ul>
                 </section>
 
@@ -68,7 +67,7 @@ export default function PoliticaFreteEntrega() {
                     <h2 className="text-2xl font-semibold" style={{ fontSize: '30px' }}>
                         Rastreamento
                     </h2>
-                    <p className="text-[20px] text-justify sm:text-left">
+                    <p className="!text-[20px] text-justify sm:text-left">
                         Todos os pedidos possuem código de rastreio. Você receberá o código por e-mail após o envio e poderá acompanhar diretamente no site dos nossos parceiros logísticos.
                     </p>
                 </section>
@@ -90,7 +89,7 @@ export default function PoliticaFreteEntrega() {
                     <h2 className="text-2xl font-semibold" style={{ fontSize: '30px' }}>
                         Atrasos na Entrega
                     </h2>
-                    <p className="text-[20px] text-justify sm:text-left">
+                    <p className="!text-[20px] text-justify sm:text-left">
                         Trabalhamos com parceiros logísticos confiáveis, mas em casos de atrasos por fatores externos (greves, eventos climáticos etc.), daremos todo o suporte necessário.
                     </p>
                 </section>
@@ -99,7 +98,7 @@ export default function PoliticaFreteEntrega() {
                     <h2 className="text-2xl font-semibold" style={{ fontSize: '30px' }}>
                         Endereço Incorreto ou Incompleto
                     </h2>
-                    <p className="text-[20px] text-justify sm:text-left">
+                    <p className="!text-[20px] text-justify sm:text-left">
                         É de responsabilidade do cliente preencher corretamente os dados de entrega. Se o pedido retornar por erro de endereço, entraremos em contato para reenvio, podendo haver nova taxa de frete.
                     </p>
                 </section>
