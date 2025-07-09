@@ -68,7 +68,7 @@ export default function Collection() {
     <div className="collection">
       <p className="collection-description">{collection.description}</p>
 
-      <div className="my-8 flex justify-center">
+      {/* <div className="my-8 flex justify-center">
         <div className="inline-flex flex-wrap justify-center">
           {otherCollections.map((collection, index) => (
             <CollectionButton
@@ -78,7 +78,7 @@ export default function Collection() {
             />
           ))}
         </div>
-      </div>
+      </div> */}
 
       <PaginatedResourceSection
         connection={collection.products}
@@ -173,8 +173,19 @@ function ProductItem({product, loading}) {
     }
   }, [product.title]);
 
+  // Helper classes for responsive font sizes
+  // You can adjust these Tailwind classes as needed
+  const titleClass =
+    'text-[36px] md:text-[60px] font-bold text-blue-800 mb-6';
+  const descIntroClass =
+    'text-lg md:text-2xl mb-4 text-justify text-[#948BDC] font-bold';
+  const ulClass =
+    'list-inside pl-6 space-y-2 mb-4 text-base md:text-[19px] font-bold';
+  const descFinalClass =
+    'text-lg md:text-[25px] font-bold mb-6 text-[#949BDC]';
+
   return (
-    <div className="flex flex-col md:flex-row bg-[#f5f6f8] rounded-3xl p-8 shadow-lg relative overflow-hidden mx-40  my-10">
+    <div className="flex flex-col md:flex-row bg-[#f5f6f8] rounded-3xl shadow-lg relative overflow-hidden mx-2 md:mx-40 my-10">
       <div className="flex flex-col items-center justify-center relative w-full md:w-[50%]">
         <div className="flex items-center justify-center relative">
           {images.length > 1 && (
@@ -187,7 +198,7 @@ function ProductItem({product, loading}) {
             </button>
           )}
 
-          <div className="w-full max-w-[400px] h-[500px] flex items-center justify-center">
+          <div className="w-full max-w-[300px] md:max-w-[400px] h-[350px] md:h-[500px] flex items-center justify-center">
             {currentImage && (
               <Image
                 key={currentImage.id}
@@ -218,27 +229,25 @@ function ProductItem({product, loading}) {
             <img
               src={titleImage}
               alt={product.title}
-              className="h-12 object-contain mb-2"
+              className="h-10 md:h-12 object-contain mb-2"
             />
           ) : (
-            <h2 className="text-[60px] font-bold text-blue-800 mb-6">
+            <h2 className={titleClass}>
               {product.title}
             </h2>
           )}
         </div>
 
         <p
-          className="text-2xl mb-4 text-justify text-[#948BDC]"
+          className={descIntroClass}
           style={{
             lineHeight: '1.5',
-            fontSize: '22px',
             marginTop: '20px',
             marginBottom: '20px',
             marginLeft: '25px',
             marginRight: '25px',
             fontFamily: 'ReservationWide, sans-serif',
-            fontWeight: 'bold',
-            fontStyle: 'normal', // aqui aplica a nova fonte
+            fontStyle: 'normal',
           }}
         >
           {descriptionParts.descIntro}
@@ -253,14 +262,13 @@ function ProductItem({product, loading}) {
         />
 
         <ul
-          className="list-inside pl-6 space-y-2 mb-4 text-[19px]"
+          className={ulClass}
           style={{
             listStyleType: 'disc',
             marginLeft: '45px',
             marginTop: '20px',
             marginBottom: '20px',
             fontFamily: 'ReservationWide, sans-serif',
-            fontWeight: 'bold',
             fontStyle: 'normal',
           }}
         >
@@ -284,14 +292,12 @@ function ProductItem({product, loading}) {
         />
 
         <p
-          className="text-[25px] font-bold mb-6 text-[#949BDC]"
+          className={descFinalClass}
           style={{
             lineHeight: '1.5',
             marginTop: '40px',
-            fontSize: '20px',
             marginLeft: '25px',
             fontFamily: 'ReservationWide, sans-serif',
-            fontWeight: 'bold',
             fontStyle: 'normal',
           }}
         >
@@ -299,10 +305,10 @@ function ProductItem({product, loading}) {
         </p>
 
         <div
-          className="flex justify-between items-center "
-          style={{marginTop: '50px', marginLeft: '25px', marginRight: '25px'}}
+          className="flex flex-col md:flex-row justify-between items-center"
+          style={{marginTop: '50px', marginLeft: '25px', marginRight: '25px', marginBottom: '20px'}}
         >
-          <h3 className="text-3xl font-bold text-blue-800 mb-6">
+          <h3 className="text-2xl md:text-3xl font-bold text-blue-800 mb-6">
             <Money data={product.priceRange.minVariantPrice} />
           </h3>
 
@@ -314,7 +320,7 @@ function ProductItem({product, loading}) {
               },
             ]}
             onClick={handleAddToCart}
-            className="bg-blue-600 text-white px-10 py-3 rounded-full hover:bg-blue-700 transition text-center w-max text-[20px] font-bold"
+            className="bg-blue-600 text-white px-8 md:px-10 py-3 rounded-full hover:bg-blue-700 transition text-center w-max text-lg md:text-[20px] font-bold"
           >
             SHOP
           </AddToCartButton>
