@@ -588,7 +588,10 @@ button.reset:hover:not(:has(> *)) {
   cursor: pointer;
   display: none;
 }
-
+.bg-image-white {
+  padding-top: 75px;
+  background-image: linear-gradient(#ffffff,#aebddb, #2b52a1, #3e64af, white)
+}
 .cart-line-item:hover .remove-button {
   display: block;
 }
