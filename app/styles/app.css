@@ -392,6 +392,7 @@ button.reset:hover:not(:has(> *)) {
   flex-direction: column;
   gap: 3rem;
   align-items: center;
+  margin-top: 10%;
 }
 
 .product-item {

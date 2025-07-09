@@ -4,6 +4,11 @@
   font-style: normal;
   src: url("./font-c49e977d-a711-4f49-b2a1-beca235fa87c.ttf") format('truetype');
 }
+
+/* Remove underline for active menu */
+.header-item-menu.active > span {
+  width: 0 !important;
+}
 .header {
     background-color: rgba(240, 242, 244, 0.8) !important;
     border-color: rgb(255, 255, 255);
@@ -72,7 +77,7 @@
 }
 .header-item-menu.active > span,
 .header-item-menu:hover > span {
-  width: 90%;
+  width: 0 !important;
 }
 .header-item-menu.active,
 .header-item-menu:hover {

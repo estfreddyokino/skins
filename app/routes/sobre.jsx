@@ -37,11 +37,11 @@ function Accordion({title, content}) {
 
 export default function Sobre() {
   return (
-    <div className="bg-image-full p-2 sm:p-6">
+    <div className="bg-image-full2 p-2 sm:p-6">
       {/* Primeira Seção */}
       <section
-        className="w-full py-8 sm:py-16 px-2 sm:px-8 flex flex-col lg:flex-row items-center justify-center gap-8"
-        style={{marginTop: '60px', paddingLeft: '40px', paddingRight: '40px'}}
+        className="w-full py-8 sm:py-16 px-2 sm:px-8 flex flex-col lg:flex-row items-center justify-center gap-y-4 sm:gap-y-8 lg:gap-12"
+        style={{marginTop: '60px', paddingLeft: '20px', paddingRight: '20px'}}
       >
         {/* Imagem */}
         <div className="max-w-[1000px] lg:w-auto">
@@ -52,29 +52,26 @@ export default function Sobre() {
             style={{
               borderRadius: '20px',
               width: '100%',
-              maxWidth: '1007px',
               height: 'auto',
-              maxHeight: '756px',
+              maxHeight: '1000px', // para mobile
             }}
           />
         </div>
 
         {/* Texto */}
         <div
-          className="w-full lg:w-1/3 border-2 border-blue-600 p-4 sm:p-8 rounded-[20px] sm:rounded-[30px] text-blue-700 max-w-[800px] flex flex-col justify-center"
+          className="w-full lg:w-1/3 p-4 sm:p-8 rounded-[20px] sm:rounded-[30px] text-blue-700 max-w-[800px] flex flex-col justify-center border-0 sm:border-2 sm:border-blue-600 sm:min-h-[750px]"
           style={{
             height: 'auto',
-            minHeight: '750px',
             maxHeight: '756px',
             padding: '20px',
           }}
         >
-          <div className="flex items-center mt-8 sm:mt-48">
+          <div className="flex items-center mt-0 sm:mt-48">
             <img
               src="/image/estrenha.png"
               alt=""
-              className="w-8 sm:w-[6%] mb-4"
-              style={{marginBottom: '20px'}}
+              className="w-8 sm:w-[6%] mb-2 sm:mb-4"
             />
             <h2
               className="text-lg font-bold uppercase mb-4"
@@ -83,10 +80,9 @@ export default function Sobre() {
               Nossa Filosofia
             </h2>
           </div>
-          <p
-            className="mb-4 text-base sm:text-[16px]"
-            style={{marginLeft: '0px'}}
-          >
+
+          {/* MOBILE TEXT (mostra só em telas pequenas) */}
+          <p className="block sm:hidden mb-4 text-base">
             Na GENSKINS, acreditamos que cuidar da pele deve ser simples, eficaz
             e divertido. Criamos nossos adesivos secativos para transformar o
             incômodo das espinhas em algo leve, sem pressões ou padrões. Sabemos
@@ -94,7 +90,23 @@ export default function Sobre() {
             confiança.
           </p>
           <p
-            className="mb-4 text-base sm:text-[16px]"
+            className="block sm:hidden mb-4 text-base"
+            style={{marginTop: '10px'}}
+          >
+            Nossa missão é ajudar você a se sentir bem com sua pele, oferecendo
+            soluções descoladas que combinam estilo, autenticidade e resultados.
+          </p>
+
+          {/* DESKTOP TEXT (some no mobile) */}
+          <p className="hidden sm:block mb-4 text-base sm:text-[16px]">
+            Na GENSKINS, acreditamos que cuidar da pele deve ser simples, eficaz
+            e divertido. Criamos nossos adesivos secativos para transformar o
+            incômodo das espinhas em algo leve, sem pressões ou padrões. Sabemos
+            que a acne surge sem avisar, mas isso não precisa afetar sua
+            confiança.
+          </p>
+          <p
+            className="hidden sm:block mb-4 text-base sm:text-[16px]"
             style={{marginTop: '10px', marginBottom: '10px'}}
           >
             Nossa missão é ajudar você a se sentir bem com sua pele, oferecendo
@@ -102,6 +114,7 @@ export default function Sobre() {
             Porque, no fim, a verdadeira beleza está em se aceitar como você é –
             e, com GENSKINS, cuidar de si mesmo nunca foi tão fácil e divertido.
           </p>
+
           <button
             className="border border-blue-600 text-blue-600 px-6 py-2 rounded-full font-medium hover:bg-[rgba(0,26,255,0.35)] transition mt-4 sm:mt-8 text-base sm:text-[20px]"
             onClick={() => (window.location.href = '/collections/frontpage')}
@@ -112,51 +125,63 @@ export default function Sobre() {
       </section>
 
       {/* Estrelinhas - Corrigido para manter fundo contínuo */}
-        <div
-          className="-mx-2 sm:-mx-6 px-2 sm:px-6 overflow-hidden border-y-2 border-blue-600"
-          style={{marginTop: '60px', marginBottom: '60px'}}
-        >
-          <div className="marquee flex gap-2 py-2 sm:py-4">
-            {Array.from({length: 40}).map((_, i) => (
+      <div className="-mx-2 sm:-mx-6 px-2 sm:px-6 overflow-hidden border-y-2 border-blue-600 mt-[60px] sm:mb-[60px]">
+        <div className="marquee flex gap-2 py-2 sm:py-4">
+          {Array.from({length: 40}).map((_, i) => (
+            <img
+              key={i}
+              src="/image/estrelinhaMovimentando.png"
+              alt="estrela"
+              className="w-10 h-10 sm:w-[30px] sm:h-[30px] lg:w-[100px] lg:h-[100px]"
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Segunda Seção */}
+      <section
+        className="mt-[10px] sm:mt-[60px] mb-[1px] py-8 sm:py-16 px-2 sm:px-4 flex flex-col lg:flex-row items-stretch justify-center gap-8 lg:gap-18"
+        style={{
+          paddingLeft: '40px',
+          paddingRight: '40px',
+        }}
+      >
+        {/* Imagem vem primeiro no mobile */}
+        <div className="w-full lg:w-5/12 mt-8 lg:mt-0 flex items-stretch order-1 lg:order-2">
           <img
-            key={i}
-            src="/image/estrelinhaMovimentando.png"
-            alt="estrela"
-            className="w-10 h-10 sm:w-[30px] sm:h-[30px] lg:w-[100px] lg:h-[100px]"
+            src="/image/sobreImage2.png"
+            alt="Fórmula Vegana"
+            className="rounded-[20px] sm:rounded-[30px] w-full object-cover max-w-[689px] max-h-[750px] h-full"
+            style={{
+              borderRadius: '20px',
+             
+            }}
           />
-            ))}
-          </div>
         </div>
 
-        {/* Segunda Seção */}
-      <section
-        className="py-8 sm:py-16 px-2 sm:px-4 flex flex-col lg:flex-row items-stretch justify-center gap-8 lg:gap-18"
-        style={{marginTop: '60px', marginBottom: '60px', paddingLeft: '40px', paddingRight: '40px'}}
-      >
-        {/* Accordion */}
+        {/* Accordion vem depois no mobile, mas antes no desktop */}
         <div
-          className="bg-transparent rounded-[20px] sm:rounded-[30px] p-4 sm:p-10 text-white w-full max-w-[689px] flex flex-col justify-between border-0 sm:border sm:border-white"
+          className="bg-transparent rounded-[20px] sm:rounded-[30px] p-4 sm:p-10 text-white w-full max-w-[689px] flex flex-col justify-between border-0 sm:border sm:border-white order-2 lg:order-1"
           style={{
-            minHeight: '420px', // mobile
             height: 'auto',
-            }}
-          >
-            <style jsx>{`
+          }}
+        >
+          <style jsx>{`
             @media (min-width: 1024px) {
               .accordion-box {
-              min-height: 220px !important;
-              max-height: 750px;
-              margin-top: 100px !important;
+                min-height: 220px !important;
+                max-height: 750px;
+                margin-top: 100px !important;
               }
             }
             @media (max-width: 640px) {
               .accordion-box h3 {
-              font-size: 16px !important;
+                font-size: 16px !important;
               }
             }
-            `}</style>
+          `}</style>
 
-            <div className="accordion-box">
+          <div className="accordion-box">
             <h3 className="text-white font-semibold text-[22px] sm:text-[30px] mb-6 border-b border-gray-400 pb-3">
               Como funcionam os adesivos secativos?
             </h3>
@@ -173,26 +198,15 @@ export default function Sobre() {
               title="Proteção Física"
               content="O adesivo atua como uma barreira física que protege a área tratada de bactérias, poeira e outros contaminantes, prevenindo infecções e permitindo uma cicatrização segura."
             />
-            </div>
           </div>
-
-          {/* Imagem */}
-        <div className="w-full lg:w-5/12 mt-8 lg:mt-0 flex items-stretch">
-          <img
-            src="/image/sobreImage2.png"
-            alt="Fórmula Vegana"
-            className="rounded-[20px] sm:rounded-[30px] w-full object-cover max-w-[689px] max-h-[750px] h-full"
-            style={{
-              borderRadius: '20px',
-              minHeight: '420px', // match com accordion
-            }}
-          />
         </div>
       </section>
 
       {/* Terceira Seção */}
-      <section className="py-8 sm:py-16 px-2 sm:px-4 flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12" 
-      style={{paddingLeft:'40px', paddingRight:'40px'}}>
+      <section
+        className="py-8 sm:py-16 px-2 sm:px-4 flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12"
+        style={{paddingLeft: '40px', paddingRight: '40px'}}
+      >
         {/* Imagem */}
         <div className="">
           <img
@@ -210,83 +224,81 @@ export default function Sobre() {
         </div>
 
         {/* Accordion */}
-       <div
+        <div
           className="bg-transparent rounded-[20px] sm:rounded-[30px] p-4 sm:p-10 text-white w-full max-w-[689px] flex flex-col justify-between border-0 sm:border sm:border-white"
           style={{
             minHeight: '420px', // mobile
             height: 'auto',
-            }}
-          >
-            <style jsx>{`
+          }}
+        >
+          <style jsx>{`
             @media (min-width: 1024px) {
               .accordion-box {
-              min-height: 220px !important;
-              max-height: 750px;
-              margin-top: 100px !important;
+                min-height: 220px !important;
+                max-height: 750px;
+                margin-top: 100px !important;
               }
             }
             @media (max-width: 640px) {
               .accordion-box h3 {
-              font-size: 16px !important;
+                font-size: 16px !important;
               }
             }
-            `}</style>
-         <div className="accordion-box">
-            <h3 className="text-white font-semibold text-[22px] sm:text-[30px] mb-6 border-b border-gray-400 pb-3"
-            style={{marginTop: '40px', marginBottom: '0px'}}
-          >
-            Modo de uso:
-          </h3>
-          <Accordion
-            title="1-Lave"
-            content="Lave a área afetada com sabonete suave e seque bem."
-          />
-          <Accordion
-            title="2-Retire"
-            content="Retire o adesivo da embalagem e aplique diretamente sobre a acne."
-          />
-          <Accordion
-            title="3-Deixe agir"
-            content="Deixe o adesivo agir por pelo menos 6 horas, ou durante a noite."
-          />
-          <Accordion
-            title="4-Remova"
-            content="Remova o adesivo e descarte-o após o uso."
-          />
+          `}</style>
+          <div className="accordion-box">
+            <h3
+              className="text-white font-semibold text-[22px] sm:text-[30px] mb-6 border-b border-gray-400 pb-3"
+              style={{marginTop: '40px', marginBottom: '0px'}}
+            >
+              Modo de uso:
+            </h3>
+            <Accordion
+              title="1-Lave"
+              content="Lave a área afetada com sabonete suave e seque bem."
+            />
+            <Accordion
+              title="2-Retire"
+              content="Retire o adesivo da embalagem e aplique diretamente sobre a acne."
+            />
+            <Accordion
+              title="3-Deixe agir"
+              content="Deixe o adesivo agir por pelo menos 6 horas, ou durante a noite."
+            />
+            <Accordion
+              title="4-Remova"
+              content="Remova o adesivo e descarte-o após o uso."
+            />
           </div>
         </div>
       </section>
 
-      {/* Estrelinhas Novamente */}
       {/* Estrelinhas - Corrigido para manter fundo contínuo */}
-        <div
-          className="-mx-2 sm:-mx-6 px-2 sm:px-6 overflow-hidden border-y-2 border-blue-600"
-          style={{marginTop: '60px', marginBottom: '60px'}}
-        >
-          <div className="marquee flex gap-2 py-2 sm:py-4">
-            {Array.from({length: 40}).map((_, i) => (
-          <img
-            key={i}
-            src="/image/estrelinhaMovimentando.png"
-            alt="estrela"
-            className="w-10 h-10 sm:w-[30px] sm:h-[30px] lg:w-[100px] lg:h-[100px]"
-          />
-            ))}
-          </div>
+      <div className="-mx-2 sm:-mx-6 px-2 sm:px-6 overflow-hidden border-y-2 border-blue-600 mt-[60px] sm:mb-[60px]">
+        <div className="marquee flex gap-2 py-2 sm:py-4">
+          {Array.from({length: 40}).map((_, i) => (
+            <img
+              key={i}
+              src="/image/estrelinhaMovimentando.png"
+              alt="estrela"
+              className="w-10 h-10 sm:w-[30px] sm:h-[30px] lg:w-[100px] lg:h-[100px]"
+            />
+          ))}
         </div>
+      </div>
+
       {/* Última Seção */}
-      <div className="relative min-h-[400px] sm:min-h-screen flex items-center justify-center flex-col text-white px-2 sm:px-4">
-        {/* Texto superior */}
-        <div className="absolute top-2 sm:top-4 left-0 right-0 flex px-2 sm:px-20 items-center">
-          <h1 className="text-xs sm:text-sm md:text-base uppercase tracking-wider font-semibold text-white">
+      <div className="relative min-h-[400px] sm:min-h-screen flex flex-col items-center text-white px-2 sm:px-4">
+        {/* Texto superior - vem primeiro */}
+        <div className="w-full px-2 sm:px-20 py-4 sm:py-6 flex flex-col sm:flex-row items-center">
+          <p className="uppercase tracking-wider font-semibold text-white text-center text-[12px] sm:text-left sm:text-[20px] md:!text-[30px]">
             ELEVE SEU CUIDADO COM A PELE USANDO GENSKINS
-          </h1>
-          <div className="flex-1 h-px bg-white mx-2 sm:mx-8" />
+          </p>
+          <div className="flex-1 h-px bg-white mx-0 my-4 sm:mx-2 sm:my-0" />
         </div>
 
         {/* Imagem e botão */}
         <div
-          className="w-full max-w-full sm:max-w-8xl relative rounded-[20px] sm:rounded-[30px] overflow-hidden mt-8 sm:mt-20"
+          className="w-full max-w-full sm:max-w-8xl relative rounded-[20px] sm:rounded-[30px] overflow-hidden mt-4 sm:mt-10"
           style={{
             width: '100%',
             maxWidth: '1712px',
@@ -297,13 +309,12 @@ export default function Sobre() {
         >
           <img
             style={{
-              //maxHeight: '40vh',
               objectFit: 'cover',
               borderRadius: '20px',
               width: '100%',
               maxWidth: '1712px',
               height: 'auto',
-              marginTop: '40px',
+              marginTop: '0',
               marginBottom: '60px',
             }}
             src="/image/sobreImage44.png"
