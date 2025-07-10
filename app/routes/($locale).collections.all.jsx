@@ -121,8 +121,7 @@ function ProductItem({product, loading}) {
       }
     }
   }, [product.title]);
-  const ulClass =
-    'list-inside   text-base md:text-[19px] font-bold';
+  const ulClass = 'list-inside   text-base md:text-[19px] font-bold';
   return (
     <div className="flex flex-col md:flex-row bg-[#f5f6f8] rounded-3xl p-2 shadow-lg relative overflow-hidden max-w-7xl mx-[30px] my-10">
       {/* Imagem + Navegação */}
@@ -151,7 +150,7 @@ function ProductItem({product, loading}) {
             </button>
           )}
 
-          <div className="w-full  flex items-center justify-center">
+          <div className="w-full flex items-center justify-center h-[400px]">
             {currentImage && (
               <Image
                 key={currentImage.id}
