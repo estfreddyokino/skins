@@ -1,10 +1,10 @@
-import {useState} from 'react';
+import { useState } from 'react';
 
 export function meta() {
-  return [{title: 'Genskins | Sobre'}, {icon: '/image/favicon.png'}];
+  return [{ title: 'Genskins | Sobre' }, { icon: '/image/favicon.png' }];
 }
 
-function Accordion({title, content}) {
+function Accordion({ title, content }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -22,17 +22,15 @@ function Accordion({title, content}) {
       >
         <span>{title}</span>
         <span
-          className={`transform transition-transform duration-300 text-[24px] sm:text-[32px] md:text-[40px] ${
-            isOpen ? 'rotate-45 text-blue-300' : 'text-white'
-          }`}
+          className={`transform transition-transform duration-300 text-[24px] sm:text-[32px] md:text-[40px] ${isOpen ? 'rotate-45 text-blue-300' : 'text-white'
+            }`}
         >
           +
         </span>
       </button>
       <div
-        className={`text-[14px] sm:text-[16px] md:text-[16px] mt-2 text-white overflow-hidden transition-all duration-500 ease-in-out ${
-          isOpen ? 'opacity-100 max-h-[999px]' : 'opacity-0 max-h-0'
-        }`}
+        className={`text-[14px] sm:text-[16px] md:text-[16px] mt-2 text-white overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'opacity-100 max-h-[999px]' : 'opacity-0 max-h-0'
+          }`}
         style={{
           fontWeight: 'normal',
           fontFamily: 'ReservationWide, sans-serif',
@@ -54,7 +52,7 @@ export default function Sobre() {
       {/* Primeira Seção */}
       <section
         className="w-full py-8 sm:py-16 px-2 sm:px-8 flex flex-col lg:flex-row items-center justify-center gap-y-4 sm:gap-y-8 lg:gap-12"
-        style={{marginTop: '40px', paddingLeft: '20px', paddingRight: '20px'}}
+        style={{ marginTop: '40px', paddingLeft: '20px', paddingRight: '20px' }}
       >
         {/* Imagem */}
         <div className="max-w-[1000px] lg:w-auto">
@@ -84,7 +82,7 @@ export default function Sobre() {
         >
           <div
             className="flex items-center mt-0 sm:mt-48"
-            style={{marginTop: '10px', marginBottom: '24px'}}
+            style={{ marginTop: '10px', marginBottom: '24px' }}
           >
             <img
               src="/image/estrenha.png"
@@ -139,7 +137,7 @@ export default function Sobre() {
           </p>
           <p
             className="hidden sm:block mb-4 text-base sm:text-[16px]"
-            style={{marginTop: '10px', marginBottom: '10px'}}
+            style={{ marginTop: '10px', marginBottom: '10px' }}
           >
             Nossa missão é ajudar você a se sentir bem com sua pele, oferecendo
             soluções descoladas que combinam estilo, autenticidade e resultados.
@@ -164,7 +162,7 @@ export default function Sobre() {
       {/* Estrelinhas - Corrigido para manter fundo contínuo */}
       <div className="-mx-2 sm:-mx-6 px-2 sm:px-6 overflow-hidden border-y-2 border-blue-600 mt-[20px] sm:mb-[60px]">
         <div className="marquee flex gap-2 py-2 sm:py-4">
-          {Array.from({length: 40}).map((_, i) => (
+          {Array.from({ length: 40 }).map((_, i) => (
             <img
               key={i}
               src="/image/estrelinhaMovimentando.png"
@@ -252,7 +250,7 @@ export default function Sobre() {
       {/* Terceira Seção */}
       <section
         className="py-8 sm:py-16 px-2 sm:px-4 flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12"
-        style={{paddingLeft: '20px', paddingRight: '20px'}}
+        style={{ paddingLeft: '20px', paddingRight: '20px' }}
       >
         {/* Imagem */}
         <div className="">
@@ -297,10 +295,12 @@ export default function Sobre() {
           <div className="accordion-box">
             <h3
               className="text-white font-semibold text-[22px] sm:text-[30px] mb-6 border-b border-gray-400 pb-3"
-              style={{marginBottom: '0px', fontFamily: 'ReservationWide, sans-serif',
+              style={{
+                marginBottom: '0px', fontFamily: 'ReservationWide, sans-serif',
                 fontWeight: 'bold',
                 paddingBottom: '10px',
-                paddingRight: '80px',}}
+                paddingRight: '80px',
+              }}
             >
               Modo de uso:
             </h3>
@@ -327,7 +327,7 @@ export default function Sobre() {
       {/* Estrelinhas - Corrigido para manter fundo contínuo */}
       <div className="-mx-2 sm:-mx-6 px-2 sm:px-6 overflow-hidden border-y-2 border-blue-600 mt-[20px] sm:mb-[60px]">
         <div className="marquee flex gap-2 py-2 sm:py-4">
-          {Array.from({length: 40}).map((_, i) => (
+          {Array.from({ length: 40 }).map((_, i) => (
             <img
               key={i}
               src="/image/estrelinhaMovimentando.png"
@@ -341,21 +341,25 @@ export default function Sobre() {
       {/* Última Seção */}
       <div
         className="relative min-h-[300px] sm:min-h-screen flex flex-col items-center text-white px-2 sm:px-4"
-        style={{marginBottom: '50px'}}
+        style={{ marginBottom: '50px' }}
       >
         {/* Texto superior - vem primeiro */}
         <div
           className="w-full px-2 sm:px-20 py-2 sm:py-6 flex flex-col sm:flex-row items-center"
-          style={{marginTop: '40px'}}
+          style={{ marginTop: '40px' }}
         >
-          <p className="uppercase tracking-wider font-semibold text-white text-center text-[12px] sm:text-left sm:text-[20px] md:!text-[30px]"
-           style={{marginBottom: '0px', fontFamily: 'ReservationWide, sans-serif'
-               
-                }}
-            >
-            ELEVE SEU CUIDADO COM A PELE USANDO GENSKINS
+          <p
+            className="uppercase tracking-wider font-semibold text-white text-center text-[12px] sm:text-left sm:text-[20px] md:!text-[30px]"
+            style={{
+              marginBottom: '0px',
+              fontFamily: 'ReservationWide, sans-serif',
+            }}
+          >
+            ELEVE SEU CUIDADO COM A
+            <br className="block sm:hidden" />
+            <span> PELE USANDO GENSKINS</span>
           </p>
-          <div className="flex-1 h-px bg-white mx-0  sm:mx-2 sm:my-0" />
+          <div className="flex-1 h-px bg-white mx-0 sm:mx-2 sm:my-0" />
         </div>
 
         {/* Imagem e botão */}
