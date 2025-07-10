@@ -17,6 +17,7 @@ function Accordion({title, content}) {
           fontWeight: 'normal',
           fontFamily: 'ReservationWide, sans-serif',
           letterSpacing: '0.08em',
+          fontSize: '18px',
         }}
       >
         <span>{title}</span>
@@ -38,6 +39,7 @@ function Accordion({title, content}) {
           letterSpacing: '0.05em',
           paddingLeft: '10px',
           paddingRight: '10px',
+          fontSize: '14px',
         }}
       >
         <p className="leading-relaxed">{content}</p>
