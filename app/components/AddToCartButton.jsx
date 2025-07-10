@@ -36,16 +36,28 @@ export function AddToCartButton({
               textDecoration: 'none',
               backgroundColor: 'blue',
               borderRadius: '35px',
-              padding: '10px 20px',
+             
               width: '180px',
               margin: '0 auto',
               display: 'block',
-              cursor: 'pointer',  
+              cursor: 'pointer',
               border: 'none',
+              // Responsive width for mobile
+              maxWidth: '100%',
+                marginTop: '20px',
+              height: '50px',
             }}
           >
             {children}
           </button>
+          <style>{`
+            @media (max-width: 600px) {
+              button[type="submit"] {
+                width: 350px !important;
+                marginTop: 20px !important;
+              }
+            }
+          `}</style>
         </>
       )}
     </CartForm>

@@ -34,10 +34,16 @@ function loadDeferredData({context}) {
 export default function Collection() {
   const {products} = useLoaderData();
 
+  // Inverte a ordem dos produtos
+  const reversedProducts = {
+    ...products,
+    nodes: products.nodes.slice().reverse(),
+  };
+
   return (
     <div className="collection">
       <PaginatedResourceSection
-        connection={products}
+        connection={reversedProducts}
         resourcesClassName="products-grid"
       >
         {({node: product, index}) => (
@@ -115,22 +121,40 @@ function ProductItem({product, loading}) {
       }
     }
   }, [product.title]);
-
+  const ulClass =
+    'list-inside pl-6 space-y-2 mb-4 text-base md:text-[19px] font-bold';
   return (
-    <div className="flex flex-col md:flex-row bg-[#f5f6f8] rounded-3xl p-8 shadow-lg relative overflow-hidden max-w-7xl mx-auto my-10">
+    <div
+      className="flex flex-col md:flex-row bg-[#f5f6f8] rounded-3xl p-2 shadow-lg relative overflow-hidden max-w-7xl mx-auto my-10"
+      style={{marginLeft: '30px', marginRight: '30px'}}
+    >
       {/* Imagem + Navegação */}
       <div className="flex flex-col items-center justify-center relative w-full md:w-[50%]">
         <div className="flex items-center justify-center relative">
           {images.length > 1 && (
             <button
               onClick={prevImage}
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[#f5f6f8] p-2 rounded-full text-blue-600 hover:bg-gray-200 z-10"
+              className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-transparent p-2 rounded-full hover:bg-gray-200 z-10"
             >
-              ❮
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="60"
+                height="60"
+                fill="none"
+                viewBox="0 0 40 40"
+              >
+                <path
+                  d="M23.5 11.5 L15.5 19.5 L23.5 27.5"
+                  stroke="rgb(0, 64, 255)"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </button>
           )}
 
-          <div className="w-full max-w-[500px] h-[500px] flex items-center justify-center">
+          <div className="w-full  flex items-center justify-center">
             {currentImage && (
               <Image
                 key={currentImage.id}
@@ -139,7 +163,7 @@ function ProductItem({product, loading}) {
                 data={currentImage}
                 loading={loading}
                 sizes="(min-width: 45em) 600px, 200vw"
-                className="object-contain h-full"
+                style={{borderRadius: '15px'}}
               />
             )}
           </div>
@@ -147,53 +171,56 @@ function ProductItem({product, loading}) {
           {images.length > 1 && (
             <button
               onClick={nextImage}
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[#f5f6f8] p-2 rounded-full text-blue-600 hover:bg-gray-200 z-10"
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-transparent p-2 rounded-full hover:bg-gray-200 z-10"
             >
-              ❯
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="60"
+                height="60"
+                fill="none"
+                viewBox="0 0 40 40"
+              >
+                <path
+                  d="M16.5 11.5 L24.5 19.5 L16.5 27.5"
+                  stroke="rgb(0, 64, 255)"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </button>
           )}
         </div>
       </div>
 
       {/* Conteúdo */}
-      <div className="w-full md:w-[50%] mt-10 md:mt-0 md:ml-10 flex flex-col justify-center text-blue-600">
-        <div className="flex justify-start">
-          {titleImage ? (
-            <img
-              src={titleImage}
-              alt={product.title}
-              className="h-12 object-contain mb-2"
-            />
-          ) : (
-            <h2 className="text-[40px] font-bold text-blue-800 mb-6">
-              {product.title}
-            </h2>
-          )}
-        </div>
+      <div
+        className="w-full md:w-[50%] mt-10 md:mt-0 md:ml-10 text-blue-600"
+        style={{marginLeft: '30px', paddingRight: '40px'}}
+      >
+        <div className="flex flex-col justify-center">
+          {/* 1. Título */}
+          <div className="order-1 md:order-none flex justify-start">
+            {titleImage ? (
+              <img
+                src={titleImage}
+                alt={product.title}
+                className="h-12 object-contain mb-2"
+              />
+            ) : (
+              <h2 className="text-[40px] font-bold text-blue-800 mb-6">
+                {product.title}
+              </h2>
+            )}
+          </div>
 
-        <p
-          className="text-[20px] font-bold mb-4 text-justify"
-          style={{color: '#001AFF !important'}}
-        >
-          {descriptionParts.descIntro}
-        </p>
+          {/* 2. Descrição final */}
+          <p className="order-2 md:order-6 text-[20px] font-bold mb-6 text-[#949BDC]">
+            {descriptionParts.descFinal}
+          </p>
 
-        <hr className="border-0 border-t-2 border-blue-600 my-4" />
-
-        <ul className="text-lg list-disc list-inside pl-6 space-y-2 mb-4 text-[20px]">
-          <li>{descriptionParts.li1}</li>
-          <li>{descriptionParts.li2}</li>
-          <li>{descriptionParts.li3}</li>
-        </ul>
-
-        <hr className="border-0 border-t-2 border-blue-600 my-4" />
-
-        <p className="text-[20px] font-bold mb-6 text-[#949BDC]">
-          {descriptionParts.descFinal}
-        </p>
-
-        <div className="flex justify-between items-center">
-          <h3 className="text-3xl font-bold text-blue-800 mb-6">
+          {/* 3. Preço */}
+          <h3 className="order-3 md:order-7 text-3xl font-bold text-blue-800 mb-6">
             {new Intl.NumberFormat('pt-BR', {
               style: 'currency',
               currency: 'BRL',
@@ -202,19 +229,93 @@ function ProductItem({product, loading}) {
             }).format(Number(product.priceRange.minVariantPrice.amount))}
           </h3>
 
-          <AddToCartButton
-            lines={[
-              {
-                merchandiseId: product.variants?.nodes?.[0]?.id,
-                quantity: 1,
-              },
-            ]}
-            onClick={handleAddToCart}
-            className="text-[25px] font-bold text-white bg-blue-600 rounded-[35px] px-5 py-2.5 w-[180px] mx-auto block cursor-pointer border-0 hover:bg-blue-700 transition"
-            style={{width: '180px', height: '50px'}}
+          {/* 4. Descrição de introdução */}
+          <p
+            className="order-4 md:order-2 text-[20px] font-bold mb-4 text-justify"
+            style={{color: '#001AFF'}}
           >
-            SHOP
-          </AddToCartButton>
+            {descriptionParts.descIntro}
+          </p>
+
+          {/* 5. Linha divisória */}
+          <div
+            className="order-5"
+            style={{
+              width: '100%',
+              borderTop: '2px solid rgb(0,64,255)',
+            }}
+          />
+
+          {/* 6. Lista */}
+          <div  class="order-6">
+            <ul
+             
+              className={ulClass}
+              style={{
+                listStyleType: 'disc',
+                marginLeft: '45px',
+
+                fontFamily: 'ReservationWide, sans-serif',
+                fontStyle: 'normal',
+              }}
+            >
+              {descriptionParts.li1 && (
+                <li className="marker:text-[1.5em]">{descriptionParts.li1}</li>
+              )}
+              {descriptionParts.li2 && (
+                <li className="marker:text-[1.5em]">{descriptionParts.li2}</li>
+              )}
+              {descriptionParts.li3 && (
+                <li className="marker:text-[1.5em]">{descriptionParts.li3}</li>
+              )}
+            </ul>
+          </div>
+
+          {/* 7. Segunda linha divisória */}
+          <div
+            className="order-7"
+            style={{
+              width: '100%',
+              borderTop: '2px solid rgb(0,64,255)',
+            }}
+          />
+
+          {/* 8. Botão e preço juntos (para alinhar bem) */}
+          <div className="order-8 md:order-8 flex justify-between items-center">
+            {/* já tem o preço lá em cima, aqui não precisa repetir */}
+            <div className="md:hidden">
+              {/* Escondido no desktop, visível no mobile */}
+              <AddToCartButton
+                lines={[
+                  {
+                    merchandiseId: product.variants?.nodes?.[0]?.id,
+                    quantity: 1,
+                  },
+                ]}
+                onClick={handleAddToCart}
+                className="text-[25px] font-bold text-white bg-blue-600 rounded-[35px] px-5 py-2.5 w-[180px] mx-auto block cursor-pointer border-0 hover:bg-blue-700 transition"
+                style={{width: '180px', height: '50px'}}
+              >
+                SHOP
+              </AddToCartButton>
+            </div>
+
+            <div className="hidden md:block" style={{margin: 'auto'}}>
+              {/* Escondido no mobile, visível no desktop */}
+              <AddToCartButton
+                lines={[
+                  {
+                    merchandiseId: product.variants?.nodes?.[0]?.id,
+                    quantity: 1,
+                  },
+                ]}
+                onClick={handleAddToCart}
+                className="text-[25px] font-bold text-white bg-blue-600 rounded-[35px] px-5 py-2.5 w-[180px] mx-auto block cursor-pointer border-0 hover:bg-blue-700 transition"
+              >
+                SHOP
+              </AddToCartButton>
+            </div>
+          </div>
         </div>
       </div>
     </div>
