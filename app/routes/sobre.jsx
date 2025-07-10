@@ -29,21 +29,20 @@ function Accordion({ title, content }) {
         </span>
       </button>
       <div
-        className={`text-[16px] sm:text-[16px] md:text-[16px] mt-2 text-white overflow-hidden transition-all duration-500 ease-in-out font-normal px-[10px] ${isOpen ? 'opacity-100 max-h-[999px]' : 'opacity-0 max-h-0'
+        className={`text-[14px] sm:text-[16px] md:text-[16px] mt-2 text-white overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'opacity-100 max-h-[999px]' : 'opacity-0 max-h-0'
           }`}
         style={{
+        
+          fontWeight: 'normal',
           fontFamily: 'ReservationWide, sans-serif',
           letterSpacing: '0.05em',
+          paddingLeft: '10px',
+          paddingRight: '10px',
+          fontSize: '14px',
         }}
       >
-        <div
-          className="leading-snug"
-          style={{ fontFamily: 'inherit' }} // ⬅️ Herdando do pai corretamente
-        >
-        </div>
-          {content}
+        <div className="leading-relaxed">{content}</div>
       </div>
-
     </div>
   );
 }
@@ -228,7 +227,7 @@ export default function Sobre() {
                 fontWeight: 'bold',
                 paddingBottom: '10px',
                 paddingRight: '80px',
-
+                
               }}
             >
               Como funcionam os adesivos secativos?
@@ -236,15 +235,7 @@ export default function Sobre() {
 
             <Accordion
               title="Absorção de exsudato"
-              content={
-                <>
-                  Quando aplicado sobre a acne, o <br className="block sm:hidden" />
-                  hidrocoloide absorve a secreção <br className="block sm:hidden" />
-                  (exsudato) da lesão, formando <br className="block sm:hidden" />
-                  um gel que ajuda a reduzir a <br className="block sm:hidden" />
-                  inflamação e o inchaço.
-                </>
-              }
+              content="Quando aplicado sobre a acne, o hidrocoloide absorve a secreção (exsudato) da lesão, formando um gel que ajuda a reduzir a inflamação e o inchaço."
             />
             <Accordion
               title="Cicatrização"
