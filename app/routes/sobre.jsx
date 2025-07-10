@@ -8,11 +8,16 @@ function Accordion({title, content}) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="border-b border-gray-400 py-1 transition-all duration-300" >
+    <div className="border-b border-gray-400 py-1 transition-all duration-300">
       <button
         className="w-full flex justify-between items-center text-left text-white text-[16px] sm:text-[18px] md:text-[24px]"
         onClick={() => setIsOpen(!isOpen)}
-        style={{fontFamily: 'sans-serif', fontWeight: 'normal', fontFamily: 'ReservationWide, sans-serif',}}
+        style={{
+          fontFamily: 'sans-serif',
+          fontWeight: 'normal',
+          fontFamily: 'ReservationWide, sans-serif',
+          letterSpacing: '0.08em',
+        }}
       >
         <span>{title}</span>
         <span
@@ -27,7 +32,13 @@ function Accordion({title, content}) {
         className={`text-[14px] sm:text-[16px] md:text-[16px] mt-2 text-white overflow-hidden transition-all duration-500 ease-in-out ${
           isOpen ? 'opacity-100 max-h-[999px]' : 'opacity-0 max-h-0'
         }`}
-        style={{fontFamily: 'sans-serif', fontWeight: 'normal', fontFamily: 'ReservationWide, sans-serif',}}
+        style={{
+          fontWeight: 'normal',
+          fontFamily: 'ReservationWide, sans-serif',
+          letterSpacing: '0.05em',
+          paddingLeft: '10px',
+          paddingRight: '10px',
+        }}
       >
         <p className="leading-relaxed">{content}</p>
       </div>
@@ -41,7 +52,7 @@ export default function Sobre() {
       {/* Primeira Seção */}
       <section
         className="w-full py-8 sm:py-16 px-2 sm:px-8 flex flex-col lg:flex-row items-center justify-center gap-y-4 sm:gap-y-8 lg:gap-12"
-        style={{marginTop: '40px', paddingLeft: '40px', paddingRight: '40px'}}
+        style={{marginTop: '40px', paddingLeft: '20px', paddingRight: '20px'}}
       >
         {/* Imagem */}
         <div className="max-w-[1000px] lg:w-auto">
@@ -65,6 +76,8 @@ export default function Sobre() {
             height: 'auto',
             maxHeight: '756px',
             padding: '20px',
+            paddingLeft: '20px',
+            paddingRight: '20px',
           }}
         >
           <div
@@ -169,7 +182,7 @@ export default function Sobre() {
         }}
       >
         {/* Imagem vem primeiro no mobile */}
-      
+
         <div className="w-full lg:w-5/12 mt-8 lg:mt-0 flex items-stretch order-1 lg:order-2">
           <img
             src="/image/sobreImage2.png"
@@ -185,7 +198,9 @@ export default function Sobre() {
         <div
           className="bg-transparent rounded-[20px] sm:rounded-[30px] p-4 sm:p-10 text-white w-full max-w-[689px] flex flex-col justify-between border-0 sm:border sm:border-white order-2 lg:order-1"
           style={{
-            height: 'auto',paddingLeft: '30px', paddingRight: '30px',
+            height: 'auto',
+            paddingLeft: '30px',
+            paddingRight: '30px',
           }}
         >
           <style jsx>{`
@@ -193,7 +208,7 @@ export default function Sobre() {
               .accordion-box {
                 min-height: 220px !important;
                 max-height: 750px;
-                margin-top: 100px !important;
+                margin-top: 80px !important;
               }
             }
             @media (max-width: 640px) {
@@ -204,12 +219,15 @@ export default function Sobre() {
           `}</style>
 
           <div className="accordion-box">
-            <p className="text-white font-semibold !text-[16px] sm:!text-[30px] mb-6 border-b border-gray-400 pb-3"
-            style={{
-              fontFamily: 'ReservationWide, sans-serif',
-              fontWeight: 'bold',
-              
-            }}>
+            <p
+              className="text-white font-semibold !text-[16px] sm:!text-[30px] mb-6 border-b border-gray-400 pb-3"
+              style={{
+                fontFamily: 'ReservationWide, sans-serif',
+                fontWeight: 'bold',
+                paddingBottom: '10px',
+                paddingRight: '80px',
+              }}
+            >
               Como funcionam os adesivos secativos?
             </p>
 
@@ -232,7 +250,7 @@ export default function Sobre() {
       {/* Terceira Seção */}
       <section
         className="py-8 sm:py-16 px-2 sm:px-4 flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12"
-        style={{paddingLeft: '40px', paddingRight: '40px'}}
+        style={{paddingLeft: '20px', paddingRight: '20px'}}
       >
         {/* Imagem */}
         <div className="">
@@ -243,7 +261,7 @@ export default function Sobre() {
             style={{
               borderRadius: '20px',
               width: '100%',
-              maxWidth: '689px',
+              maxWidth: '679px',
               height: 'auto',
               maxHeight: '702px',
             }}
@@ -254,8 +272,10 @@ export default function Sobre() {
         <div
           className="bg-transparent rounded-[20px] sm:rounded-[30px] p-4 sm:p-10 text-white w-full max-w-[689px] flex flex-col justify-between border-0 sm:border sm:border-white"
           style={{
-            minHeight: '420px', // mobile
+            minHeight: '220px',
             height: 'auto',
+            paddingLeft: '30px',
+            paddingRight: '30px',
           }}
         >
           <style jsx>{`
@@ -275,7 +295,7 @@ export default function Sobre() {
           <div className="accordion-box">
             <h3
               className="text-white font-semibold text-[22px] sm:text-[30px] mb-6 border-b border-gray-400 pb-3"
-              style={{marginTop: '40px', marginBottom: '0px'}}
+              style={{marginBottom: '0px'}}
             >
               Modo de uso:
             </h3>
@@ -300,7 +320,7 @@ export default function Sobre() {
       </section>
 
       {/* Estrelinhas - Corrigido para manter fundo contínuo */}
-      <div className="-mx-2 sm:-mx-6 px-2 sm:px-6 overflow-hidden border-y-2 border-blue-600 mt-[60px] sm:mb-[60px]">
+      <div className="-mx-2 sm:-mx-6 px-2 sm:px-6 overflow-hidden border-y-2 border-blue-600 mt-[20px] sm:mb-[60px]">
         <div className="marquee flex gap-2 py-2 sm:py-4">
           {Array.from({length: 40}).map((_, i) => (
             <img
@@ -314,13 +334,16 @@ export default function Sobre() {
       </div>
 
       {/* Última Seção */}
-      <div className="relative min-h-[400px] sm:min-h-screen flex flex-col items-center text-white px-2 sm:px-4">
+      <div className="relative min-h-[300px] sm:min-h-screen flex flex-col items-center text-white px-2 sm:px-4" style={{marginBottom: '50px'}}>
         {/* Texto superior - vem primeiro */}
-        <div className="w-full px-2 sm:px-20 py-4 sm:py-6 flex flex-col sm:flex-row items-center">
+        <div
+          className="w-full px-2 sm:px-20 py-2 sm:py-6 flex flex-col sm:flex-row items-center"
+          style={{marginTop: '30px'}}
+        >
           <p className="uppercase tracking-wider font-semibold text-white text-center text-[12px] sm:text-left sm:text-[20px] md:!text-[30px]">
             ELEVE SEU CUIDADO COM A PELE USANDO GENSKINS
           </p>
-          <div className="flex-1 h-px bg-white mx-0 my-4 sm:mx-2 sm:my-0" />
+          <div className="flex-1 h-px bg-white mx-0  sm:mx-2 sm:my-0" />
         </div>
 
         {/* Imagem e botão */}
@@ -331,7 +354,7 @@ export default function Sobre() {
             maxWidth: '1712px',
             height: 'auto',
             minHeight: '200px',
-            marginBottom: '40px',
+            
           }}
         >
           <img
@@ -342,7 +365,7 @@ export default function Sobre() {
               maxWidth: '1712px',
               height: 'auto',
               marginTop: '0',
-              marginBottom: '60px',
+             
             }}
             src="/image/sobreImage44.png"
             alt="Pessoas com adesivos"
@@ -352,18 +375,17 @@ export default function Sobre() {
           {/* Botão centralizado */}
           <div className="absolute inset-0 flex justify-center items-center">
             <button
-              className="border-2 border-white text-white px-8 sm:px-20 py-4 sm:py-8 rounded-full bg-white/10 hover:bg-white/30 transition-all text-base sm:text-[24px] font-bold"
+              className="border-2 border-white text-white px-3 sm:px-8 py-1 sm:py-4 rounded-full bg-white/10 hover:bg-white/30 transition-all text-xs sm:text-[20px] font-bold"
               onClick={() => (window.location.href = '/collections/all')}
               style={{
-                width: '80%',
-                maxWidth: '400px',
-                height: '60px',
-                alignContent: 'center',
+                width: 'fit-content',
+                maxWidth: '90vw',
+                minWidth: '220px',
+                height: '40px',
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
                 borderRadius: '20px',
-                fontWeight: 'bold',
               }}
             >
               SHOP
