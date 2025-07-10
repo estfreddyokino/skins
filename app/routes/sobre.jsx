@@ -8,11 +8,11 @@ function Accordion({title, content}) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="border-b border-gray-400 py-3 transition-all duration-300">
+    <div className="border-b border-gray-400 py-1 transition-all duration-300" >
       <button
         className="w-full flex justify-between items-center text-left text-white text-[16px] sm:text-[18px] md:text-[24px]"
         onClick={() => setIsOpen(!isOpen)}
-        style={{fontFamily: 'ReservationWide, sans-serif', fontWeight: 'bold'}}
+        style={{fontFamily: 'sans-serif', fontWeight: 'normal', fontFamily: 'ReservationWide, sans-serif',}}
       >
         <span>{title}</span>
         <span
@@ -27,7 +27,7 @@ function Accordion({title, content}) {
         className={`text-[14px] sm:text-[16px] md:text-[16px] mt-2 text-white overflow-hidden transition-all duration-500 ease-in-out ${
           isOpen ? 'opacity-100 max-h-[999px]' : 'opacity-0 max-h-0'
         }`}
-        style={{fontFamily: 'sans-serif', fontWeight: 'normal'}}
+        style={{fontFamily: 'sans-serif', fontWeight: 'normal', fontFamily: 'ReservationWide, sans-serif',}}
       >
         <p className="leading-relaxed">{content}</p>
       </div>
@@ -41,7 +41,7 @@ export default function Sobre() {
       {/* Primeira Seção */}
       <section
         className="w-full py-8 sm:py-16 px-2 sm:px-8 flex flex-col lg:flex-row items-center justify-center gap-y-4 sm:gap-y-8 lg:gap-12"
-        style={{marginTop: '60px', paddingLeft: '20px', paddingRight: '20px'}}
+        style={{marginTop: '40px', paddingLeft: '40px', paddingRight: '40px'}}
       >
         {/* Imagem */}
         <div className="max-w-[1000px] lg:w-auto">
@@ -50,8 +50,8 @@ export default function Sobre() {
             alt="Modelo com adesivos no rosto"
             className="rounded-[20px] sm:rounded-[30px] w-full object-cover"
             style={{
-              borderRadius: '20px',
-              width: '100%',
+              borderRadius: '24px',
+              minWidth: '300px',
               height: 'auto',
               maxHeight: '1000px', // para mobile
             }}
@@ -67,36 +67,53 @@ export default function Sobre() {
             padding: '20px',
           }}
         >
-          <div className="flex items-center mt-0 sm:mt-48">
+          <div
+            className="flex items-center mt-0 sm:mt-48"
+            style={{marginTop: '10px', marginBottom: '24px'}}
+          >
             <img
               src="/image/estrenha.png"
               alt=""
-              className="w-8 sm:w-[6%] mb-2 sm:mb-4"
+              className="w-5 sm:w-[6%] mb-2 sm:mb-4"
             />
-            <h2
-              className="text-lg font-bold uppercase mb-4"
-              style={{fontSize: '20px', marginLeft: '20px'}}
+
+            <span
+              className="text-base sm:text-[20px]"
+              style={{
+                fontSize: '20px',
+                marginLeft: '10px',
+                fontFamily: 'ReservationWide',
+                fontWeight: 'bold',
+              }}
             >
-              Nossa Filosofia
-            </h2>
+              NOSSA FILOSOFIA
+            </span>
           </div>
 
           {/* MOBILE TEXT (mostra só em telas pequenas) */}
-          <p className="block sm:hidden mb-4 text-base">
-            Na GENSKINS, acreditamos que cuidar da pele deve ser simples, eficaz
-            e divertido. Criamos nossos adesivos secativos para transformar o
-            incômodo das espinhas em algo leve, sem pressões ou padrões. Sabemos
-            que a acne surge sem avisar, mas isso não precisa afetar sua
-            confiança.
+          <p
+            className="block sm:hidden mb-4 text-base"
+            style={{
+              fontFamily: 'ReservationWide, sans-serif',
+              fontWeight: 'bold',
+              fontSize: '14px',
+            }}
+          >
+            Na GENSKINS, acreditamos que autoestima é essencial para o sucesso.
+            Saber lidar com os vieses da vida também faz parte do processo.
           </p>
           <p
             className="block sm:hidden mb-4 text-base"
-            style={{marginTop: '10px'}}
+            style={{
+              fontFamily: 'ReservationWide, sans-serif',
+              fontWeight: 'bold',
+              fontSize: '14px',
+            }}
           >
-            Nossa missão é ajudar você a se sentir bem com sua pele, oferecendo
-            soluções descoladas que combinam estilo, autenticidade e resultados.
+            Por isso, criamos adesivos secativos com tecnologia hifrocolóide.
+            Eles tratam a acne de forma eficaz e transformam o incômodo das
+            espinhas em um momento de cuidado e expressão pessoal.
           </p>
-
           {/* DESKTOP TEXT (some no mobile) */}
           <p className="hidden sm:block mb-4 text-base sm:text-[16px]">
             Na GENSKINS, acreditamos que cuidar da pele deve ser simples, eficaz
@@ -116,8 +133,13 @@ export default function Sobre() {
           </p>
 
           <button
-            className="border border-blue-600 text-blue-600 px-6 py-2 rounded-full font-medium hover:bg-[rgba(0,26,255,0.35)] transition mt-4 sm:mt-8 text-base sm:text-[20px]"
+            className="border border-blue-600 text-blue-600 px-6 py-2 rounded-[24px] font-medium bg-transparent hover:bg-[rgba(0,26,255,0.1)] transition mt-10 sm:mt-8 text-base sm:text-[20px]"
             onClick={() => (window.location.href = '/collections/all')}
+            style={{
+              border: '2px solid #1A73E8',
+              color: '#1A73E8',
+              fontWeight: 'bold',
+            }}
           >
             Radical self-esteem
           </button>
@@ -125,7 +147,7 @@ export default function Sobre() {
       </section>
 
       {/* Estrelinhas - Corrigido para manter fundo contínuo */}
-      <div className="-mx-2 sm:-mx-6 px-2 sm:px-6 overflow-hidden border-y-2 border-blue-600 mt-[60px] sm:mb-[60px]">
+      <div className="-mx-2 sm:-mx-6 px-2 sm:px-6 overflow-hidden border-y-2 border-blue-600 mt-[20px] sm:mb-[60px]">
         <div className="marquee flex gap-2 py-2 sm:py-4">
           {Array.from({length: 40}).map((_, i) => (
             <img
@@ -142,19 +164,19 @@ export default function Sobre() {
       <section
         className="mt-[10px] sm:mt-[60px] mb-[1px] py-8 sm:py-16 px-2 sm:px-4 flex flex-col lg:flex-row items-stretch justify-center gap-8 lg:gap-18"
         style={{
-          paddingLeft: '40px',
-          paddingRight: '40px',
+          paddingLeft: '20px',
+          paddingRight: '20px',
         }}
       >
         {/* Imagem vem primeiro no mobile */}
+      
         <div className="w-full lg:w-5/12 mt-8 lg:mt-0 flex items-stretch order-1 lg:order-2">
           <img
             src="/image/sobreImage2.png"
             alt="Fórmula Vegana"
-            className="rounded-[20px] sm:rounded-[30px] w-full object-cover max-w-[689px] max-h-[750px] h-full"
+            className="rounded-[20px] sm:rounded-[30px] w-full object-cover"
             style={{
-              borderRadius: '20px',
-             
+              borderRadius: '24px',
             }}
           />
         </div>
@@ -163,7 +185,7 @@ export default function Sobre() {
         <div
           className="bg-transparent rounded-[20px] sm:rounded-[30px] p-4 sm:p-10 text-white w-full max-w-[689px] flex flex-col justify-between border-0 sm:border sm:border-white order-2 lg:order-1"
           style={{
-            height: 'auto',
+            height: 'auto',paddingLeft: '30px', paddingRight: '30px',
           }}
         >
           <style jsx>{`
@@ -182,9 +204,14 @@ export default function Sobre() {
           `}</style>
 
           <div className="accordion-box">
-            <h3 className="text-white font-semibold text-[22px] sm:text-[30px] mb-6 border-b border-gray-400 pb-3">
+            <p className="text-white font-semibold !text-[16px] sm:!text-[30px] mb-6 border-b border-gray-400 pb-3"
+            style={{
+              fontFamily: 'ReservationWide, sans-serif',
+              fontWeight: 'bold',
+              
+            }}>
               Como funcionam os adesivos secativos?
-            </h3>
+            </p>
 
             <Accordion
               title="Absorção de exsudato"
