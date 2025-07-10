@@ -295,7 +295,10 @@ export default function Sobre() {
           <div className="accordion-box">
             <h3
               className="text-white font-semibold text-[22px] sm:text-[30px] mb-6 border-b border-gray-400 pb-3"
-              style={{marginBottom: '0px'}}
+              style={{marginBottom: '0px', fontFamily: 'ReservationWide, sans-serif',
+                fontWeight: 'bold',
+                paddingBottom: '10px',
+                paddingRight: '80px',}}
             >
               Modo de uso:
             </h3>
@@ -341,9 +344,13 @@ export default function Sobre() {
         {/* Texto superior - vem primeiro */}
         <div
           className="w-full px-2 sm:px-20 py-2 sm:py-6 flex flex-col sm:flex-row items-center"
-          style={{marginTop: '30px'}}
+          style={{marginTop: '40px'}}
         >
-          <p className="uppercase tracking-wider font-semibold text-white text-center text-[12px] sm:text-left sm:text-[20px] md:!text-[30px]">
+          <p className="uppercase tracking-wider font-semibold text-white text-center text-[12px] sm:text-left sm:text-[20px] md:!text-[30px]"
+           style={{marginBottom: '0px', fontFamily: 'ReservationWide, sans-serif'
+               
+                }}
+            >
             ELEVE SEU CUIDADO COM A PELE USANDO GENSKINS
           </p>
           <div className="flex-1 h-px bg-white mx-0  sm:mx-2 sm:my-0" />
@@ -366,7 +373,7 @@ export default function Sobre() {
               width: '100%',
               maxWidth: '1712px',
               height: 'auto',
-              marginTop: '0',
+              marginTop: '10px',
             }}
             src="/image/sobreImage44.png"
             alt="Pessoas com adesivos"

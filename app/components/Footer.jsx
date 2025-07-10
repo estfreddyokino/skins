@@ -9,7 +9,7 @@ export function Footer() {
     >
       <div className="mx-5 md:mx-20 grid grid-cols-1 md:grid-cols-4 gap-y-8 gap-x-22 text-left md:text-center">
         {/* Bloco 1 */}
-        <div className=" md:mt-8" style={{marginLeft: '30px'}}>
+        <div className=" md:mt-8" style={{marginLeft: '20px'}}>
           <img src="/image/footerLogo.png" alt="Logo" className="footer-logo" />
 
           <div className="footer-100 footer-font">
@@ -64,7 +64,7 @@ export function Footer() {
         </div>
 
         {/* Bloco 2 */}
-        <div className="md:mt-16" style={{marginLeft: '30px'}}>
+        <div className="md:mt-16" style={{marginLeft: '20px'}}>
           <p
             className="footer-font tracking-wider"
             style={{
@@ -147,7 +147,7 @@ export function Footer() {
         </div>
 
         {/* Bloco 3 */}
-        <div className=" md:mt-16" style={{marginLeft: '30px'}}>
+        <div className=" md:mt-16" style={{marginLeft: '20px'}}>
           <p
             className="footer-font tracking-wider"
             style={{
@@ -172,7 +172,7 @@ export function Footer() {
         </div>
 
         {/* Bloco 4 */}
-        <div className="md:mt-16 ml-4 md:ml-12" style={{marginLeft: '30px'}}>
+        <div className="md:mt-16 ml-4 md:ml-12" style={{marginLeft: '20px'}}>
           <p
             className="footer-font tracking-wider"
             style={{
