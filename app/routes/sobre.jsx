@@ -334,7 +334,10 @@ export default function Sobre() {
       </div>
 
       {/* Última Seção */}
-      <div className="relative min-h-[300px] sm:min-h-screen flex flex-col items-center text-white px-2 sm:px-4" style={{marginBottom: '50px'}}>
+      <div
+        className="relative min-h-[300px] sm:min-h-screen flex flex-col items-center text-white px-2 sm:px-4"
+        style={{marginBottom: '50px'}}
+      >
         {/* Texto superior - vem primeiro */}
         <div
           className="w-full px-2 sm:px-20 py-2 sm:py-6 flex flex-col sm:flex-row items-center"
@@ -354,7 +357,6 @@ export default function Sobre() {
             maxWidth: '1712px',
             height: 'auto',
             minHeight: '200px',
-            
           }}
         >
           <img
@@ -365,7 +367,6 @@ export default function Sobre() {
               maxWidth: '1712px',
               height: 'auto',
               marginTop: '0',
-             
             }}
             src="/image/sobreImage44.png"
             alt="Pessoas com adesivos"
@@ -375,17 +376,20 @@ export default function Sobre() {
           {/* Botão centralizado */}
           <div className="absolute inset-0 flex justify-center items-center">
             <button
-              className="border-2 border-white text-white px-3 sm:px-8 py-1 sm:py-4 rounded-full bg-white/10 hover:bg-white/30 transition-all text-xs sm:text-[20px] font-bold"
+              className="border-2 border-white text-white bg-white/40 hover:bg-white/60 
+             px-4 sm:px-8 lg:px-14 py-2 sm:py-4 lg:py-5 
+             rounded-full transition-all text-sm sm:text-[18px] lg:text-[22px] font-bold"
               onClick={() => (window.location.href = '/collections/all')}
               style={{
                 width: 'fit-content',
                 maxWidth: '90vw',
                 minWidth: '220px',
-                height: '40px',
+                height: '44px',
+                minHeight: '44px',
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                borderRadius: '20px',
+                borderRadius: '35px',
               }}
             >
               SHOP

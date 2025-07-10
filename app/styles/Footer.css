@@ -93,3 +93,38 @@
     font-size: 12px;
   }
 
+  .footer-logo {
+    width: 350px; /* tamanho padrão para desktop */
+  }
+ @font-face {
+  font-family: 'Reservation';
+  src: url('/fonts/Reservation.ttf') format('truetype');
+}
+
+.footer-font {
+  font-family: 'Reservation', sans-serif;
+   font-size: 20px;
+}
+  @media (max-width: 568px) {
+    .footer-logo {
+      width: 280px; /* tamanho menor para mobile */
+      margin-top: 30px;
+    }
+    .footer-100{
+      margin-top: 30px;
+    }
+    .footer-font {
+  font-family: 'Reservation', sans-serif;
+  font-weight: normal;
+   color: '#8b8c8d';
+   font-size: 16px;
+}
+  .footer-font-letras {
+  font-family: 'Reservation', sans-serif;
+  font-weight: normal;
+   color: '#8b8c8d';
+   font-size: 14px;
+   margin-top: 10px;
+   
+}
+  }
