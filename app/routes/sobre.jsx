@@ -29,19 +29,21 @@ function Accordion({ title, content }) {
         </span>
       </button>
       <div
-        className={`text-[14px] sm:text-[16px] md:text-[16px] mt-2 text-white overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'opacity-100 max-h-[999px]' : 'opacity-0 max-h-0'
+        className={`text-[16px] sm:text-[16px] md:text-[16px] mt-2 text-white overflow-hidden transition-all duration-500 ease-in-out font-normal px-[10px] ${isOpen ? 'opacity-100 max-h-[999px]' : 'opacity-0 max-h-0'
           }`}
         style={{
-          fontWeight: 'normal',
           fontFamily: 'ReservationWide, sans-serif',
           letterSpacing: '0.05em',
-          paddingLeft: '10px',
-          paddingRight: '10px',
-          fontSize: '14px',
         }}
       >
-        <p className="leading-relaxed">{content}</p>
+        <div
+          className="leading-snug"
+          style={{ fontFamily: 'inherit' }} // ⬅️ Herdando do pai corretamente
+        >
+        </div>
+          {content}
       </div>
+
     </div>
   );
 }
@@ -220,12 +222,13 @@ export default function Sobre() {
 
           <div className="accordion-box">
             <p
-              className="text-white font-semibold !text-[16px] sm:!text-[30px] mb-6 border-b border-gray-400 pb-3"
+              className="text-white tracking-wide  font-semibold !text-[16px] sm:!text-[30px] mb-6 border-b border-gray-400 pb-3"
               style={{
                 fontFamily: 'ReservationWide, sans-serif',
                 fontWeight: 'bold',
                 paddingBottom: '10px',
                 paddingRight: '80px',
+
               }}
             >
               Como funcionam os adesivos secativos?
@@ -233,7 +236,15 @@ export default function Sobre() {
 
             <Accordion
               title="Absorção de exsudato"
-              content="Quando aplicado sobre a acne, o hidrocoloide absorve a secreção (exsudato) da lesão, formando um gel que ajuda a reduzir a inflamação e o inchaço."
+              content={
+                <>
+                  Quando aplicado sobre a acne, o <br className="block sm:hidden" />
+                  hidrocoloide absorve a secreção <br className="block sm:hidden" />
+                  (exsudato) da lesão, formando <br className="block sm:hidden" />
+                  um gel que ajuda a reduzir a <br className="block sm:hidden" />
+                  inflamação e o inchaço.
+                </>
+              }
             />
             <Accordion
               title="Cicatrização"
@@ -294,7 +305,7 @@ export default function Sobre() {
           `}</style>
           <div className="accordion-box">
             <h3
-              className="text-white font-semibold text-[22px] sm:text-[30px] mb-6 border-b border-gray-400 pb-3"
+              className="text-white font-semibold !text-[18px] sm:text-[30px] mb-6 border-b border-gray-400 pb-3"
               style={{
                 marginBottom: '0px', fontFamily: 'ReservationWide, sans-serif',
                 fontWeight: 'bold',
