@@ -122,12 +122,9 @@ function ProductItem({product, loading}) {
     }
   }, [product.title]);
   const ulClass =
-    'list-inside pl-6 space-y-2 mb-4 text-base md:text-[19px] font-bold';
+    'list-inside   text-base md:text-[19px] font-bold';
   return (
-    <div
-      className="flex flex-col md:flex-row bg-[#f5f6f8] rounded-3xl p-2 shadow-lg relative overflow-hidden max-w-7xl mx-auto my-10"
-      style={{marginLeft: '30px', marginRight: '30px'}}
-    >
+    <div className="flex flex-col md:flex-row bg-[#f5f6f8] rounded-3xl p-2 shadow-lg relative overflow-hidden max-w-7xl mx-[30px] my-10">
       {/* Imagem + Navegação */}
       <div className="flex flex-col items-center justify-center relative w-full md:w-[50%]">
         <div className="flex items-center justify-center relative">
@@ -194,10 +191,7 @@ function ProductItem({product, loading}) {
       </div>
 
       {/* Conteúdo */}
-      <div
-        className="w-full md:w-[50%] mt-10 md:mt-0 md:ml-10 text-blue-600"
-        style={{marginLeft: '30px', paddingRight: '40px'}}
-      >
+      <div className="w-full md:w-[50%] mt-10 md:mt-0 md:ml-10 text-blue-600 px-[20px]">
         <div className="flex flex-col justify-center">
           {/* 1. Título */}
           <div className="order-1 md:order-none flex justify-start">
@@ -247,9 +241,8 @@ function ProductItem({product, loading}) {
           />
 
           {/* 6. Lista */}
-          <div  class="order-6">
+          <div class="order-6">
             <ul
-             
               className={ulClass}
               style={{
                 listStyleType: 'disc',
@@ -339,7 +332,7 @@ const PRODUCT_ITEM_FRAGMENT = `#graphql
       width
       height
     }
-    images(first: 5) {
+    images(first: 6) {
       nodes {
         id
         altText
