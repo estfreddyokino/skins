@@ -76,7 +76,7 @@ export function Footer() {
           </p>
           <ul
             className="footer-font-letras tracking-wider"
-            style={{listStyle: 'none', padding: 0, margin: 0}}
+            style={{listStyle: 'none', padding: 0, marginBottom: '10px'}}
           >
             <li>
               <a

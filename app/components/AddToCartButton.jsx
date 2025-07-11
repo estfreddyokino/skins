@@ -53,7 +53,7 @@ export function AddToCartButton({
           <style>{`
             @media (max-width: 600px) {
               button[type="submit"] {
-                width: 350px !important;
+                width: 300px !important;
                 marginTop: 20px !important;
               }
             }

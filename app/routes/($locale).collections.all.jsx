@@ -68,12 +68,14 @@ function ProductItem({product, loading}) {
   const currentImage = images[currentImageIndex];
 
   const [descriptionParts, setDescriptionParts] = useState({
-    descIntro: '',
+    descIntroMobile: '',
+    descIntroDesktop: '',
     li1: '',
     li2: '',
     li3: '',
     descFinal: '',
   });
+
   const [titleImage, setTitleImage] = useState(null);
 
   const nextImage = (e) => {
@@ -86,14 +88,33 @@ function ProductItem({product, loading}) {
     setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
-  const parseDescription = (descriptionHtml) => {
+  const parseDescription = (descriptionHtml, productTitle) => {
     const tempDiv = document.createElement('div');
     tempDiv.innerHTML = descriptionHtml;
+
     const firstParagraph = tempDiv.querySelector('p');
     const listItems = tempDiv.querySelectorAll('ul li');
     const lastParagraph = tempDiv.querySelectorAll('p')[1];
+
+    const defaultIntro = firstParagraph?.textContent || '';
+    const title = productTitle?.toLowerCase();
+
+    let introMobile = defaultIntro;
+
+    if (title === 'gen-stars') {
+      introMobile =
+        'Adesivos secativos em formato de estrela com tecnologia hidrocolóide que tratam a acne e previnem novas irritações.';
+    } else if (title === 'gen-sea') {
+      introMobile =
+        'Adesivos secativos em formatos inspirados no mar com tecnologia hidrocolóide que tratam a acne e previnem novas irritações.';
+    } else if (title === 'happy-gen') {
+      introMobile =
+        'Adesivos secativos em formato de sorriso com tecnologia hidrocolóide que tratam a acne e previnem novas irritações.';
+    }
+
     return {
-      descIntro: firstParagraph?.textContent || '',
+      descIntroDesktop: defaultIntro,
+      descIntroMobile: introMobile,
       li1: listItems[0]?.textContent || '',
       li2: listItems[1]?.textContent || '',
       li3: listItems[2]?.textContent || '',
@@ -102,10 +123,12 @@ function ProductItem({product, loading}) {
   };
 
   useEffect(() => {
-    if (product.descriptionHtml) {
-      setDescriptionParts(parseDescription(product.descriptionHtml));
+    if (product.descriptionHtml && product.title) {
+      setDescriptionParts(
+        parseDescription(product.descriptionHtml, product.title),
+      );
     }
-  }, [product.descriptionHtml]);
+  }, [product.descriptionHtml, product.title]);
 
   useEffect(() => {
     if (product.title) {
@@ -121,10 +144,15 @@ function ProductItem({product, loading}) {
       }
     }
   }, [product.title]);
-  const ulClass = 'list-inside   text-base md:text-[19px] font-bold';
+
+  const ulClass = 'list-inside text-base md:text-[19px] font-bold';
+
   return (
-    <div className="flex flex-col md:flex-row bg-[#f5f6f8] rounded-3xl p-2 shadow-lg relative overflow-hidden max-w-7xl mx-[30px] my-10">
-      {/* Imagem + Navegação */}
+    <div
+      className="flex flex-col md:flex-row bg-[rgb(244,247,255)] md:bg-[#f5f6f8] rounded-3xl p-2 shadow-lg relative overflow-hidden max-w-7xl mx-[30px] my-12"
+      style={{width: '85%', padding: '20px', paddingBottom: '40px'}}
+    >
+      {/* Imagens */}
       <div className="flex flex-col items-center justify-center relative w-full md:w-[50%]">
         <div className="flex items-center justify-center relative">
           {images.length > 1 && (
@@ -132,13 +160,7 @@ function ProductItem({product, loading}) {
               onClick={prevImage}
               className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-transparent p-2 rounded-full hover:bg-gray-200 z-10"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="60"
-                height="60"
-                fill="none"
-                viewBox="0 0 40 40"
-              >
+              <svg width="60" height="60" fill="none" viewBox="0 0 40 40">
                 <path
                   d="M23.5 11.5 L15.5 19.5 L23.5 27.5"
                   stroke="rgb(0, 64, 255)"
@@ -150,7 +172,7 @@ function ProductItem({product, loading}) {
             </button>
           )}
 
-          <div className="w-full flex items-center justify-center h-[400px]">
+          <div className="w-full flex items-center justify-center h-[320px]">
             {currentImage && (
               <Image
                 key={currentImage.id}
@@ -158,8 +180,18 @@ function ProductItem({product, loading}) {
                 aspectRatio="1/1"
                 data={currentImage}
                 loading={loading}
-                sizes="(min-width: 45em) 600px, 200vw"
-                style={{borderRadius: '15px'}}
+                sizes="(min-width: 40em) 600px, 200vw"
+                style={{
+                  borderRadius: '15px',
+                  width: '95%',
+                  maxWidth: '700px',
+                  ...(typeof window === 'undefined'
+                    ? {}
+                    : window.innerWidth >= 768
+                      ? {width: '90%'}
+                      : {width: '95%'}),
+                }}
+                className="md:w-[70%] w-[95%]"
               />
             )}
           </div>
@@ -169,13 +201,7 @@ function ProductItem({product, loading}) {
               onClick={nextImage}
               className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-transparent p-2 rounded-full hover:bg-gray-200 z-10"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="60"
-                height="60"
-                fill="none"
-                viewBox="0 0 40 40"
-              >
+              <svg width="60" height="60" fill="none" viewBox="0 0 40 40">
                 <path
                   d="M16.5 11.5 L24.5 19.5 L16.5 27.5"
                   stroke="rgb(0, 64, 255)"
@@ -192,7 +218,7 @@ function ProductItem({product, loading}) {
       {/* Conteúdo */}
       <div className="w-full md:w-[50%] mt-10 md:mt-0 md:ml-10 text-blue-600 px-[20px]">
         <div className="flex flex-col justify-center">
-          {/* 1. Título */}
+          {/* Título */}
           <div className="order-1 md:order-none flex justify-start">
             {titleImage ? (
               <img
@@ -207,13 +233,14 @@ function ProductItem({product, loading}) {
             )}
           </div>
 
-          {/* 2. Descrição final */}
-          <p className="order-2 md:order-6 text-[20px] font-bold mb-6 text-[#949BDC]">
+          {/* Descrição final */}
+          <p className="order-2 md:order-6 text-[20px] font-bold mb-6 text-[#0040FF]"
+          style={{lineHeight: '16px', fontFamily: 'Reservation Bold, sans-serif'}}>
             {descriptionParts.descFinal}
           </p>
 
-          {/* 3. Preço */}
-          <h3 className="order-3 md:order-7 text-3xl font-bold text-blue-800 mb-6">
+          {/* Preço */}
+          <h3 className="order-3 md:order-7 text-3xl font-bold mb-3 text-[#0040FF]">
             {new Intl.NumberFormat('pt-BR', {
               style: 'currency',
               currency: 'BRL',
@@ -222,61 +249,86 @@ function ProductItem({product, loading}) {
             }).format(Number(product.priceRange.minVariantPrice.amount))}
           </h3>
 
-          {/* 4. Descrição de introdução */}
-          <p
-            className="order-4 md:order-2 text-[20px] font-bold mb-4 text-justify"
-            style={{color: '#001AFF'}}
-          >
-            {descriptionParts.descIntro}
-          </p>
+          {/* Descrição de introdução (mobile e desktop) */}
+          <>
+            {/* Mobile */}
+            <p
+              className="order-4 md:order-2 text-[20px] font-bold mb-4 text-justify block md:hidden"
+              style={{
+                color: '#001AFF',
+                lineHeight: '16px',
+                fontFamily: 'Reservation Bold, sans-serif',
+              }}
+            >
+              {descriptionParts.descIntroMobile}
+            </p>
 
-          {/* 5. Linha divisória */}
+            {/* Desktop */}
+            <p
+              className="order-4 md:order-2 text-[20px] font-bold mb-4 text-justify hidden md:block"
+              style={{color: '#001AFF', lineHeight: '16px'}}
+            >
+              {descriptionParts.descIntroDesktop}
+            </p>
+          </>
+
+          {/* Linha divisória */}
           <div
             className="order-5"
             style={{
               width: '100%',
               borderTop: '2px solid rgb(0,64,255)',
+              marginTop: '20px',
             }}
           />
 
-          {/* 6. Lista */}
-          <div class="order-6">
+          {/* Lista */}
+          <div className="order-6">
             <ul
               className={ulClass}
               style={{
                 listStyleType: 'disc',
-                marginLeft: '45px',
-
-                fontFamily: 'ReservationWide, sans-serif',
-                fontStyle: 'normal',
+                fontFamily: 'Reservation Bold, sans-serif',
+                color: 'rgba(0, 64, 255, 1)',
+                padding: 0,
+                margin: 0,
+                marginLeft: '30px',
+                lineHeight: '14px',
+                marginTop: '10px',
               }}
             >
               {descriptionParts.li1 && (
-                <li className="marker:text-[1.5em]">{descriptionParts.li1}</li>
+                <li className="marker:text-[1.5em]" style={{marginBottom: 0}}>
+                  {descriptionParts.li1}
+                </li>
               )}
               {descriptionParts.li2 && (
-                <li className="marker:text-[1.5em]">{descriptionParts.li2}</li>
+                <li className="marker:text-[1.5em]" style={{marginBottom: 0}}>
+                  {descriptionParts.li2}
+                </li>
               )}
               {descriptionParts.li3 && (
-                <li className="marker:text-[1.5em]">{descriptionParts.li3}</li>
+                <li className="marker:text-[1.5em]" style={{marginBottom: 0}}>
+                  {descriptionParts.li3}
+                </li>
               )}
             </ul>
           </div>
 
-          {/* 7. Segunda linha divisória */}
+          {/* Linha divisória */}
           <div
             className="order-7"
             style={{
               width: '100%',
               borderTop: '2px solid rgb(0,64,255)',
+              marginTop: '10px',
             }}
           />
 
-          {/* 8. Botão e preço juntos (para alinhar bem) */}
+          {/* Botão de compra */}
           <div className="order-8 md:order-8 flex justify-between items-center">
-            {/* já tem o preço lá em cima, aqui não precisa repetir */}
+            {/* Mobile */}
             <div className="md:hidden">
-              {/* Escondido no desktop, visível no mobile */}
               <AddToCartButton
                 lines={[
                   {
@@ -292,8 +344,8 @@ function ProductItem({product, loading}) {
               </AddToCartButton>
             </div>
 
+            {/* Desktop */}
             <div className="hidden md:block" style={{margin: 'auto'}}>
-              {/* Escondido no mobile, visível no desktop */}
               <AddToCartButton
                 lines={[
                   {
