@@ -204,7 +204,7 @@ export default function Homepage() {
         <section className="w-full py-20 px-4 sm:px-8 flex flex-col lg:flex-row items-center justify-center gap-8">
           <div className="w-full lg:w-8/12">
             <img
-              src="/image/homeGenskins.png"
+              src="https://cdn-genskins.lambdatech.com.br/image/homeGenskins.png"
               alt="Modelo com adesivos"
               className="rounded-[30px] w-full object-cover mt-40 sm:mt-40"
             />
@@ -214,45 +214,45 @@ export default function Homepage() {
         <div className="block md:hidden">
           {/* BLOCO 1 - MOBILE */}
           <img
-            src="/image/estrelaamarela.png"
+            src="https://cdn-genskins.lambdatech.com.br/image/estrelaamarela.png"
             className="absolute top-25 right-4 w-12 float"
           />
           <img
-            src="/image/estrelaazul.png"
+            src="https://cdn-genskins.lambdatech.com.br/image/estrelaazul.png"
             className="absolute top-10 left-10 w-10 float2"
           />
           <img
-            src="/image/rotoFelizAzul.png"
+            src="https://cdn-genskins.lambdatech.com.br/image/rotoFelizAzul.png"
             className="absolute top-24 left-1/4 w-14 float3"
           />
           <img
-            src="/image/peixeAzulDereita.png"
+            src="https://cdn-genskins.lambdatech.com.br/image/peixeAzulDereita.png"
             className="absolute top-2 right-1/3 w-12 float"
           />
           <img
-            src="/image/solAmarelo.png"
+            src="https://cdn-genskins.lambdatech.com.br/image/solAmarelo.png"
             className="absolute top-2 right-1/2 w-20 float2"
           />
 
           {/* BLOCO 2 - MOBILE */}
           <img
-            src="/image/estrelaamarela.png"
+            src="https://cdn-genskins.lambdatech.com.br/image/estrelaamarela.png"
             className="absolute top-[50vh] left-4 w-12 float2"
           />
           <img
-            src="/image/estrelaazul.png"
+            src="https://cdn-genskins.lambdatech.com.br/image/estrelaazul.png"
             className="absolute top-[54vh] right-[50px] w-10 float3"
           />
           <img
-            src="/image/rotoFelizAzul.png"
+            src="https://cdn-genskins.lambdatech.com.br/image/rotoFelizAzul.png"
             className="absolute top-[42vh] left-52 w-14 float"
           />
           <img
-            src="/image/peixeAzulDereita.png"
+            src="https://cdn-genskins.lambdatech.com.br/image/peixeAzulDereita.png"
             className="absolute top-[54vh] right-2/3 w-12 float2"
           />
           <img
-            src="/image/solAmarelo.png"
+            src="https://cdn-genskins.lambdatech.com.br/image/solAmarelo.png"
             className="absolute top-[56vh] right-1/3 w-20 float3"
           />
         </div>
@@ -263,42 +263,42 @@ export default function Homepage() {
           <div className='absolute top-25 right-52 w-28'
             style={{transform: `translate(${scrollPosition}px, -${scrollPosition*2.5}px) scale(${1 + scrollPosition/1000})`}}>
             <img
-              src="/image/estrelaamarela.png"
+              src="https://cdn-genskins.lambdatech.com.br/image/estrelaamarela.png"
               className="w-100 float2"
             />
           </div>
           <div className='absolute top-30 left-50 w-24'
             style={{transform: `translate(0, -${scrollPosition*2.5}px) scale(${1 + scrollPosition/1000})`}}>
             <img
-              src="/image/estrelaazul.png"
+              src="https://cdn-genskins.lambdatech.com.br/image/estrelaazul.png"
               className="w-100 float2"
             />
           </div>
           <div className='absolute top-14 left-1/4 w-36'
             style={{transform: `translate(-${scrollPosition}px, -${scrollPosition*2.5}px) scale(${1 + scrollPosition/1000})`}}>
             <img
-              src="/image/rotoFelizAzul.png"
+              src="https://cdn-genskins.lambdatech.com.br/image/rotoFelizAzul.png"
               className="w-100 float"
             />
           </div>
           <div className='absolute top-2 right-1/3 w-32'
             style={{transform: `translate(-${scrollPosition}px, -${scrollPosition*2.5}px) scale(${1 + scrollPosition/1000})`}}>
             <img
-              src="/image/peixeAzulDereita.png"
+              src="https://cdn-genskins.lambdatech.com.br/image/peixeAzulDereita.png"
               className="w-100 float"
             />
           </div>
           <div className='absolute top-22 right-80 w-12'
             style={{transform: `translate(-${scrollPosition}px, -${scrollPosition*2.5}px) scale(${1 + scrollPosition/1000})`}}>
             <img
-              src="/image/peixeAzulDereita.png"
+              src="https://cdn-genskins.lambdatech.com.br/image/peixeAzulDereita.png"
               className="w-100 scale-x-[-1] float3"
             />
           </div>
           <div className='absolute top-2 right-1/2 w-48'
             style={{transform: `translate(0, -${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
             <img
-              src="/image/solAmarelo.png"
+              src="https://cdn-genskins.lambdatech.com.br/image/solAmarelo.png"
               className="w-100 float"
             />
           </div>
@@ -307,84 +307,84 @@ export default function Homepage() {
           <div className='absolute top-[440px] left-30 w-28'
             style={{transform: `translate(-${scrollPosition}px, ${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
             <img
-              src="/image/estrelaamarela.png"
+              src="https://cdn-genskins.lambdatech.com.br/image/estrelaamarela.png"
               className="w-100 float2 scale-x-[-1]"
             />
           </div>
           <div className='absolute top-124 left-230 w-12'
             style={{transform: `translate(0, ${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
             <img
-              src="/image/estrelaamarela.png"
+              src="https://cdn-genskins.lambdatech.com.br/image/estrelaamarela.png"
               className="w-100 float3"
             />
           </div>
           <div className='absolute top-[480px] right-60 w-24'
             style={{transform: `translate(${scrollPosition}px, ${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
             <img
-              src="/image/estrelaazul.png"
+              src="https://cdn-genskins.lambdatech.com.br/image/estrelaazul.png"
               className="w-100 float2"
             />
           </div>
           <div className='absolute top-40 right-120 w-12'
             style={{transform: `translate(${scrollPosition}px, -${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
             <img
-              src="/image/estrelaazul.png"
+              src="https://cdn-genskins.lambdatech.com.br/image/estrelaazul.png"
               className="w-100 float3 scale-x-[-1]"
             />
           </div>
           <div className='absolute top-140 right-260 w-12'
             style={{transform: `translate(${scrollPosition}px, ${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
             <img
-              src="/image/estrelaazul.png"
+              src="https://cdn-genskins.lambdatech.com.br/image/estrelaazul.png"
               className="w-100 float3 scale-x-[-1]"
             />
           </div>
           <div className='absolute top-[640px] left-50 w-36'
             style={{transform: `translate(-${scrollPosition}px, ${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
             <img
-              src="/image/rotoFelizAzul.png"
+              src="https://cdn-genskins.lambdatech.com.br/image/rotoFelizAzul.png"
               className="w-100 float2 scale-x-[-1]"
             />
           </div>
           <div className='absolute top-120 right-20 w-16'
             style={{transform: `translate(${scrollPosition}px, 0) scale(${1 + scrollPosition/100})`}}>
             <img
-              src="/image/rotoFelizAzul.png"
+              src="https://cdn-genskins.lambdatech.com.br/image/rotoFelizAzul.png"
               className="w-100 float3"
             />
           </div>
           <div className='absolute top-[480px] right-2/3 w-32'
             style={{transform: `translate(-${scrollPosition}px, ${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
             <img
-              src="/image/peixeAzulDereita.png"
+              src="https://cdn-genskins.lambdatech.com.br/image/peixeAzulDereita.png"
               className="w-100 float2"
             />
           </div>
           <div className='absolute top-50 left-200 w-12'
             style={{transform: `translate(-${scrollPosition}px, -${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
             <img
-              src="/image/peixeAzulDereita.png"
+              src="https://cdn-genskins.lambdatech.com.br/image/peixeAzulDereita.png"
               className="w-100 float3 scale-x-[-1]"
             />
           </div>
           <div className='absolute top-[500px] right-1/3 w-48'
             style={{transform: `translate(0, ${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
             <img
-              src="/image/solAmarelo.png"
+              src="https://cdn-genskins.lambdatech.com.br/image/solAmarelo.png"
               className="w-100 float2 scale-x-[-1]"
             />
           </div>
           <div className='absolute top-70 right-40 w-10'
             style={{transform: `translate(${scrollPosition}px, -${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
             <img
-              src="/image/solAmarelo.png"
+              src="https://cdn-genskins.lambdatech.com.br/image/solAmarelo.png"
               className="w-100 float3 scale-x-[-1]"
             />
           </div>
           <div className='absolute top-70 left-40 w-10 '
             style={{transform: `translate(${scrollPosition}px, -${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
             <img
-              src="/image/solAmarelo.png"
+              src="https://cdn-genskins.lambdatech.com.br/image/solAmarelo.png"
               className="w-100 float2 scale-x-[-1]"
             />
           </div>
@@ -407,22 +407,22 @@ export default function Homepage() {
       <div className="w-full flex flex-col items-center py-6 px-4 sm:px-8">
         <div className="flex flex-wrap sm:flex-nowrap justify-center gap-6 w-full">
           <HoverImageCard
-            image1="/image/imagemHome1-1.png"
-            image2="/image/imagemHome1-2.png"
+            image1="https://cdn-genskins.lambdatech.com.br/image/imagemHome1-1.png"
+            image2="https://cdn-genskins.lambdatech.com.br/image/imagemHome1-2.png"
             alt="Card 1"
             title="Gen-stars"
             title2="R$ 49,00"
           />
           <HoverImageCard
-            image1="/image/imagemHome2-1.png"
-            image2="/image/imagemHome2-2.png"
+            image1="https://cdn-genskins.lambdatech.com.br/image/imagemHome2-1.png"
+            image2="https://cdn-genskins.lambdatech.com.br/image/imagemHome2-2.png"
             alt="Card 2"
             title="Gen-sea"
             title2="R$ 49,00"
           />
           <HoverImageCard
-            image1="/image/imagemHome3-1.png"
-            image2="/image/imagemHome3-2.png"
+            image1="https://cdn-genskins.lambdatech.com.br/image/imagemHome3-1.png"
+            image2="https://cdn-genskins.lambdatech.com.br/image/imagemHome3-2.png"
             alt="Card 3"
             title="Happy-Gen"
             title2="R$ 49,00"
@@ -464,7 +464,7 @@ export default function Homepage() {
       <div className="relative flex items-center justify-center flex-col text-white px-10 pt-0 mb-20">
         <div className="w-full max-w-8xl relative rounded-[30px] overflow-hidden mt-0 sm:mt-16">
           <img
-            src="/image/home2.png"
+            src="https://cdn-genskins.lambdatech.com.br/image/home2.png"
             alt="Pessoas com adesivos"
             className="w-full h-auto object-cover rounded-[30px]"
           />
