@@ -23,6 +23,7 @@ async function loadCriticalData(context) {
   };
 }
 import {useState, useEffect, useRef} from 'react';
+import { isMethodSignature } from 'typescript';
 
 function loadDeferredData(context) {
   const recommendedProducts = context.storefront
@@ -196,7 +197,7 @@ export default function Homepage() {
   }, []);
 
   return (
-    <div className="bg-image-full" style={{padding: '10px 20px'}}>
+    <div className="bg-image-full" style={{padding:"100px 20px 20px 20px"}} >
       <style>
         {`
           @keyframes float {
