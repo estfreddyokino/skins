@@ -13,7 +13,41 @@ export async function loader({context}) {
 
   return {...deferredData, ...criticalData};
 }
+function ProductCard({product}) {
+  const variantUrl = `/products/${product.handle}`;
+  const price = new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+    maximumFractionDigits: 0,
+  }).format(Number(product.priceRange.minVariantPrice.amount));
 
+  const image = product.images?.nodes?.[0];
+
+  return (
+    <div className="rounded-3xl shadow-xl bg-white p-4 max-w-xs text-center">
+      {image && (
+        <img
+          src={image.url}
+          alt={image.altText || product.title}
+          className="w-full h-auto rounded-2xl mb-4"
+        />
+      )}
+      <h3 className="text-blue-700 font-bold text-xl mb-2">{product.title}</h3>
+      <p className="text-blue-500 text-lg mb-4">{price}</p>
+      <AddToCartButton
+        lines={[
+          {
+            merchandiseId: product.variants?.nodes?.[0]?.id,
+            quantity: 1,
+          },
+        ]}
+        className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full"
+      >
+        Adicionar à sacola
+      </AddToCartButton>
+    </div>
+  );
+}
 async function loadCriticalData(context) {
   const [{collections}] = await Promise.all([
     context.storefront.query(FEATURED_COLLECTION_QUERY),
@@ -124,55 +158,38 @@ function HoverImageCard({image1, image2, alt, title, title2, title3}) {
 
   return (
     <div
-      className="w-[400px] sm:w-[450px] lg:w-[500px] cursor-pointer transition-transform  overflow-hidden rounded-3xl shadow-xl bg-white relative"
+      className="w-[400px] sm:w-[450px] lg:w-[500px] cursor-pointer transition-transform hover:scale-105 overflow-hidden rounded-3xl shadow-xl bg-white relative"
       onMouseEnter={() => !isMobile && setIsHovered(true)}
       onMouseLeave={() => !isMobile && setIsHovered(false)}
       onClick={handleToggle}
-      style={{margin: '20px',backgroundColor: 'rgba(244, 247, 255, 0.9)' }}
     >
-      {/* Container da imagem com relative para posicionar os textos */}
+      {/* Imagem */}
+      <div className="aspect-[3/4] w-full h-full">
+        <img
+          src={isHovered ? image2 : image1}
+          alt={alt}
+          className="w-full h-full object-cover"
+        />
+      </div>
+
+      {/* Texto sobreposto */}
       <div
-        className="relative aspect-[3/4] w-full h-full"
-        style={{width: '80%', margin: 'auto', minHeight: '400px',
-          
-        }}
+        className="absolute bottom-0 w-full text-blue text-xl text-left py-4 px-4 font-semibold"
+        style={{color: 'blue', fontSize: '30px'}}
       >
-        <div style={{width: isMobile ? '70%' :  '100%', height: '80%', margin: 'auto'}}>
-          <img
-            src={isHovered ? image2 : image1}
-            alt={alt}
-            className="w-full h-full object-cover rounded-3xl"
-            style={{minHeight: '320px',}}
-          />
-        </div>
-
-        {/* Textos sobrepostos */}
-        <div
-          className="bottom-20 left-4 right-4 flex justify-between items-center text-blue-700 font-semibold"
-          style={{  color: '#001AFF',
-                lineHeight: '16px',
-                fontFamily: 'Reservation Bold, sans-serif', 
-              fontSize: isMobile ?'14px': '30px'}}
-        >
-          <div>{title}</div>
-          <div>{title2}</div>
-        </div>
-
-        <div
-          className=" bottom-12 right-4 text-blue-700 text-2xl font-semibold"
-          style={{  color: '#001AFF',
-                lineHeight: '16px',
-                fontFamily: 'Reservation Bold, sans-serif',
-              fontSize: isMobile ?'14px': '30px',
-            marginTop: isMobile ? '0px' : '20px'}}
-        >
-          {title3}
-        </div>
-
-        <div
-          className="bottom-4 left-4 text-blue-700 text-2xl font-semibold"
-          style={{fontSize: '30px'}}
-        ></div>
+        {title}
+      </div>
+      <div
+        className="absolute bottom-0 w-full text-blue text-xl text-right py-4 px-4 font-semibold"
+        style={{color: 'blue', fontSize: '30px'}}
+      >
+        {title2}
+      </div>
+      <div
+        className="absolute bottom-0 w-full text-blue text-xl text-left py-4 px-4 font-semibold"
+        style={{color: 'blue', fontSize: '30px'}}
+      >
+        {title3}
       </div>
     </div>
   );
@@ -183,20 +200,20 @@ export default function Homepage() {
   const phrase = useScrollTyping('Para todos os tipos de pele', 50);
   const [scrollPosition, setScrollPosition] = useState(0);
   const handleScroll = () => {
-    const position = window.pageYOffset;
-    setScrollPosition(position);
+      const position = window.pageYOffset;
+      setScrollPosition(position);
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll, {passive: true});
+      window.addEventListener('scroll', handleScroll, { passive: true });
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+      return () => {
+          window.removeEventListener('scroll', handleScroll);
+      };
   }, []);
 
   return (
-    <div className="bg-image-full" style={{padding: '10px 20px'}}>
+    <div className="bg-image-full">
       <style>
         {`
           @keyframes float {
@@ -277,174 +294,129 @@ export default function Homepage() {
         {/* ==== ELEMENTOS VISUAIS DESKTOP ==== */}
         <div className="hidden md:block">
           {/* BLOCO 1 - DESKTOP */}
-          <div
-            className="absolute top-25 right-52 w-28"
-            style={{
-              transform: `translate(${scrollPosition}px, -${scrollPosition * 2.5}px) scale(${1 + scrollPosition / 1000})`,
-            }}
-          >
-            <img src="/image/estrelaamarela.png" className="w-100 float2" />
+          <div className='absolute top-25 right-52 w-28'
+            style={{transform: `translate(${scrollPosition}px, -${scrollPosition*2.5}px) scale(${1 + scrollPosition/1000})`}}>
+            <img
+              src="/image/estrelaamarela.png"
+              className="w-100 float2"
+            />
           </div>
-          <div
-            className="absolute top-30 left-50 w-24"
-            style={{
-              transform: `translate(0, -${scrollPosition * 2.5}px) scale(${1 + scrollPosition / 1000})`,
-            }}
-          >
-            <img src="/image/estrelaazul.png" className="w-100 float2" />
+          <div className='absolute top-30 left-50 w-24'
+            style={{transform: `translate(0, -${scrollPosition*2.5}px) scale(${1 + scrollPosition/1000})`}}>
+            <img
+              src="/image/estrelaazul.png"
+              className="w-100 float2"
+            />
           </div>
-          <div
-            className="absolute top-14 left-1/4 w-36"
-            style={{
-              transform: `translate(-${scrollPosition}px, -${scrollPosition * 2.5}px) scale(${1 + scrollPosition / 1000})`,
-            }}
-          >
-            <img src="/image/rotoFelizAzul.png" className="w-100 float" />
+          <div className='absolute top-14 left-1/4 w-36'
+            style={{transform: `translate(-${scrollPosition}px, -${scrollPosition*2.5}px) scale(${1 + scrollPosition/1000})`}}>
+            <img
+              src="/image/rotoFelizAzul.png"
+              className="w-100 float"
+            />
           </div>
-          <div
-            className="absolute top-2 right-1/3 w-32"
-            style={{
-              transform: `translate(-${scrollPosition}px, -${scrollPosition * 2.5}px) scale(${1 + scrollPosition / 1000})`,
-            }}
-          >
-            <img src="/image/peixeAzulDereita.png" className="w-100 float" />
+          <div className='absolute top-2 right-1/3 w-32'
+            style={{transform: `translate(-${scrollPosition}px, -${scrollPosition*2.5}px) scale(${1 + scrollPosition/1000})`}}>
+            <img
+              src="/image/peixeAzulDereita.png"
+              className="w-100 float"
+            />
           </div>
-          <div
-            className="absolute top-22 right-80 w-12"
-            style={{
-              transform: `translate(-${scrollPosition}px, -${scrollPosition * 2.5}px) scale(${1 + scrollPosition / 1000})`,
-            }}
-          >
+          <div className='absolute top-22 right-80 w-12'
+            style={{transform: `translate(-${scrollPosition}px, -${scrollPosition*2.5}px) scale(${1 + scrollPosition/1000})`}}>
             <img
               src="/image/peixeAzulDereita.png"
               className="w-100 scale-x-[-1] float3"
             />
           </div>
-          <div
-            className="absolute top-2 right-1/2 w-48"
-            style={{
-              transform: `translate(0, -${scrollPosition * 2.5}px) scale(${1 + scrollPosition / 100})`,
-            }}
-          >
-            <img src="/image/solAmarelo.png" className="w-100 float" />
+          <div className='absolute top-2 right-1/2 w-48'
+            style={{transform: `translate(0, -${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
+            <img
+              src="/image/solAmarelo.png"
+              className="w-100 float"
+            />
           </div>
 
           {/* BLOCO 2 - DESKTOP */}
-          <div
-            className="absolute top-[440px] left-30 w-28"
-            style={{
-              transform: `translate(-${scrollPosition}px, ${scrollPosition * 2.5}px) scale(${1 + scrollPosition / 100})`,
-            }}
-          >
+          <div className='absolute top-[440px] left-30 w-28'
+            style={{transform: `translate(-${scrollPosition}px, ${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
             <img
               src="/image/estrelaamarela.png"
               className="w-100 float2 scale-x-[-1]"
             />
           </div>
-          <div
-            className="absolute top-124 left-230 w-12"
-            style={{
-              transform: `translate(0, ${scrollPosition * 2.5}px) scale(${1 + scrollPosition / 100})`,
-            }}
-          >
-            <img src="/image/estrelaamarela.png" className="w-100 float3" />
+          <div className='absolute top-124 left-230 w-12'
+            style={{transform: `translate(0, ${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
+            <img
+              src="/image/estrelaamarela.png"
+              className="w-100 float3"
+            />
           </div>
-          <div
-            className="absolute top-[480px] right-60 w-24"
-            style={{
-              transform: `translate(${scrollPosition}px, ${scrollPosition * 2.5}px) scale(${1 + scrollPosition / 100})`,
-            }}
-          >
-            <img src="/image/estrelaazul.png" className="w-100 float2" />
+          <div className='absolute top-[480px] right-60 w-24'
+            style={{transform: `translate(${scrollPosition}px, ${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
+            <img
+              src="/image/estrelaazul.png"
+              className="w-100 float2"
+            />
           </div>
-          <div
-            className="absolute top-40 right-120 w-12"
-            style={{
-              transform: `translate(${scrollPosition}px, -${scrollPosition * 2.5}px) scale(${1 + scrollPosition / 100})`,
-            }}
-          >
+          <div className='absolute top-40 right-120 w-12'
+            style={{transform: `translate(${scrollPosition}px, -${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
             <img
               src="/image/estrelaazul.png"
               className="w-100 float3 scale-x-[-1]"
             />
           </div>
-          <div
-            className="absolute top-140 right-260 w-12"
-            style={{
-              transform: `translate(${scrollPosition}px, ${scrollPosition * 2.5}px) scale(${1 + scrollPosition / 100})`,
-            }}
-          >
+          <div className='absolute top-140 right-260 w-12'
+            style={{transform: `translate(${scrollPosition}px, ${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
             <img
               src="/image/estrelaazul.png"
               className="w-100 float3 scale-x-[-1]"
             />
           </div>
-          <div
-            className="absolute top-[640px] left-50 w-36"
-            style={{
-              transform: `translate(-${scrollPosition}px, ${scrollPosition * 2.5}px) scale(${1 + scrollPosition / 100})`,
-            }}
-          >
+          <div className='absolute top-[640px] left-50 w-36'
+            style={{transform: `translate(-${scrollPosition}px, ${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
             <img
               src="/image/rotoFelizAzul.png"
               className="w-100 float2 scale-x-[-1]"
             />
           </div>
-          <div
-            className="absolute top-120 right-20 w-16"
-            style={{
-              transform: `translate(${scrollPosition}px, 0) scale(${1 + scrollPosition / 100})`,
-            }}
-          >
-            <img src="/image/rotoFelizAzul.png" className="w-100 float3" />
+          <div className='absolute top-120 right-20 w-16'
+            style={{transform: `translate(${scrollPosition}px, 0) scale(${1 + scrollPosition/100})`}}>
+            <img
+              src="/image/rotoFelizAzul.png"
+              className="w-100 float3"
+            />
           </div>
-          <div
-            className="absolute top-[480px] right-2/3 w-32"
-            style={{
-              transform: `translate(-${scrollPosition}px, ${scrollPosition * 2.5}px) scale(${1 + scrollPosition / 100})`,
-            }}
-          >
-            <img src="/image/peixeAzulDereita.png" className="w-100 float2" />
+          <div className='absolute top-[480px] right-2/3 w-32'
+            style={{transform: `translate(-${scrollPosition}px, ${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
+            <img
+              src="/image/peixeAzulDereita.png"
+              className="w-100 float2"
+            />
           </div>
-          <div
-            className="absolute top-50 left-200 w-12"
-            style={{
-              transform: `translate(-${scrollPosition}px, -${scrollPosition * 2.5}px) scale(${1 + scrollPosition / 100})`,
-            }}
-          >
+          <div className='absolute top-50 left-200 w-12'
+            style={{transform: `translate(-${scrollPosition}px, -${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
             <img
               src="/image/peixeAzulDereita.png"
               className="w-100 float3 scale-x-[-1]"
             />
           </div>
-          <div
-            className="absolute top-[500px] right-1/3 w-48"
-            style={{
-              transform: `translate(0, ${scrollPosition * 2.5}px) scale(${1 + scrollPosition / 100})`,
-            }}
-          >
+          <div className='absolute top-[500px] right-1/3 w-48'
+            style={{transform: `translate(0, ${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
             <img
               src="/image/solAmarelo.png"
               className="w-100 float2 scale-x-[-1]"
             />
           </div>
-          <div
-            className="absolute top-70 right-40 w-10"
-            style={{
-              transform: `translate(${scrollPosition}px, -${scrollPosition * 2.5}px) scale(${1 + scrollPosition / 100})`,
-            }}
-          >
+          <div className='absolute top-70 right-40 w-10'
+            style={{transform: `translate(${scrollPosition}px, -${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
             <img
               src="/image/solAmarelo.png"
               className="w-100 float3 scale-x-[-1]"
             />
           </div>
-          <div
-            className="absolute top-70 left-40 w-10 "
-            style={{
-              transform: `translate(${scrollPosition}px, -${scrollPosition * 2.5}px) scale(${1 + scrollPosition / 100})`,
-            }}
-          >
+          <div className='absolute top-70 left-40 w-10 '
+            style={{transform: `translate(${scrollPosition}px, -${scrollPosition*2.5}px) scale(${1 + scrollPosition/100})`}}>
             <img
               src="/image/solAmarelo.png"
               className="w-100 float2 scale-x-[-1]"
@@ -466,40 +438,57 @@ export default function Homepage() {
       </div>
 
       {/* Seção de cards */}
-      <div className="w-full flex flex-col items-center py-6 px-4 sm:px-8">
-        <div className="flex flex-wrap sm:flex-nowrap justify-center gap-6 w-full">
-          <HoverImageCard
-            image1="/image/imagemHome1-1.png"
-            image2="/image/imagemHome1-2.png"
-            alt="Card 1"
-            title="Gen-stars"
-            title2="R$ 39"
-            title3="23 adesivos"
-          />
-          <HoverImageCard
-            image1="/image/imagemHome2-1.png"
-            image2="/image/imagemHome2-2.png"
-            alt="Card 2"
-            title="Gen-sea"
-            title2="R$ 39"
-             title3="23 adesivos"
-          />
-          <HoverImageCard
-            image1="/image/imagemHome3-1.png"
-            image2="/image/imagemHome3-2.png"
-            alt="Card 3"
-            title="Happy-Gen"
-            title2="R$ 39"
-             title3="23 adesivos"
-          />
-        </div>
-        <button
-          className="bg-blue-600 border border-blue-600 mt-8 text-white px-6 py-2 rounded-full font-medium hover:bg-blue-700 transition"
-          onClick={() => (window.location.href = '/collections/frontpage')}
+      <section className="w-full flex flex-col items-center py-6 px-4 sm:px-8 bg-[#F4F7FF]">
+  <h2 className="text-3xl md:text-4xl font-bold text-blue-600 mb-10">
+    NOSSOS PRODUTOS
+  </h2>
+  <div className="flex flex-wrap justify-center gap-8 w-full max-w-7xl">
+    {products.nodes.slice(0, 3).map((product) => {
+      const image = product.images.nodes[0];
+      const price = Number(product.priceRange.minVariantPrice.amount);
+      const formattedPrice = new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
+        minimumFractionDigits: 0,
+      }).format(price);
+
+      return (
+        <div
+          key={product.id}
+          className="bg-white rounded-3xl shadow-md overflow-hidden w-[280px] flex flex-col items-center transition hover:scale-[1.02] duration-200"
         >
-          SHOP
-        </button>
-      </div>
+          <Link to={`/products/${product.handle}`} className="w-full">
+            <img
+              src={image?.url}
+              alt={image?.altText || product.title}
+              className="w-full h-[280px] object-cover"
+            />
+          </Link>
+          <div className="p-4 flex flex-col items-center text-blue-600">
+            <h3 className="text-lg font-bold mb-1 text-center">{product.title}</h3>
+            <span className="text-md font-semibold mb-3">{formattedPrice}</span>
+            <AddToCartButton
+              lines={[
+                {
+                  merchandiseId: product.variants?.nodes?.[0]?.id,
+                  quantity: 1,
+                },
+              ]}
+              className="text-white bg-blue-600 rounded-full px-5 py-2 text-sm hover:bg-blue-700 transition"
+              onClick={() => {
+                if (typeof window !== 'undefined') {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
+            >
+              SHOP
+            </AddToCartButton>
+          </div>
+        </div>
+      );
+    })}
+  </div>
+</section>
 
       {/* Seção de Apresentação */}
       <section className="w-full flex flex-col items-center justify-center text-center py-16 px-4 mb-0">
@@ -540,54 +529,68 @@ export default function Homepage() {
 }
 
 const FEATURED_COLLECTION_QUERY = `#graphql
-  fragment FeaturedCollection on Collection {
-    id
-    title
-    image {
-      id
-      url
-      altText
-      width
-      height
-    }
-    handle
-  }
-  query FeaturedCollection($country: CountryCode, $language: LanguageCode)
-    @inContext(country: $country, language: $language) {
+  query FeaturedCollections {
     collections(first: 1, sortKey: UPDATED_AT, reverse: true) {
       nodes {
-        ...FeaturedCollection
+        id
+        title
+        handle
+        image {
+          url
+          altText
+        }
+        products(first: 10) {
+          nodes {
+            id
+            title
+            handle
+            priceRange {
+              minVariantPrice {
+                amount
+              }
+            }
+            images(first: 1) {
+              nodes {
+                url
+                altText
+              }
+            }
+            variants(first: 1) {
+              nodes {
+                id
+              }
+            }
+          }
+        }
       }
     }
   }
 `;
 
+// Exemplo de RECOMMENDED_PRODUCTS_QUERY
 const RECOMMENDED_PRODUCTS_QUERY = `#graphql
-  fragment RecommendedProduct on Product {
-    id
-    title
-    handle
-    priceRange {
-      minVariantPrice {
-        amount
-        currencyCode
-      }
-    }
-    images(first: 1) {
+  query RecommendedProducts {
+    products(first: 10, sortKey: BEST_SELLING) {
       nodes {
         id
-        url
-        altText
-        width
-        height
-      }
-    }
-  }
-  query RecommendedProducts ($country: CountryCode, $language: LanguageCode)
-    @inContext(country: $country, language: $language) {
-    products(first: 4, sortKey: UPDATED_AT, reverse: true) {
-      nodes {
-        ...RecommendedProduct
+        title
+        handle
+        priceRange {
+          minVariantPrice {
+            amount
+          }
+        }
+        images(first: 1) {
+          nodes {
+            url
+            altText
+          }
+        }
+        variants(first: 1) {
+          nodes {
+            id
+          }
+        }
       }
     }
   }

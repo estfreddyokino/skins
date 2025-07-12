@@ -240,7 +240,9 @@ function ProductItem({product, loading}) {
           </p>
 
           {/* Preço */}
-          <h3 className="order-3 md:order-7 text-3xl font-bold mb-3 text-[#0040FF]">
+          <h3
+            className="order-3 md:order-7 font-bold mb-3 text-[#0040FF] text-[20px] md:text-3xl mt-2"
+          >
             {new Intl.NumberFormat('pt-BR', {
               style: 'currency',
               currency: 'BRL',
