@@ -23,7 +23,7 @@ async function loadCriticalData(context) {
   };
 }
 import {useState, useEffect, useRef} from 'react';
-import { isMethodSignature } from 'typescript';
+import {isMethodSignature} from 'typescript';
 
 function loadDeferredData(context) {
   const recommendedProducts = context.storefront
@@ -129,31 +129,37 @@ function HoverImageCard({image1, image2, alt, title, title2, title3}) {
       onMouseEnter={() => !isMobile && setIsHovered(true)}
       onMouseLeave={() => !isMobile && setIsHovered(false)}
       onClick={handleToggle}
-      style={{margin: '20px',backgroundColor: 'rgba(244, 247, 255, 0.9)' }}
+      style={{margin: '20px', backgroundColor: 'rgba(244, 247, 255, 0.9)'}}
     >
       {/* Container da imagem com relative para posicionar os textos */}
       <div
         className="relative aspect-[3/4] w-full h-full"
-        style={{width: '80%', margin: 'auto', minHeight: '400px',
-          
-        }}
+        style={{width: '80%', margin: 'auto', minHeight: '400px'}}
       >
-        <div style={{width: isMobile ? '70%' :  '100%', height: '80%', margin: 'auto'}}>
+        <div
+          style={{
+            width: isMobile ? '70%' : '100%',
+            height: '80%',
+            margin: 'auto',
+          }}
+        >
           <img
             src={isHovered ? image2 : image1}
             alt={alt}
             className="w-full h-full object-cover rounded-3xl"
-            style={{minHeight: '320px',}}
+            style={{minHeight: '320px'}}
           />
         </div>
 
         {/* Textos sobrepostos */}
         <div
           className="bottom-20 left-4 right-4 flex justify-between items-center text-blue-700 font-semibold"
-          style={{  color: '#001AFF',
-                lineHeight: '16px',
-                fontFamily: 'Reservation Bold, sans-serif', 
-              fontSize: isMobile ?'14px': '30px'}}
+          style={{
+            color: '#001AFF',
+            lineHeight: '16px',
+            fontFamily: 'Reservation Bold, sans-serif',
+            fontSize: isMobile ? '14px' : '30px',
+          }}
         >
           <div>{title}</div>
           <div>{title2}</div>
@@ -161,11 +167,13 @@ function HoverImageCard({image1, image2, alt, title, title2, title3}) {
 
         <div
           className=" bottom-12 right-4 text-blue-700 text-2xl font-semibold"
-          style={{  color: '#001AFF',
-                lineHeight: '16px',
-                fontFamily: 'Reservation Bold, sans-serif',
-              fontSize: isMobile ?'14px': '30px',
-            marginTop: isMobile ? '0px' : '20px'}}
+          style={{
+            color: '#001AFF',
+            lineHeight: '16px',
+            fontFamily: 'Reservation Bold, sans-serif',
+            fontSize: isMobile ? '14px' : '30px',
+            marginTop: isMobile ? '0px' : '20px',
+          }}
         >
           {title3}
         </div>
@@ -187,6 +195,17 @@ export default function Homepage() {
     const position = window.pageYOffset;
     setScrollPosition(position);
   };
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, {passive: true});
@@ -197,7 +216,7 @@ export default function Homepage() {
   }, []);
 
   return (
-    <div className="bg-image-full" style={{padding:"100px 20px 20px 20px"}} >
+    <div className="bg-image-full" style={{padding: '100px 20px 20px 20px'}}>
       <style>
         {`
           @keyframes float {
@@ -470,7 +489,7 @@ export default function Homepage() {
       <div className="w-full flex flex-col items-center py-6 px-4 sm:px-8">
         <div className="flex flex-wrap sm:flex-nowrap justify-center gap-6 w-full">
           <HoverImageCard
-            image1="/image/imagemHome1-1.png"
+            image1={isMobile ? "/image/caixaGStars.png" : "/image/imagemHome1-1.png"}
             image2="/image/imagemHome1-2.png"
             alt="Card 1"
             title="Gen-stars"
@@ -483,36 +502,64 @@ export default function Homepage() {
             alt="Card 2"
             title="Gen-sea"
             title2="R$ 39"
-             title3="23 adesivos"
+            title3="23 adesivos"
           />
           <HoverImageCard
-            image1="/image/imagemHome3-1.png"
+            image1={isMobile ?"/image/caixasmile.png": "/image/imagemHome3-1.png"}
             image2="/image/imagemHome3-2.png"
             alt="Card 3"
             title="Happy-Gen"
             title2="R$ 39"
-             title3="23 adesivos"
+            title3="23 adesivos"
           />
         </div>
-        <button
-          className="bg-blue-600 border border-blue-600 mt-8 text-white px-6 py-2 rounded-full font-medium hover:bg-blue-700 transition"
-          onClick={() => (window.location.href = '/collections/frontpage')}
-        >
-          SHOP
-        </button>
+        
       </div>
 
       {/* Seção de Apresentação */}
-      <section className="w-full flex flex-col items-center justify-center text-center py-16 px-4 mb-0">
-        <h2
-          className="text-2xl sm:text-3xl md:text-4xl font-bold text-[blue] mb-4"
-          style={{fontSize: '50px'}}
-        >
-          CUIDADO COM A PELE, DO SEU JEITO
-        </h2>
+      <section className="w-full flex flex-col items-center justify-center text-center py-16  mb-0">
+        <div className="flex items-center justify-center w-full my-0 ">
+          {/* Linha da esquerda */}
+          <div
+            style={{
+              width: isMobile ? '20%' : '30%',
+              height: '2px',
+              backgroundColor: 'rgb(0,64,255)',
+              marginBottom: isMobile ? '50px' : '30px',
+              marginRight: '0px',
+            }}
+          />
+
+          {/* Título */}
+          <h2
+            className="text-center text-[blue] font-bold mx-4"
+            style={{
+              fontSize: isMobile ? '18px' : '30px',
+              fontFamily: 'Reservation Bold, sans-serif',
+              padding: isMobile ? '0 30px':'0 30px',
+            }}
+          >
+            CUIDADO COM A PELE, DO SEU JEITO
+          </h2>
+
+          {/* Linha da direita */}
+          <div
+            style={{
+              width: isMobile ? '20%' : '30%',
+              height: '2px',
+              backgroundColor: 'rgb(0,64,255)',
+              marginBottom: isMobile ? '50px' : '30px',
+            }}
+          />
+        </div>
         <p
           className="text-md sm:text-lg md:text-xl text-[blue] max-w-2xl text-center leading-relaxed mb-6"
-          style={{fontSize: '20px'}}
+          style={{
+            fontSize: isMobile ? '14px' : '20px',
+            margin: isMobile ? '0 70px' : '0',
+            color: '#001AFF',
+            fontFamily: 'Reservation Regular, sans-serif',
+          }}
         >
           A GENSKINS veio para transformar o cuidado com a pele em algo leve,
           divertido e zero complicação. Nossos adesivos secativos são práticos,
@@ -521,6 +568,15 @@ export default function Homepage() {
         </p>
         <button
           className="border border-[blue] text-[blue] px-6 py-2 rounded-full hover:bg-[#5B00E4] mt-4 hover:text-white transition"
+          style={{
+            fontSize: isMobile ? '14px' : '20px',
+            fontFamily: 'Reservation Regular, sans-serif',
+            fontWeight: '300',
+            border: '3px solid #001AFF',
+            color: '#001AFF',
+            padding: isMobile ? '5px 20px' : '15px 30px',
+            width: isMobile ? '60%' : 'auto',
+          }}
           onClick={() => (window.location.href = '/sobre')}
         >
           SOBRE A GENSKINS
