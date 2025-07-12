@@ -9,7 +9,7 @@ Hydrogen is Shopify’s stack for headless commerce. Hydrogen is designed to dov
 
 - Remix
 - Hydrogen
-- Oxyge
+- Oxygen
 - Vite
 - Shopify CLI
 - ESLint

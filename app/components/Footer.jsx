@@ -10,7 +10,7 @@ export function Footer() {
       <div className="mx-5 md:mx-20 grid grid-cols-1 md:grid-cols-4 gap-y-8 gap-x-22 text-left md:text-center">
         {/* Bloco 1 */}
         <div className=" md:mt-8" style={{marginLeft: '10px'}}>
-          <img src="https://cdn-genskins.lambdatech.com.br/image/footerLogo.png" alt="Logo" className="footer-logo" />
+          <img src="/image/footerLogo.png" alt="Logo" className="footer-logo" />
 
           <div className="footer-100 footer-font">
             <p
@@ -189,7 +189,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="https://cdn-genskins.lambdatech.com.br/image/insta.png" alt="Instagram" className="h-[24px]" />
+              <img src="/image/insta.png" alt="Instagram" className="h-[24px]" />
             </a>
          
           </div>

@@ -58,7 +58,7 @@ export default function Sobre() {
         {/* Imagem */}
         <div className="max-w-[1000px] lg:w-auto">
           <img
-            src="https://cdn-genskins.lambdatech.com.br/image/sobreImage11.png"
+            src="/image/sobreImage11.png"
             alt="Modelo com adesivos no rosto"
             className="rounded-[20px] sm:rounded-[30px] w-full object-cover"
             style={{
@@ -86,7 +86,7 @@ export default function Sobre() {
             style={{ marginTop: '10px', marginBottom: '24px' }}
           >
             <img
-              src="https://cdn-genskins.lambdatech.com.br/image/estrenha.png"
+              src="/image/estrenha.png"
               alt=""
               className="w-5 sm:w-[6%] mb-2 sm:mb-4"
             />
@@ -166,7 +166,7 @@ export default function Sobre() {
           {Array.from({ length: 40 }).map((_, i) => (
             <img
               key={i}
-              src="https://cdn-genskins.lambdatech.com.br/image/estrelinhaMovimentando.png"
+              src="/image/estrelinhaMovimentando.png"
               alt="estrela"
               className="w-10 h-10 sm:w-[30px] sm:h-[30px] lg:w-[100px] lg:h-[100px]"
             />
@@ -186,7 +186,7 @@ export default function Sobre() {
 
         <div className="w-full lg:w-5/12 mt-8 lg:mt-0 flex items-stretch order-1 lg:order-2">
           <img
-            src="https://cdn-genskins.lambdatech.com.br/image/sobreImage2.png"
+            src="/image/sobreImage2.png"
             alt="Fórmula Vegana"
             className="rounded-[20px] sm:rounded-[30px] w-full object-cover"
             style={{
@@ -257,7 +257,7 @@ export default function Sobre() {
         {/* Imagem */}
         <div className="">
           <img
-            src="https://cdn-genskins.lambdatech.com.br/image/sobreImage33.png"
+            src="/image/sobreImage33.png"
             alt="Fórmula Vegana"
             className="rounded-[20px] sm:rounded-[30px] w-full object-cover"
             style={{
@@ -332,7 +332,7 @@ export default function Sobre() {
           {Array.from({ length: 40 }).map((_, i) => (
             <img
               key={i}
-              src="https://cdn-genskins.lambdatech.com.br/image/estrelinhaMovimentando.png"
+              src="/image/estrelinhaMovimentando.png"
               alt="estrela"
               className="w-10 h-10 sm:w-[30px] sm:h-[30px] lg:w-[100px] lg:h-[100px]"
             />
@@ -383,7 +383,7 @@ export default function Sobre() {
               height: 'auto',
               marginTop: '10px',
             }}
-            src="https://cdn-genskins.lambdatech.com.br/image/sobreImage44.png"
+            src="/image/sobreImage44.png"
             alt="Pessoas com adesivos"
             className="object-cover rounded-[20px] sm:rounded-[50px]"
           />

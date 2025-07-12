@@ -38,7 +38,7 @@ export function Header({header, isLoggedIn, cart, publicStoreDomain}) {
       className="header-wrapper"
     >
       <NavLink prefetch="intent" to="/" style={activeLinkStyle} className={"header-menu-img-logo"}end>
-        <img src="https://cdn-genskins.lambdatech.com.br/image/headerLogo.png" alt="Logo"/>
+        <img src="/image/headerLogo.png" alt="Logo"/>
       </NavLink>
       <HeaderMenu
         menu={menu}
@@ -137,7 +137,7 @@ function CartBadge({count, viewport}) {
       }}
     >
       <img
-        src="https://cdn-genskins.lambdatech.com.br/image/carrinho.png"
+        src="/image/carrinho.png"
         alt="Cart"
         style={{
           width: viewport === 'mobile' ? '20px' : '30px',
