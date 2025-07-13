@@ -149,6 +149,20 @@ function HoverImageCard({image1, image2, alt, title, title2, title3}) {
             className="w-full h-full object-cover rounded-3xl"
             style={{minHeight: '320px'}}
           />
+
+          {/* Indicador de imagem */}
+           <div className=" absolute bottom-25 right-28 flex space-x-2">
+    <div
+      className={`w-3 h-3 rounded-full transition-all duration-300 ${
+        !isHovered ? 'bg-blue-600' : 'bg-gray-300'
+      }`}
+    />
+    <div
+      className={`w-3 h-3 rounded-full transition-all duration-300 ${
+        isHovered ? 'bg-blue-600' : 'bg-gray-300'
+      }`}
+    />
+  </div>
         </div>
 
         {/* Textos sobrepostos */}
@@ -171,7 +185,7 @@ function HoverImageCard({image1, image2, alt, title, title2, title3}) {
           style={{
             color: '#0040FF',
             lineHeight: '20px',
-            fontFamily: 'Reservation Bold, sans-serif !important' ,
+            fontFamily: 'Reservation Bold, sans-serif !important',
             fontSize: isMobile ? '14px' : '30px',
             marginTop: isMobile ? '0px' : '20px',
           }}
@@ -255,7 +269,7 @@ export default function Homepage() {
             src="/image/estrelaamarela.png"
             className="absolute top-32 right-1 w-10 float"
           />
-            <img
+          <img
             src="/image/estrelaamarela.png"
             className="absolute top-15 left-8 w-20 float rotate-180"
           />
@@ -293,7 +307,7 @@ export default function Homepage() {
             src="/image/estrelaamarela.png"
             className="absolute top-[32vh] left-0 w-30 float2 rotate-1800 scale-x-[-1]"
           />
-           <img
+          <img
             src="/image/estrelaamarela.png"
             className="absolute top-[32vh] right-0 w-20 float2 rotate-1800 scale-x-[-1]"
           />
@@ -317,7 +331,6 @@ export default function Homepage() {
             src="/image/peixeAzulDereita.png"
             className="absolute top-[35vh] left-40 w-12 float2 rotate-1800 scale-x-[-1]"
           />
-         
         </div>
 
         {/* ==== ELEMENTOS VISUAIS DESKTOP ==== */}
@@ -499,7 +512,7 @@ export default function Homepage() {
         </div>
       </section>
 
-     {/* <div className="w-full flex items-center justify-center min-h-[200px] sm:min-h-[300px] lg:min-h-[300px] relative">
+      {/* <div className="w-full flex items-center justify-center min-h-[200px] sm:min-h-[300px] lg:min-h-[300px] relative">
        
         <div className="absolute text-white text-4xl sm:text-6xl md:text-8xl lg:text-[400px] text-center font-light px-4 leading-none">
           {phrase}
@@ -513,7 +526,9 @@ export default function Homepage() {
       <div className="w-full flex flex-col items-center py-6 px-4 sm:px-8">
         <div className="flex flex-wrap sm:flex-nowrap justify-center gap-6 w-full">
           <HoverImageCard
-            image1={isMobile ? "/image/caixaGStars.png" : "/image/imagemHome1-1.png"}
+            image1={
+              isMobile ? '/image/caixaGStars.png' : '/image/imagemHome1-1.png'
+            }
             image2="/image/imagemHome1-2.png"
             alt="Card 1"
             title="Gen-stars"
@@ -529,7 +544,9 @@ export default function Homepage() {
             title3="23 adesivos"
           />
           <HoverImageCard
-            image1={isMobile ?"/image/caixasmile.png": "/image/imagemHome3-1.png"}
+            image1={
+              isMobile ? '/image/caixasmile.png' : '/image/imagemHome3-1.png'
+            }
             image2="/image/imagemHome3-2.png"
             alt="Card 3"
             title="Happy-Gen"
@@ -537,7 +554,6 @@ export default function Homepage() {
             title3="23 adesivos"
           />
         </div>
-        
       </div>
 
       {/* Seção de Apresentação */}
@@ -561,7 +577,7 @@ export default function Homepage() {
               color: '#001AFF',
               fontSize: isMobile ? '16px' : '30px',
               fontFamily: 'Reservation Regular, sans-serif',
-              padding: isMobile ? '0 30px':'0 30px',
+              padding: isMobile ? '0 30px' : '0 30px',
             }}
           >
             CUIDADO COM A PELE, DO SEU JEITO
@@ -586,7 +602,9 @@ export default function Homepage() {
             fontFamily: 'Reservation Regular, sans-serif',
           }}
         >
-          Autoestima é poder. Com tecnologia e design, nossos adesivos secativos tratam a acne, devolvem o controle e elevam o seu estilo. GENSKINS transforma cuidado em expressão pessoal.
+          Autoestima é poder. Com tecnologia e design, nossos adesivos secativos
+          tratam a acne, devolvem o controle e elevam o seu estilo. GENSKINS
+          transforma cuidado em expressão pessoal.
         </p>
         <button
           className="border border-[blue] text-[blue] px-6 py-2 rounded-full hover:bg-[#5B00E4] mt-4 hover:text-white transition"

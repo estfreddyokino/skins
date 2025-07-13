@@ -1,6 +1,6 @@
 .bg-image-full {
     padding-top: 75px;
-    background-image: linear-gradient(#aebddb,#234588, white)
+    background-image: linear-gradient(#dfe4ee,#6380b9,#234588, #a7b6d4, white)
   }
 
 @keyframes marquee {
