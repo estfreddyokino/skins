@@ -150,22 +150,21 @@ function HoverImageCard({image1, image2, alt, title, title2, title3}) {
             style={{minHeight: '320px'}}
           />
 
-          {/* Indicador de imagem */}
-           <div className=" absolute bottom-25 right-28 flex space-x-2">
-    <div
-      className={`w-3 h-3 rounded-full transition-all duration-300 ${
-        !isHovered ? 'bg-blue-600' : 'bg-gray-300'
-      }`}
-    />
-    <div
-      className={`w-3 h-3 rounded-full transition-all duration-300 ${
-        isHovered ? 'bg-blue-600' : 'bg-gray-300'
-      }`}
-    />
-  </div>
-        </div>
-
-        {/* Textos sobrepostos */}
+          {/* Indicador de imagem - só aparece no mobile */}
+          {isMobile && (
+            <div className="absolute bottom-25 right-28 flex space-x-2">
+              <div
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  !isHovered ? 'bg-blue-600' : 'bg-gray-300'
+                }`}
+              />
+              <div
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  isHovered ? 'bg-blue-600' : 'bg-gray-300'
+                }`}
+              />
+            </div>
+          )}
         <div
           className="bottom-20 left-4 right-4 flex justify-between items-center "
           style={{
@@ -198,6 +197,7 @@ function HoverImageCard({image1, image2, alt, title, title2, title3}) {
           style={{fontSize: '30px'}}
         ></div>
       </div>
+    </div>
     </div>
   );
 }
