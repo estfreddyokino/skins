@@ -153,12 +153,13 @@ function HoverImageCard({image1, image2, alt, title, title2, title3}) {
 
         {/* Textos sobrepostos */}
         <div
-          className="bottom-20 left-4 right-4 flex justify-between items-center text-blue-700 font-semibold"
+          className="bottom-20 left-4 right-4 flex justify-between items-center "
           style={{
-            color: '#001AFF',
-            lineHeight: '16px',
+            color: '#0040FF',
+            lineHeight: '20px',
             fontFamily: 'Reservation Bold, sans-serif',
             fontSize: isMobile ? '14px' : '30px',
+            fontWeight: 'bold',
           }}
         >
           <div>{title}</div>
@@ -166,11 +167,11 @@ function HoverImageCard({image1, image2, alt, title, title2, title3}) {
         </div>
 
         <div
-          className=" bottom-12 right-4 text-blue-700 text-2xl font-semibold"
+          className=" bottom-12 right-4  text-2xl "
           style={{
-            color: '#001AFF',
-            lineHeight: '16px',
-            fontFamily: 'Reservation Bold, sans-serif',
+            color: '#0040FF',
+            lineHeight: '20px',
+            fontFamily: 'Reservation Bold, sans-serif !important' ,
             fontSize: isMobile ? '14px' : '30px',
             marginTop: isMobile ? '0px' : '20px',
           }}
@@ -252,46 +253,71 @@ export default function Homepage() {
           {/* BLOCO 1 - MOBILE */}
           <img
             src="/image/estrelaamarela.png"
-            className="absolute top-25 right-4 w-12 float"
+            className="absolute top-32 right-1 w-10 float"
+          />
+            <img
+            src="/image/estrelaamarela.png"
+            className="absolute top-15 left-8 w-20 float rotate-180"
+          />
+          <img
+            src="/image/estrelaamarela.png"
+            className="absolute top-0 right-4 w-20 float2"
           />
           <img
             src="/image/estrelaazul.png"
-            className="absolute top-10 left-10 w-10 float2"
+            className="absolute top-0 left-1 w-15 float2"
           />
           <img
             src="/image/rotoFelizAzul.png"
-            className="absolute top-24 left-1/4 w-14 float3"
+            className="absolute top-40 left-1 w-10 float"
+          />
+          <img
+            src="/image/rostofelizazuldireta.png"
+            className="absolute top-30 right-45 w-14 float2"
+          />
+          <img
+            src="/image/rostofelizazuldireta.png"
+            className="absolute top-32 right-15 w-10 float3"
           />
           <img
             src="/image/peixeAzulDereita.png"
-            className="absolute top-2 right-1/3 w-12 float"
+            className="absolute top-0 left-30 w-15 float rotate-1800 scale-x-[-1]"
           />
           <img
             src="/image/solAmarelo.png"
-            className="absolute top-2 right-1/2 w-20 float2"
+            className="absolute top-18 right-25 w-18 float2"
           />
 
           {/* BLOCO 2 - MOBILE */}
           <img
             src="/image/estrelaamarela.png"
-            className="absolute top-[50vh] left-4 w-12 float2"
+            className="absolute top-[32vh] left-0 w-30 float2 rotate-1800 scale-x-[-1]"
+          />
+           <img
+            src="/image/estrelaamarela.png"
+            className="absolute top-[32vh] right-0 w-20 float2 rotate-1800 scale-x-[-1]"
           />
           <img
             src="/image/estrelaazul.png"
-            className="absolute top-[54vh] right-[50px] w-10 float3"
+            className="absolute top-[54vh] left-35 w-10 float3 rotate-1800 scale-x-[-1]"
+          />
+          <img
+            src="/image/estrelaazul.png"
+            className="absolute top-[48vh] left-5 w-18 float"
           />
           <img
             src="/image/rotoFelizAzul.png"
-            className="absolute top-[42vh] left-52 w-14 float"
+            className="absolute top-[42vh] left-52 w-18 float3"
           />
           <img
             src="/image/peixeAzulDereita.png"
-            className="absolute top-[54vh] right-2/3 w-12 float2"
+            className="absolute top-[50vh] right-2 w-12 float2"
           />
           <img
-            src="/image/solAmarelo.png"
-            className="absolute top-[56vh] right-1/3 w-20 float3"
+            src="/image/peixeAzulDereita.png"
+            className="absolute top-[35vh] left-40 w-12 float2 rotate-1800 scale-x-[-1]"
           />
+         
         </div>
 
         {/* ==== ELEMENTOS VISUAIS DESKTOP ==== */}
@@ -473,17 +499,15 @@ export default function Homepage() {
         </div>
       </section>
 
-      <div className="w-full flex items-center justify-center min-h-[200px] sm:min-h-[300px] lg:min-h-[300px] relative">
-        {/* Texto real com digitação */}
+     {/* <div className="w-full flex items-center justify-center min-h-[200px] sm:min-h-[300px] lg:min-h-[300px] relative">
+       
         <div className="absolute text-white text-4xl sm:text-6xl md:text-8xl lg:text-[400px] text-center font-light px-4 leading-none">
           {phrase}
         </div>
 
-        {/* Texto "fantasma" para manter altura já alocada */}
-        <div className="invisible text-white text-4xl sm:text-6xl md:text-8xl lg:text-[400px] text-center font-light px-4 leading-none">
-          Para todos os tipos de pele
-        </div>
-      </div>
+       
+       
+      </div>*/}
 
       {/* Seção de cards */}
       <div className="w-full flex flex-col items-center py-6 px-4 sm:px-8">
@@ -524,7 +548,7 @@ export default function Homepage() {
             style={{
               width: isMobile ? '20%' : '30%',
               height: '2px',
-              backgroundColor: 'rgb(0,64,255)',
+              backgroundColor: '#001AFF !important',
               marginBottom: isMobile ? '50px' : '30px',
               marginRight: '0px',
             }}
@@ -532,10 +556,11 @@ export default function Homepage() {
 
           {/* Título */}
           <h2
-            className="text-center text-[blue] font-bold mx-4"
+            className="text-center mx-4"
             style={{
-              fontSize: isMobile ? '18px' : '30px',
-              fontFamily: 'Reservation Bold, sans-serif',
+              color: '#001AFF',
+              fontSize: isMobile ? '16px' : '30px',
+              fontFamily: 'Reservation Regular, sans-serif',
               padding: isMobile ? '0 30px':'0 30px',
             }}
           >
@@ -553,7 +578,7 @@ export default function Homepage() {
           />
         </div>
         <p
-          className="text-md sm:text-lg md:text-xl text-[blue] max-w-2xl text-center leading-relaxed mb-6"
+          className="text-md sm:text-lg md:text-xl  max-w-2xl text-center leading-relaxed mb-6"
           style={{
             fontSize: isMobile ? '14px' : '20px',
             margin: isMobile ? '0 70px' : '0',
@@ -561,10 +586,7 @@ export default function Homepage() {
             fontFamily: 'Reservation Regular, sans-serif',
           }}
         >
-          A GENSKINS veio para transformar o cuidado com a pele em algo leve,
-          divertido e zero complicação. Nossos adesivos secativos são práticos,
-          estilosos e pensados para acompanhar sua rotina real – seja em casa,
-          na rua ou onde quiser.
+          Autoestima é poder. Com tecnologia e design, nossos adesivos secativos tratam a acne, devolvem o controle e elevam o seu estilo. GENSKINS transforma cuidado em expressão pessoal.
         </p>
         <button
           className="border border-[blue] text-[blue] px-6 py-2 rounded-full hover:bg-[#5B00E4] mt-4 hover:text-white transition"
@@ -572,7 +594,7 @@ export default function Homepage() {
             fontSize: isMobile ? '14px' : '20px',
             fontFamily: 'Reservation Regular, sans-serif',
             fontWeight: '300',
-            border: '3px solid #001AFF',
+            border: '3px solid #0010FF',
             color: '#001AFF',
             padding: isMobile ? '5px 20px' : '15px 30px',
             width: isMobile ? '60%' : 'auto',
@@ -583,12 +605,13 @@ export default function Homepage() {
         </button>
       </section>
 
-      <div className="relative flex items-center justify-center flex-col text-white px-10 pt-0 mb-20">
+      <div className="relative flex items-center justify-center flex-col text-white mt-5  pt-0 mb-20">
         <div className="w-full max-w-8xl relative rounded-[30px] overflow-hidden mt-0 sm:mt-16">
           <img
             src="/image/home2.png"
             alt="Pessoas com adesivos"
             className="w-full h-auto object-cover rounded-[30px]"
+            style={{minHeight: isMobile ? '200px' : '500px'}}
           />
         </div>
       </div>
