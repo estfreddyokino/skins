@@ -165,39 +165,38 @@ function HoverImageCard({image1, image2, alt, title, title2, title3}) {
               />
             </div>
           )}
-        <div
-          className="bottom-20 left-4 right-4 flex justify-between items-center "
-          style={{
-            color: '#0040FF',
-            lineHeight: '20px',
-            fontFamily: 'Reservation Bold, sans-serif',
-            fontSize: isMobile ? '14px' : '30px',
-            fontWeight: 'bold',
-          }}
-        >
-          <div>{title}</div>
-          <div>{title2}</div>
-        </div>
+          <div
+            className="bottom-20 left-4 right-4 flex justify-between items-center"
+            style={{
+              color: '#0040FF',
+              lineHeight: '20px',
+              fontFamily: 'ReservationWide, sans-serif',
+              fontSize: isMobile ? '14px' : '30px',
+            }}
+          >
+            <div style={{fontWeight: 900}}>{title}</div>
+            <div>{title2}</div> {/* ou 'normal' */}
+          </div> 
 
-        <div
-          className=" bottom-12 right-4  text-2xl "
-          style={{
-            color: '#0040FF',
-            lineHeight: '20px',
-            fontFamily: 'Reservation Bold, sans-serif !important',
-            fontSize: isMobile ? '14px' : '30px',
-            marginTop: isMobile ? '0px' : '20px',
-          }}
-        >
-          {title3}
-        </div>
+          <div
+            className=" bottom-12 right-4  text-2xl "
+            style={{
+              color: '#0040FF',
+              lineHeight: '20px',
+              fontFamily: 'ReservationWide, sans-serif',
+              fontSize: isMobile ? '14px' : '30px',
+              marginTop: isMobile ? '0px' : '20px',
+            }}
+          >
+            {title3}
+          </div>
 
-        <div
-          className="bottom-4 left-4 text-blue-700 text-2xl font-semibold"
-          style={{fontSize: '30px'}}
-        ></div>
+          <div
+            className="bottom-4 left-4 text-blue-700 text-2xl font-semibold"
+            style={{fontSize: '30px'}}
+          ></div>
+        </div>
       </div>
-    </div>
     </div>
   );
 }
