@@ -564,7 +564,7 @@ export default function Homepage() {
             style={{
               width: isMobile ? '20%' : '30%',
               height: '2px',
-              backgroundColor: '#001AFF !important',
+              backgroundColor: '#001AFF',
               marginBottom: isMobile ? '50px' : '30px',
               marginRight: '0px',
             }}
