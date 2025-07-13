@@ -49,7 +49,7 @@ export function Aside({children, heading, type}) {
       />
       <aside>
         <header style={{position: 'relative'}}>
-          <h1 style={{color: 'blue'}}>
+          <h1 style={{color: 'blue', fontFamily: 'ReservationWide, sans-serif',}}>
             {type === 'cart' ? 'Carrinho' : heading}
           </h1>
 

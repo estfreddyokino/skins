@@ -95,7 +95,7 @@ export default function Sobre() {
               style={{
                 fontSize: '20px',
                 marginLeft: '10px',
-                fontFamily: 'ReservationWide',
+                fontFamily: 'ReservationWide, sans-serif',
                 fontWeight: 'bold',
               }}
             >
