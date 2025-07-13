@@ -576,7 +576,7 @@ export default function Homepage() {
             style={{
               color: '#0010FF',
               fontSize: isMobile ? '16px' : '30px',
-              fontFamily: 'Reservation Regular, sans-serif',
+              fontFamily: 'ReservationWide, sans-serif',
               padding: isMobile ? '0 30px' : '0 30px',
             }}
           >
@@ -599,7 +599,7 @@ export default function Homepage() {
             fontSize: isMobile ? '14px' : '20px',
             margin: isMobile ? '0 70px' : '0',
             color: '#0010FF',
-            fontFamily: 'Reservation Regular, sans-serif',
+            fontFamily: 'ReservationWide, sans-serif',
           }}
         >
           Autoestima é poder. Com tecnologia e design, nossos adesivos secativos
@@ -607,10 +607,10 @@ export default function Homepage() {
           transforma cuidado em expressão pessoal.
         </p>
         <button
-          className="border border-[blue] text-[blue] px-6 py-2 rounded-full hover:bg-[#5B00E4] mt-4 hover:text-white transition"
+          className="border border-[blue]  px-6 py-2 rounded-full hover:bg-[#5B00E4] mt-4 hover:text-white transition"
           style={{
             fontSize: isMobile ? '14px' : '20px',
-            fontFamily: 'Reservation Regular, sans-serif',
+            fontFamily: 'ReservationWide, sans-serif',
             fontWeight: '300',
             border: '3px solid #0010FF',
             color: '#001AFF',
