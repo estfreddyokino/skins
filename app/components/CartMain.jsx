@@ -68,7 +68,7 @@ function CartEmpty({hidden = false}) {
         
         justifyContent: 'center',
         alignItems: 'center',
-       
+        fontFamily: 'ReservationWide',
         color: 'blue',
         textAlign: 'center', // Centraliza horizontalmente o texto
         fontWeight: 'bold', // Deixa a letra mais grossa

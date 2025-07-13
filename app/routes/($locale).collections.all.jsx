@@ -235,13 +235,14 @@ function ProductItem({product, loading}) {
 
           {/* Descrição final */}
           <p className="order-2 md:order-6 text-[20px] font-bold mb-6 text-[#0040FF]"
-          style={{lineHeight: '16px', fontFamily: 'Reservation Bold, sans-serif'}}>
+          style={{lineHeight: '16px', fontFamily: 'ReservationWide, sans-serif',}}>
             {descriptionParts.descFinal}
           </p>
 
           {/* Preço */}
           <h3
             className="order-3 md:order-7 font-bold mb-3 text-[#0040FF] text-[20px] md:text-3xl mt-2"
+            style={{ fontFamily: 'ReservationWide, sans-serif' }}
           >
             {new Intl.NumberFormat('pt-BR', {
               style: 'currency',
@@ -259,7 +260,7 @@ function ProductItem({product, loading}) {
               style={{
                 color: '#001AFF',
                 lineHeight: '16px',
-                fontFamily: 'Reservation Bold, sans-serif',
+                fontFamily: 'ReservationWide, sans-serif',
               }}
             >
               {descriptionParts.descIntroMobile}
@@ -290,7 +291,7 @@ function ProductItem({product, loading}) {
               className={ulClass}
               style={{
                 listStyleType: 'disc',
-                fontFamily: 'Reservation Bold, sans-serif',
+                fontFamily: 'ReservationWide, sans-serif',
                 color: 'rgba(0, 64, 255, 1)',
                 padding: 0,
                 margin: 0,
