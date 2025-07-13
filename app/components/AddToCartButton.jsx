@@ -37,7 +37,7 @@ export function AddToCartButton({
               backgroundColor: 'blue',
               borderRadius: '35px',
              
-              width: '180px',
+              
               margin: '0 auto',
               display: 'block',
               cursor: 'pointer',
