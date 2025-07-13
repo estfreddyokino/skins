@@ -17,7 +17,7 @@ export function CartSummary({cart, layout}) {
       </dl>
     
    
-      <CartCheckoutActions checkoutUrl={cart.checkoutUrl} />
+      <CartCheckoutActions checkoutUrl={cart.checkoutUrl}/>
     </div>
   );
 }
@@ -35,14 +35,15 @@ function CartCheckoutActions({checkoutUrl}) {
             border: '2px solid blue',
             color: 'blue',
             borderRadius: '25px',
-            padding: '10px 20px',
+            padding: '1px 10px',
             fontSize: '25px',
             cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             textDecoration: 'none',
-            width: '100%',
+            width: '60%',
+            
           }}
         >
          Check out   

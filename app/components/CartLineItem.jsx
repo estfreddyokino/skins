@@ -13,51 +13,48 @@ import {useAside} from './Aside';
  * }}
  */
 export function CartLineItem({layout, line}) {
-  const {id, merchandise} = line;
+  const {id, merchandise, isOptimistic} = line;
   const {product, title, image, selectedOptions} = merchandise;
+  const lineId = id;
   const lineItemUrl = useVariantUrl(product.handle, selectedOptions);
   const {close} = useAside();
 
   return (
     <li key={id} className="cart-line">
       {image && (
-       <div className="cart-image-container">
-       <Image
-         alt={title}
-         aspectRatio="1/1"
-         data={image}
-         height={100}
-         loading="lazy"
-         width={100}
-         className="cart-image"
-       />
-       
-     </div>
+        <div className="cart-image-container">
+          <CartLineRemoveButton lineIds={[lineId]} disabled={!!isOptimistic} />
+          <Image
+            alt={title}
+            aspectRatio="1/1"
+            data={image}
+            height={100}
+            loading="lazy"
+            width={100}
+            className="cart-image"
+          />
+        </div>
       )}
 
       <div>
-        <Link
-          prefetch="intent"
-          to={lineItemUrl}
-          onClick={() => {
-            if (layout === 'aside') {
-              close();
-            }
-          }}
-        >
+        <div>
           <p style={{fontSize: '20px', color: 'blue'}}>
             <strong>{product.title}</strong>
           </p>
-        </Link>
-        <ProductPrice price={line?.cost?.totalAmount} />
-       
+        </div>
+
+        <div className="inline-flex items-center gap-1 text-[20px] text-blue-500">
+          <span style={{color: 'blue'}}>Total:</span>
+          <ProductPrice price={line?.cost?.totalAmount} />
+        </div>
+
         <CartLineQuantity line={line} />
       </div>
     </li>
   );
 }
 
-/**
+/**'
  * Provides the controls to update the quantity of a line item in the cart.
  * These controls are disabled when the line item is new, and the server
  * hasn't yet responded that it was successfully added to the cart.
@@ -70,32 +67,44 @@ function CartLineQuantity({line}) {
   const nextQuantity = Number((quantity + 1).toFixed(0));
 
   return (
-    <div className="cart-line-quantity" style={{fontSize: '20px', color: 'blue'}}>
-     
-      <small>Quantidade: {quantity} &nbsp;&nbsp;</small>
-      <CartLineUpdateButton lines={[{id: lineId, quantity: prevQuantity}]}>
-        <button
-          aria-label="Decrease quantity"
-          disabled={quantity <= 1 || !!isOptimistic}
-          name="decrease-quantity"
-          value={prevQuantity}
-        >
-          <span>&#8722; </span>
-        </button>
-      </CartLineUpdateButton>
-      &nbsp;
-      <CartLineUpdateButton lines={[{id: lineId, quantity: nextQuantity}]}>
-        <button
-          aria-label="Increase quantity"
-          name="increase-quantity"
-          value={nextQuantity}
-          disabled={!!isOptimistic}
-        >
-          <span>&#43;</span>
-        </button>
-      </CartLineUpdateButton>
-      &nbsp;
-      <CartLineRemoveButton lineIds={[lineId]} disabled={!!isOptimistic} />
+    <div
+      className="cart-line-quantity"
+      style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        fontSize: '20px',
+        color: 'blue',
+        flexDirection: 'row',
+      }}
+    >
+      <small>Quantidade: {quantity}</small>
+
+      <div style={{display: 'flex', gap: '0.5rem'}}>
+        {quantity > 1 && (
+          <CartLineUpdateButton lines={[{id: lineId, quantity: prevQuantity}]}>
+            <button
+              aria-label="Decrease quantity"
+              disabled={!!isOptimistic}
+              name="decrease-quantity"
+              value={prevQuantity}
+            >
+              <span>&#8722;</span>
+            </button>
+          </CartLineUpdateButton>
+        )}
+
+        <CartLineUpdateButton lines={[{id: lineId, quantity: nextQuantity}]}>
+          <button
+            aria-label="Increase quantity"
+            name="increase-quantity"
+            value={nextQuantity}
+            disabled={!!isOptimistic}
+          >
+            <span>&#43;</span>
+          </button>
+        </CartLineUpdateButton>
+      </div>
     </div>
   );
 }
@@ -116,8 +125,8 @@ function CartLineRemoveButton({lineIds, disabled}) {
       action={CartForm.ACTIONS.LinesRemove}
       inputs={{lineIds}}
     >
-      <button disabled={disabled} type="submit">
-        Remover
+      <button disabled={disabled} type="submit" className="button-remove">
+        x
       </button>
     </CartForm>
   );

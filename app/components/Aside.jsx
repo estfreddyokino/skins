@@ -48,33 +48,37 @@ export function Aside({children, heading, type}) {
         onClick={close}
       />
       <aside>
-        <header>
+        <header style={{position: 'relative'}}>
           <h1 style={{color: 'blue'}}>
             {type === 'cart' ? 'Carrinho' : heading}
           </h1>
+
           <button
             style={{
               textDecoration: 'none',
               color: 'blue',
-              fontSize: '3rem', // deixa o "×" bem grande
+              fontSize: '2rem',
               padding: '1rem',
               width: '3.5rem',
               height: '3.5rem',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              marginLeft: 'auto', // joga o botão para a direita no header
+              position: 'absolute',
+              top: '20px',
+              left: '-80px', 
               background: 'transparent',
               border: 'none',
               cursor: 'pointer',
+              borderRadius: '50%', 
+              backgroundColor: '#808080F5',
+              color: 'white', 
             }}
             className="close reset"
             onClick={close}
             aria-label="Close"
           >
-            &times;
+            x
           </button>
         </header>
+
         <main>{children}</main>
       </aside>
     </div>

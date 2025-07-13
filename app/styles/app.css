@@ -31,15 +31,36 @@ aside {
   background: #F5F6FF;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
   height: 100vh;
-  max-width:50%;
-  min-width: var(--aside-width);
+  max-width: 60%;
+  min-width: 20%;
+  @media (min-width: 768px) {
+    max-width: 20%;
+    min-width: 20%;
+  }
   position: fixed;
   right: calc(-1 * var(--aside-width));
   top: 0;
   transition: transform 200ms ease-in-out;
 }
+.button-remove {
+  font-size: 30px;
+  height: 30px;
+  color: blue;
+ position: absolute;
+    right:  -200px;
+    top: -20px
+}
 
-aside header {
+@media (max-width: 640px) {
+  .button-remove {
+    width: 30px !important;
+    position: absolute;
+    right:  -100px;
+    top: -20px
+  }
+}
+
+aside header{
   align-items: center;
  
   display: flex;
@@ -86,7 +107,7 @@ aside li {
 }
 
 .overlay {
-  background: rgba(0, 0, 0, 0.2);
+  background: transparent;
   bottom: 0;
   left: 0;
   opacity: 0;
@@ -130,6 +151,7 @@ aside li {
 /* reveal aside */
 .overlay.expanded aside {
   transform: translateX(calc(var(--aside-width) * -1));
+  
 }
 
 button.reset {
@@ -230,7 +252,7 @@ button.reset:hover:not(:has(> *)) {
 .cart-main {
   height: 100%;
   max-height: calc(100vh - var(--cart-aside-summary-height));
-  overflow-y: auto;
+  
   width: auto;
 }
 
@@ -239,8 +261,8 @@ button.reset:hover:not(:has(> *)) {
 }
 
 .cart-line {
-  display: flex;
-  padding: 0.75rem 0;
+  
+  padding: 0px;
 }
 
 .cart-line img {
@@ -556,6 +578,8 @@ button.reset:hover:not(:has(> *)) {
   padding: 1rem;
   transition: background 0.3s ease;
   align-items: center;
+  width: 20%;
+  background-color: #648bda; /* cor de fundo padrão */
 }
 
 .cart-line-item:hover {
@@ -618,12 +642,6 @@ button.reset:hover:not(:has(> *)) {
 
 .cart-line-item:hover .remove-button {
   display: block;
-}
-@font-face {
-  font-family: 'ReservationWide';
-  src: url('/fonts/ReservationWide-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
 }
 
 @font-face {
@@ -738,3 +756,12 @@ button.reset:hover:not(:has(> *)) {
       border-bottom: 1.2px solid #999;
       color: #001AFF;
     }
+.empty-cart-text {
+  font-size: 40px;
+}
+
+@media (max-width: 760px) {
+  .empty-cart-text {
+    font-size: 20px;
+  }
+}

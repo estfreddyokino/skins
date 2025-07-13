@@ -158,7 +158,7 @@ function ProductItem({product, loading}) {
           {images.length > 1 && (
             <button
               onClick={prevImage}
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-transparent p-2 rounded-full hover:bg-gray-200 z-10"
+              className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-transparent p-2 rounded-full hover:bg-gray-200 z-1"
             >
               <svg width="60" height="60" fill="none" viewBox="0 0 40 40">
                 <path
@@ -199,7 +199,7 @@ function ProductItem({product, loading}) {
           {images.length > 1 && (
             <button
               onClick={nextImage}
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-transparent p-2 rounded-full hover:bg-gray-200 z-10"
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-transparent p-2 rounded-full hover:bg-gray-200 z-1"
             >
               <svg width="60" height="60" fill="none" viewBox="0 0 40 40">
                 <path

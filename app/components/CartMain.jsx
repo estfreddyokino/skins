@@ -32,16 +32,12 @@ export function CartMain({layout, cart: originalCart}) {
                 <div
                   className="cart-line-item-card"
                   style={{
-                    transition: 'background-color 0.3s ease',
+                 backgroundColor:'#C1D2FF',
                     padding: '10px',
                     borderRadius: '8px',
+                    marginTop: '20px',
                   }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#C5CAFF';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = 'transparent';
-                  }}
+                 
                 >
                   <CartLineItem line={line} layout={layout} />
                 </div>
@@ -68,12 +64,11 @@ function CartEmpty({hidden = false}) {
     <div
       hidden={hidden}
       style={{
-        marginTop: '80%',
-        display: 'flex',
-        flexDirection: 'column',
+      
+        
         justifyContent: 'center',
         alignItems: 'center',
-        height: '100%',
+       
         color: 'blue',
         textAlign: 'center', // Centraliza horizontalmente o texto
         fontWeight: 'bold', // Deixa a letra mais grossa
@@ -81,7 +76,7 @@ function CartEmpty({hidden = false}) {
       }}
     >
       <br />
-      <p style={{fontSize: '40px'}}>Car is empty</p>
+      <p className='empty-cart-text'>Carrinho está vazio</p>
       <br />
     </div>
   );

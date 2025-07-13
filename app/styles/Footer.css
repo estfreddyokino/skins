@@ -96,10 +96,7 @@
   .footer-logo {
     width: 350px; /* tamanho padrão para desktop */
   }
- @font-face {
-  font-family: 'Reservation';
-  src: url('/fonts/Reservation.ttf') format('truetype');
-}
+
 
 .footer-font {
   font-family: 'Reservation', sans-serif;

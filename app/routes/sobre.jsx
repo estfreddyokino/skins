@@ -13,7 +13,6 @@ function Accordion({ title, content }) {
         className="w-full flex justify-between items-center text-left text-white text-[16px] sm:text-[18px] md:text-[24px]"
         onClick={() => setIsOpen(!isOpen)}
         style={{
-          fontFamily: 'sans-serif',
           fontWeight: 'normal',
           fontFamily: 'ReservationWide, sans-serif',
           letterSpacing: '0.08em',
