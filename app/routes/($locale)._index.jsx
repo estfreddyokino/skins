@@ -574,7 +574,7 @@ export default function Homepage() {
           <h2
             className="text-center mx-4"
             style={{
-              color: '#001AFF',
+              color: '#0010FF',
               fontSize: isMobile ? '16px' : '30px',
               fontFamily: 'Reservation Regular, sans-serif',
               padding: isMobile ? '0 30px' : '0 30px',
@@ -598,7 +598,7 @@ export default function Homepage() {
           style={{
             fontSize: isMobile ? '14px' : '20px',
             margin: isMobile ? '0 70px' : '0',
-            color: '#001AFF',
+            color: '#0010FF',
             fontFamily: 'Reservation Regular, sans-serif',
           }}
         >
